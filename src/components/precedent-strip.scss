@@ -1,0 +1,72 @@
+@use "../styles/tokens" as *;
+
+.precedent-strip {
+  display: grid;
+  gap: $space-snug;
+}
+
+.strip-entry-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.entry-list-button {
+  display: grid;
+  gap: 0.15rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.35rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.entry-list-button:hover {
+  border-color: var(--band-ink);
+}
+
+.entry-list-button.is-active {
+  border-color: var(--band-ink);
+  background: var(--band-tint);
+}
+
+.list-button-year {
+  margin-top: 0.15rem;
+  color: var(--band-ink);
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.list-button-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.list-button-outcome {
+  color: $color-ink-muted;
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.strip-entry-detail {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.entry-detail-body {
+  color: $color-ink-soft;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.entry-detail-lesson {
+  color: var(--band-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+}

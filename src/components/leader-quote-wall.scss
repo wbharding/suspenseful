@@ -1,0 +1,157 @@
+@use "../styles/tokens" as *;
+
+.leader-quote-wall {
+  display: grid;
+  gap: $space-snug;
+}
+
+.wall-portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.portrait-grid-button {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.35rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.portrait-grid-button:hover {
+  border-color: var(--band-ink);
+}
+
+.portrait-grid-button.is-active {
+  border-color: var(--band-ink);
+  background: var(--band-tint);
+}
+
+.grid-button-name {
+  color: var(--band-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.grid-button-quote {
+  color: $color-ink-soft;
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.wall-framing-note {
+  padding-top: $space-tight;
+  border-top: 1px solid $color-hairline;
+  color: $color-ink-soft;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.leader-quote-detail {
+  display: grid;
+  gap: $space-snug;
+  padding: $space-snug;
+  border-radius: 10px;
+  background: $color-page-bg;
+  animation: detail-panel-reveal 160ms ease-out;
+}
+
+.detail-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.5rem;
+  align-items: baseline;
+}
+
+.header-leader-name {
+  color: var(--band-ink);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.header-leader-role {
+  color: $color-ink-muted;
+  font-size: 0.76rem;
+}
+
+.detail-quote-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.quote-list-item {
+  display: grid;
+  gap: 0.15rem;
+  padding-left: $space-snug;
+  border-left: 3px solid var(--band-ink);
+}
+
+.list-item-quote {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.list-item-context {
+  color: $color-ink-soft;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.list-item-citation {
+  color: $color-ink-muted;
+  font-size: 0.73rem;
+}
+
+.item-citation-link,
+.statement-source-link {
+  color: inherit;
+  text-decoration-color: $color-hairline-strong;
+  text-underline-offset: 2px;
+}
+
+.item-citation-link:hover,
+.statement-source-link:hover {
+  color: $color-ink;
+}
+
+.detail-joint-statement {
+  display: grid;
+  gap: 0.25rem;
+  padding: $space-snug;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.joint-statement-label {
+  color: var(--band-ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.joint-statement-quote {
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.joint-statement-source {
+  color: $color-ink-muted;
+  font-size: 0.73rem;
+}
+
+.detail-stake-note {
+  color: var(--band-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+}

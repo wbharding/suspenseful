@@ -1,0 +1,85 @@
+@use "../styles/tokens" as *;
+@use "../styles/z-indexes" as *;
+
+.section-nav {
+  position: sticky;
+  top: 0;
+  z-index: $z-index-section-nav;
+  border-bottom: 1px solid $color-hairline;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.nav-chip-list {
+  display: flex;
+  gap: 0.3rem;
+  width: min(100% - ($gutter-page * 2), $measure-page);
+  margin-inline: auto;
+  padding: 0.45rem 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chip-list-link {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: $radius-pill;
+  color: $color-ink-soft;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.link-number-mark {
+  display: grid;
+  place-items: center;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  border-radius: 50%;
+  background: $color-hairline;
+  color: $color-ink-soft;
+  font-size: 0.68rem;
+}
+
+.chip-list-link:hover {
+  background: $color-page-bg;
+  color: $color-ink;
+}
+
+.chip-list-link.is-active {
+  background: var(--chip-tint);
+  color: var(--chip-ink);
+}
+
+.chip-list-link.is-active .link-number-mark {
+  background: var(--chip-ink);
+  color: #fff;
+}
+
+.chip-list-link.tone-pressure {
+  --chip-ink: #{$color-pressure-ink};
+  --chip-tint: #{$color-pressure-band};
+}
+
+.chip-list-link.tone-risk {
+  --chip-ink: #{$color-risk-ink};
+  --chip-tint: #{$color-risk-band};
+}
+
+.chip-list-link.tone-slowdown {
+  --chip-ink: #{$color-slowdown-ink};
+  --chip-tint: #{$color-slowdown-band};
+}
+
+.chip-list-link.tone-action {
+  --chip-ink: #{$color-action-ink};
+  --chip-tint: #{$color-action-band};
+}
+
+.nav-chip-list::-webkit-scrollbar {
+  display: none;
+}

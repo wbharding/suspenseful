@@ -1,0 +1,134 @@
+@use "../styles/tokens" as *;
+
+.proposal-spectrum {
+  display: grid;
+  gap: $space-snug;
+}
+
+.spectrum-step-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.step-list-cell {
+  flex: 1;
+  min-width: 10rem;
+}
+
+.step-list-button {
+  display: grid;
+  gap: 0.15rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: var(--step-tint);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.step-list-button:hover {
+  border-color: var(--band-ink);
+}
+
+.step-list-button.is-active {
+  border-color: var(--band-ink);
+  box-shadow: inset 0 0 0 1px var(--band-ink);
+}
+
+// Light touch to hard pause, cool to warm. The ramp is the argument that this is a dial.
+.step-list-button.strength-0 {
+  --step-tint: #e7f1fb;
+}
+
+.step-list-button.strength-1 {
+  --step-tint: #e8f5ec;
+}
+
+.step-list-button.strength-2 {
+  --step-tint: #fdf4e0;
+}
+
+.step-list-button.strength-3 {
+  --step-tint: #fceef1;
+}
+
+.list-button-intensity {
+  color: $color-ink-muted;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.list-button-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.list-button-blurb {
+  color: $color-ink-soft;
+  font-size: 0.76rem;
+  line-height: 1.3;
+}
+
+.spectrum-step-detail {
+  display: grid;
+  gap: 0.4rem;
+  padding: $space-snug;
+  border-radius: 10px;
+  background: $color-page-bg;
+  animation: detail-panel-reveal 160ms ease-out;
+}
+
+.step-detail-body {
+  color: $color-ink-soft;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.step-detail-tradeoff {
+  display: grid;
+  gap: 0.15rem;
+  color: $color-ink;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.detail-tradeoff-label {
+  color: var(--band-ink);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spectrum-extra-ask {
+  display: grid;
+  gap: 0.15rem;
+  padding: $space-snug;
+  border: 1px dashed $color-hairline-strong;
+  border-radius: 10px;
+}
+
+.extra-ask-title {
+  color: var(--band-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.extra-ask-body {
+  color: $color-ink-soft;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+@include breakpoint(tablet) {
+  .spectrum-step-list {
+    flex-wrap: nowrap;
+  }
+}

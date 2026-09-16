@@ -1,0 +1,127 @@
+@use "../styles/tokens" as *;
+
+.art-queue-panel {
+  display: grid;
+  gap: $space-snug;
+  width: min(100% - ($gutter-page * 2), $measure-page);
+  margin-inline: auto;
+  padding: $space-base 0;
+}
+
+.panel-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-snug;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-row-text {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.row-text-heading {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.row-text-counts {
+  color: $color-ink-muted;
+  font-size: 0.8rem;
+}
+
+.summary-row-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-snug;
+  align-items: center;
+}
+
+.row-controls-switch {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  color: $color-ink-soft;
+  cursor: pointer;
+  font-size: 0.78rem;
+}
+
+.row-controls-toggle {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid $color-hairline-strong;
+  border-radius: $radius-pill;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.row-controls-toggle:hover {
+  border-color: $color-ink-soft;
+}
+
+.panel-entry-list {
+  display: grid;
+  gap: 0.5rem;
+  animation: detail-panel-reveal 160ms ease-out;
+}
+
+.entry-list-row {
+  display: grid;
+  gap: 0.15rem;
+  padding: $space-snug;
+  border-left: 3px solid $color-hairline-strong;
+  border-radius: 0 8px 8px 0;
+  background: #fff;
+}
+
+.entry-list-row.status-needed {
+  border-left-color: $color-risk-ink;
+}
+
+.list-row-identity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.row-identity-id {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.row-identity-status {
+  color: $color-ink-muted;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.list-row-subject {
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.list-row-spec {
+  color: $color-ink-muted;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+}
+
+.list-row-notes {
+  color: $color-ink-soft;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+@include breakpoint(tablet) {
+  .panel-entry-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

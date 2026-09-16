@@ -1,0 +1,54 @@
+@use "../styles/tokens" as *;
+
+.action-grid {
+  display: grid;
+  gap: $space-snug;
+}
+
+.grid-action-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.action-list-cell {
+  flex: 1;
+  min-width: 9rem;
+}
+
+.action-list-button {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem 0.5rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.action-list-button:hover {
+  border-color: var(--band-ink);
+}
+
+.action-list-button.is-active {
+  border-color: var(--band-ink);
+  background: var(--band-tint);
+}
+
+.list-button-heading {
+  color: var(--band-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.list-button-promise {
+  color: $color-ink-soft;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}

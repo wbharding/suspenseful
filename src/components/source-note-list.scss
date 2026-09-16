@@ -1,0 +1,33 @@
+@use "../styles/tokens" as *;
+
+.source-note-list {
+  margin-top: $space-snug;
+  padding-top: $space-snug;
+  border-top: 1px solid $color-hairline;
+}
+
+.note-list-heading {
+  color: $color-ink-muted;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.note-list-items {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  color: $color-ink-muted;
+  font-size: 0.82rem;
+}
+
+.item-source-link {
+  color: inherit;
+  text-decoration-color: $color-hairline-strong;
+  text-underline-offset: 2px;
+}
+
+.item-source-link:hover {
+  color: $color-ink;
+}

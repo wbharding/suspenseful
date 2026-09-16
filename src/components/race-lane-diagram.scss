@@ -1,0 +1,63 @@
+@use "../styles/tokens" as *;
+
+.race-lane-diagram {
+  display: grid;
+  gap: $space-snug;
+}
+
+.diagram-lane-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.lane-list-button {
+  display: grid;
+  gap: 0.3rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.45rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.lane-list-button:hover {
+  border-color: var(--band-ink);
+}
+
+.lane-list-button.is-active {
+  border-color: var(--band-ink);
+  background: var(--band-tint);
+}
+
+.list-button-bubble {
+  padding: 0.3rem;
+  border-radius: 8px;
+  background: $color-page-bg;
+  color: $color-ink-soft;
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.list-button-label {
+  color: var(--band-ink);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.diagram-lane-detail {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.lane-detail-label {
+  color: var(--band-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

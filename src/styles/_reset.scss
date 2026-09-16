@@ -1,4 +1,4 @@
-@use 'tokens' as *;
+@use "tokens" as *;
 
 *,
 *::before,
@@ -8,17 +8,17 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
   text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background: $paper;
-  color: $ink;
-  font-family: $sans;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  background: $color-page-bg;
+  color: $color-ink;
+  font-family: $font-poster;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 img,
@@ -28,20 +28,43 @@ svg {
   height: auto;
 }
 
-button,
-input,
-textarea,
-select {
+button {
   font: inherit;
+  color: inherit;
 }
 
 h1,
 h2,
 h3,
+h4,
 p,
 figure,
 blockquote,
 ul,
 ol {
   margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid $color-focus-ring;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

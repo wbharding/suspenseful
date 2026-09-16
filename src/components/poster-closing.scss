@@ -1,0 +1,107 @@
+@use "../styles/tokens" as *;
+
+.poster-closing {
+  padding: $space-band 0;
+  background:
+    radial-gradient(90% 120% at 12% 100%, rgba(45, 145, 90, 0.35), transparent 60%),
+    linear-gradient(200deg, $color-sky-low 0%, #17466f 55%, $color-sky-high 100%);
+  color: #fff;
+}
+
+.closing-inner-wrap {
+  display: grid;
+  gap: $space-base;
+  width: min(100% - ($gutter-page * 2), $measure-page);
+  margin-inline: auto;
+}
+
+.closing-milestone-sign {
+  justify-self: start;
+  max-width: 13rem;
+  padding: 0.5rem 0.8rem;
+  border-left: 4px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0 6px 6px 0;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.closing-message-block {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.message-block-headline {
+  max-width: 44rem;
+  font-size: clamp(1.4rem, 4.5vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.message-block-script {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-style: italic;
+}
+
+.closing-signpost-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.signpost-list-item {
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.closing-source-note {
+  max-width: 48rem;
+  padding-top: $space-snug;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.source-note-link {
+  color: $color-highlight;
+  text-underline-offset: 2px;
+}
+
+@include breakpoint(desktop) {
+  .closing-inner-wrap {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .closing-message-block {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .closing-signpost-list {
+    flex-direction: column;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .closing-milestone-sign {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .closing-source-note {
+    grid-column: 1 / -1;
+  }
+}

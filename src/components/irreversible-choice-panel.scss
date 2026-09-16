@@ -1,0 +1,58 @@
+@use "../styles/tokens" as *;
+
+.irreversible-choice-panel {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.choice-row-trigger {
+  display: flex;
+  gap: $space-snug;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid $color-hairline;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 120ms ease, background-color 120ms ease;
+}
+
+.choice-row-trigger:hover {
+  border-color: var(--band-ink);
+}
+
+.choice-row-trigger.is-active {
+  border-color: var(--band-ink);
+  background: var(--band-tint);
+}
+
+// Reserved even when a row has no artwork, so the three titles line up.
+.row-trigger-figure {
+  flex: none;
+  min-width: 3.25rem;
+}
+
+.row-trigger-text {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.choice-trigger-title {
+  color: var(--band-ink);
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.choice-trigger-blurb {
+  color: $color-ink-soft;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.panel-choice-row {
+  display: grid;
+  gap: 0.35rem;
+}

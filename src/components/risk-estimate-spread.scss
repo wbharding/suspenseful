@@ -1,0 +1,142 @@
+@use "../styles/tokens" as *;
+
+.risk-estimate-spread {
+  display: grid;
+  gap: $space-snug;
+}
+
+.spread-headline-value {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.spread-value-number {
+  color: var(--band-ink);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.spread-value-label {
+  color: $color-ink-soft;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.spread-caveat-card {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  background: var(--band-tint);
+}
+
+.caveat-card-title {
+  color: var(--band-ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.caveat-card-body {
+  color: $color-ink-soft;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.spread-study-rows {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.study-rows-button {
+  display: grid;
+  grid-template-columns: minmax(0, 5rem) minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.study-rows-button:hover,
+.study-rows-button.is-active {
+  border-color: $color-hairline-strong;
+  background: #fff;
+}
+
+.rows-button-label {
+  color: $color-ink-soft;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rows-button-track {
+  position: relative;
+  display: block;
+  min-height: 0.7rem;
+  border-radius: $radius-pill;
+  background: $color-hairline;
+}
+
+.button-track-band {
+  position: absolute;
+  inset-block: 0;
+  border-radius: $radius-pill;
+  background: var(--band-ink);
+  opacity: 0.45;
+}
+
+.study-rows-button.is-active .button-track-band {
+  opacity: 1;
+}
+
+.rows-button-value {
+  color: var(--band-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.spread-axis-ticks {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5.5rem;
+  color: $color-ink-muted;
+  font-size: 0.65rem;
+}
+
+.spread-readout-strip {
+  background: $color-page-bg;
+}
+
+.readout-study-question {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.readout-study-meta {
+  color: $color-ink-soft;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.readout-study-source {
+  color: $color-ink-muted;
+  font-size: 0.72rem;
+}
+
+.study-source-link {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
+.spread-footnote-text {
+  color: $color-ink-soft;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
