@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img">
+  <title>Tension curve</title>
+  <rect width="960" height="420" fill="#e7dcc4"/>
+  <g fill="none" stroke="#c4b496" stroke-width="1">
+    <line x1="72" y1="56" x2="72" y2="348"/>
+    <line x1="72" y1="348" x2="888" y2="348"/>
+  </g>
+  <g fill="#6b5e4e" font-family="Georgia, serif" font-size="18">
+    <text x="72" y="384">Setup</text>
+    <text x="430" y="384">Climb</text>
+    <text x="690" y="384">Turn</text>
+    <text x="820" y="384">Fall</text>
+  </g>
+  <path
+    d="M72 300 C 220 292, 310 270, 430 210 S 620 140, 700 92 S 790 88, 888 250"
+    fill="none"
+    stroke="#9c2f2f"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <circle cx="700" cy="92" r="8" fill="#9c2f2f"/>
+</svg>
