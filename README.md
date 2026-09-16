@@ -18,6 +18,11 @@ npm install
 npm run dev
 ```
 
+That serves the page at http://localhost:4000 and hot-reloads React and SCSS as you edit. The
+port is set in `vite.config.js` with `strictPort`, so if something else already holds 4000 the
+server fails instead of quietly moving to 4001. `npm run preview` uses the same port for the
+production build.
+
 ## Project layout
 
 - `src/components` — one component per element of the poster, each with a co-located stylesheet
