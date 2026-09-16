@@ -1,0 +1,283 @@
+@use "tokens" as *;
+
+// Buttons, toggles and small text treatments used by every chapter. These stay global rather
+// than co-located because they are the page's shared vocabulary, not one component's styling.
+
+.btn {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  padding: 11px 17px;
+  border: 1px solid #cbd7cb;
+  border-radius: 10px;
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 680;
+  line-height: 1.3;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.btn:hover {
+  background: #edf0e6;
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  border-color: var(--pine);
+  background: var(--pine);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #245b4f;
+}
+
+.btn.yellow {
+  padding: 14px 20px;
+  border-color: var(--yellow);
+  background: var(--yellow);
+  color: var(--pine);
+}
+
+.btn.yellow:hover {
+  background: #ffe48b;
+}
+
+.btn.small {
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.btn.small .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn.quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn.quiet:hover {
+  background: #e7ebdf;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 9px;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 27px;
+}
+
+.icon-btn:hover {
+  background: #e5ebdf;
+}
+
+.bordered {
+  border: 1px solid #cfdacf;
+  background: var(--white);
+}
+
+.plan-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+  border-radius: 5px;
+  background: #dce6d7;
+  color: var(--pine);
+  font-size: 11px;
+}
+
+.btn.primary .plan-count {
+  background: $color-yellow;
+  color: $color-pine;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.tiny-line {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  margin-right: 10px;
+  background: currentcolor;
+  vertical-align: middle;
+}
+
+.micro {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.text-btn,
+.text-action {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.text-btn:hover,
+.text-action:hover {
+  color: #196c65;
+}
+
+.text-btn .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.text-btn:hover .icon,
+.source-link:hover > .icon:last-child {
+  transform: translateX(3px);
+}
+
+.segmented {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #d1dace;
+  border-radius: 8px;
+  background: #f2f3ed;
+}
+
+.segmented button {
+  min-height: 28px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.segmented button.active {
+  background: var(--white);
+  box-shadow: 0 1px 4px #173e3920;
+  color: #266583;
+}
+
+.compact-select {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.compact-select select {
+  min-height: 30px;
+  padding: 5px;
+  border-color: #dae0d4;
+  font-size: 10px;
+}
+
+.check-label {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.check-label input {
+  width: 13px;
+  height: 13px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.demo-message {
+  min-height: 18px;
+  margin: 13px 0 20px;
+  color: var(--section-color);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.switch-label {
+  position: relative;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+// The checkbox itself stays the pointer and touch target; the track is paint layered under it.
+.switch-label input {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 30px;
+  height: 18px;
+  margin: 0;
+  opacity: 0;
+}
+
+.switch-track {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  border: 1px solid #a4b4a6;
+  border-radius: 20px;
+  background: #d4dbce;
+  pointer-events: none;
+}
+
+.switch-track::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  transition: transform 0.2s;
+}
+
+.switch-label input:checked + .switch-track {
+  border-color: var(--pine);
+  background: var(--pine);
+}
+
+.switch-label input:checked + .switch-track::before {
+  transform: translateX(12px);
+}
+
+.switch-label input:focus-visible + .switch-track {
+  outline: 3px solid $color-focus-ring;
+  outline-offset: 3px;
+}

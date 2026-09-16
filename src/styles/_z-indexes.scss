@@ -1,5 +1,7 @@
-// Lowest to highest precedence for anything that stacks on this page.
-$z-index-card-marker: 2;
-$z-index-chart-readout: 3;
-$z-index-section-nav: 20;
-$z-index-skip-link: 30;
+// Lowest to highest precedence for everything that stacks on this page.
+$z-index-hero-copy: 1;
+$z-index-chapter-nav: 20;
+$z-index-site-header: 22;
+$z-index-reading-progress: 60;
+$z-index-toast: 90;
+$z-index-skip-link: 100;

@@ -1,0 +1,217 @@
+@use "tokens" as *;
+@use "z-indexes" as *;
+
+// Runtime palette. --section-color and --section-soft are the two that move: each chapter
+// re-declares them, and every card inside inherits the chapter's accent without any card
+// stylesheet needing to know which chapter it landed in.
+:root {
+  --ink: #{$color-ink};
+  --muted: #{$color-muted};
+  --paper: #{$color-paper};
+  --white: #{$color-white};
+  --pine: #{$color-pine};
+  --line: #{$color-line};
+  --yellow: #{$color-yellow};
+  --blue: #{$color-blue};
+  --red: #{$color-red};
+  --green: #{$color-green};
+  --amber: #{$color-amber};
+  --radius: #{$radius-card};
+  --shadow: #{$shadow-card};
+  --header: #{$header-height};
+  --section-color: var(--blue);
+  --section-soft: #{$color-blue-soft};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  // Clears the sticky chapter nav plus the card header when jumping to an anchor.
+  scroll-padding-top: 152px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+h2 {
+  font-size: clamp(27px, 3vw, 39px);
+}
+
+h3 {
+  max-width: 690px;
+  font-size: clamp(24px, 2.1vw, 29px);
+}
+
+h4 {
+  font-size: 23px;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid $color-focus-ring;
+  outline-offset: 4px;
+}
+
+input[type="range"] {
+  accent-color: var(--pine);
+}
+
+input[type="checkbox"] {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  accent-color: var(--pine);
+}
+
+select {
+  max-width: 100%;
+  padding: 9px 30px 9px 11px;
+  border: 1px solid #c7d3c9;
+  border-radius: 9px;
+  background-color: var(--white);
+  color: var(--ink);
+}
+
+textarea,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="search"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdcdc2;
+  border-radius: 10px;
+  background: $color-white;
+  color: var(--ink);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+svg text {
+  font-family: $font-body;
+}
+
+.icon {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+
+.skip-link {
+  position: fixed;
+  top: -80px;
+  left: 12px;
+  z-index: $z-index-skip-link;
+  padding: 12px 18px;
+  border-radius: 6px;
+  background: var(--yellow);
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+// The reduced-motion class is set by the header toggle; the media query covers the OS setting
+// for readers who never touch it.
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+.reduce-motion {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../styles/tokens" as *;
+
+.page-content {
+  max-width: $page-measure;
+  margin: auto;
+}
+
+@include breakpoint-down(laptop) {
+  .page-content {
+    padding-inline: 24px;
+  }
+}
+
+@include breakpoint-down(phone) {
+  .page-content {
+    padding-inline: 16px;
+  }
+}

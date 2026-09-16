@@ -1,0 +1,249 @@
+@use "../styles/tokens" as *;
+@use "../styles/z-indexes" as *;
+
+dialog {
+  width: min(780px, calc(100vw - 32px));
+  max-height: calc(100dvh - 50px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #d3dccd;
+  border-radius: 19px;
+  background: $color-white;
+  box-shadow: 0 20px 90px #122d3360;
+  color: var(--ink);
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  background: #102d2ba8;
+  backdrop-filter: blur(4px);
+}
+
+.dialog-shell {
+  padding: 0 32px 32px;
+}
+
+.dialog-top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 20px 0 12px;
+  border-bottom: 1px solid #e1e6d9;
+  background: #fffefaed;
+  backdrop-filter: blur(8px);
+}
+
+.dialog-top > .eyebrow {
+  color: #7a8b74;
+  font-size: 9px;
+}
+
+.dialog-top .icon-btn {
+  min-width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.dialog-title {
+  margin-bottom: 15px;
+  padding-right: 20px;
+  font-size: 31px;
+  line-height: 1.15;
+}
+
+.dialog-intro {
+  margin-bottom: 23px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 23px;
+}
+
+.source-item {
+  margin-top: 12px;
+  padding: 18px;
+  border: 1px solid #dee4d6;
+  border-radius: 12px;
+  background: #f8f9f1;
+}
+
+.source-meta {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: #75846b;
+  font-size: 9px;
+}
+
+.source-item h3 {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.source-item .source-publisher {
+  margin-top: 4px;
+  color: #5d785b;
+  font-size: 10px;
+}
+
+.source-item p:not(.source-publisher) {
+  margin-top: 11px;
+  color: #6c7e65;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.source-item a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  color: #356c51;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.source-item a > .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.source-search {
+  position: sticky;
+  top: 76px;
+  z-index: 3;
+  padding: 5px 0 15px;
+  background: $color-white;
+}
+
+.source-search input {
+  min-height: 44px;
+  padding-left: 40px;
+  font-size: 13px;
+}
+
+.source-search > .icon {
+  position: absolute;
+  top: 18px;
+  left: 13px;
+  width: 17px;
+  color: #839378;
+}
+
+.source-search small {
+  display: block;
+  margin-top: 7px;
+  color: #7f8d74;
+  font-size: 10px;
+}
+
+.empty-state {
+  margin-top: 14px;
+  padding: 24px;
+  border: 1px dashed #cfd9c8;
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.privacy-warning {
+  margin: 14px 0;
+  padding: 11px 14px;
+  border-left: 3px solid #c8a13f;
+  border-radius: 0 8px 8px 0;
+  background: #fbf3dd;
+  color: #77602a;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.original-image {
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border: 1px solid #dde3d4;
+  border-radius: 12px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 23px;
+}
+
+.about-grid > div {
+  padding: 16px;
+  border: 1px solid #e0e6d7;
+  border-radius: 12px;
+  background: #f8f9f1;
+}
+
+.about-grid strong {
+  font-size: 12px;
+}
+
+.about-grid p {
+  margin-top: 5px;
+  color: #6c7e65;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: $z-index-toast;
+  min-width: 190px;
+  max-width: calc(100vw - 28px);
+  padding: 11px 19px;
+  border: 1px solid #7d9d7b;
+  border-radius: 10px;
+  background: #193f37;
+  box-shadow: 0 4px 25px #142e2c25;
+  color: #fcf5de;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, 25px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@include breakpoint-down(phone) {
+  .dialog-shell {
+    padding: 0 20px 24px;
+  }
+
+  .dialog-title {
+    font-size: 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
