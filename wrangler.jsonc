@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "suspenseful",
+  "name": "suspenseful-ai",
   "compatibility_date": "2026-09-15",
   "main": "./src/worker.js",
   "assets": {
