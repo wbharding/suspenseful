@@ -2,11 +2,19 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "suspenseful",
   "compatibility_date": "2026-09-15",
+  "main": "./src/worker.js",
   "assets": {
-    "not_found_handling": "single-page-application"
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    // Assets normally short-circuit the Worker. HTML has to reach the Worker so the
+    // title can be rewritten per domain; hashed files under /assets/ skip it and are
+    // served straight from the asset server.
+    "run_worker_first": ["/*", "!/assets/*"]
   },
   "routes": [
     { "pattern": "suspenseful.ai", "custom_domain": true },
-    { "pattern": "www.suspenseful.ai", "custom_domain": true }
+    { "pattern": "www.suspenseful.ai", "custom_domain": true },
+    { "pattern": "betterlater.ai", "custom_domain": true },
+    { "pattern": "www.betterlater.ai", "custom_domain": true }
   ]
 }
