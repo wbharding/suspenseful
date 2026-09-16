@@ -21,7 +21,7 @@ export default function SiteHeader() {
       <div className="header-actions">
         <button
           className="btn quiet small"
-          onClick={() => openDialog({ type: "sources" })}
+          onClick={() => openDialog({ type: "sources", kicker: "EVIDENCE LIBRARY" })}
           type="button"
         >
           <FieldIcon name="book" />
@@ -40,7 +40,7 @@ export default function SiteHeader() {
 
         <button
           className="btn small header-plan"
-          onClick={() => openDialog({ type: "plan" })}
+          onClick={() => openDialog({ type: "plan", kicker: "YOUR LOCAL ACTION PLAN" })}
           type="button"
         >
           <FieldIcon name="bookmark" />

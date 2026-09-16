@@ -71,6 +71,7 @@ export function GuideStoreProvider({ children }) {
 
   const notesTimer = useRef(0);
   const toastTimer = useRef(0);
+  const notesRef = useRef(initialPlan.notes);
 
   const persist = useCallback((next) => {
     try {
@@ -158,12 +159,18 @@ export function GuideStoreProvider({ children }) {
   const updateNotes = useCallback(
     (value) => {
       const trimmed = value.slice(0, NOTES_MAX_LENGTH);
+      notesRef.current = trimmed;
       setNotes(trimmed);
       clearTimeout(notesTimer.current);
       notesTimer.current = setTimeout(() => persist(currentPlan({ notes: trimmed })), NOTES_SAVE_DELAY_MS);
     },
     [ persist, currentPlan ],
   );
+
+  const flushNotes = useCallback(() => {
+    clearTimeout(notesTimer.current);
+    persist(currentPlan({ notes: notesRef.current }));
+  }, [ persist, currentPlan ]);
 
   const toggleReducedMotion = useCallback(() => {
     const next = !reducedMotion;
@@ -192,6 +199,12 @@ export function GuideStoreProvider({ children }) {
     return () => document.removeEventListener("visibilitychange", handleVisibility);
   }, [ pauseMotion ]);
 
+  useEffect(() => {
+    const handlePageHide = () => persist(currentPlan({ notes: notesRef.current }));
+    window.addEventListener("pagehide", handlePageHide);
+    return () => window.removeEventListener("pagehide", handlePageHide);
+  }, [ persist, currentPlan ]);
+
   useEffect(() => () => {
     clearTimeout(notesTimer.current);
     clearTimeout(toastTimer.current);
@@ -215,12 +228,13 @@ export function GuideStoreProvider({ children }) {
       saveForecast,
       deleteForecast,
       updateNotes,
+      flushNotes,
       toggleReducedMotion,
     }),
     [
       savedActionIds, forecasts, notes, isStorageAvailable, reducedMotion, dialogView,
       toastMessage, pauseSignal, openDialog, closeDialog, showToast, toggleSavedAction,
-      saveForecast, deleteForecast, updateNotes, toggleReducedMotion,
+      saveForecast, deleteForecast, updateNotes, flushNotes, toggleReducedMotion,
     ],
   );
 

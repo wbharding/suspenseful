@@ -32,7 +32,7 @@ export default function SourceDrawer({ ids }) {
 
     return (
       <>
-        <DialogHeading title="Evidence &amp; context">
+        <DialogHeading title="Evidence & context">
           Follow the original sources, read the qualifications and keep illustrations separate
           from measurements.
         </DialogHeading>
@@ -44,7 +44,7 @@ export default function SourceDrawer({ ids }) {
         <div className="dialog-actions">
           <button
             className="btn small"
-            onClick={() => openDialog({ type: "sources" })}
+            onClick={() => openDialog({ type: "sources", kicker: "EVIDENCE LIBRARY" })}
             type="button"
           >
             <FieldIcon name="book" />

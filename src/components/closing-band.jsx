@@ -59,7 +59,7 @@ export function SiteFooter() {
       </p>
 
       <div>
-        <button className="text-btn" onClick={() => openDialog({ type: "sources" })} type="button">
+        <button className="text-btn" onClick={() => openDialog({ type: "sources", kicker: "EVIDENCE LIBRARY" })} type="button">
           Sources &amp; data notes
         </button>
         <button className="text-btn" onClick={() => openDialog({ type: "original" })} type="button">

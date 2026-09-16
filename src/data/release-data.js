@@ -338,3 +338,11 @@ export const releaseProviders = [ ...new Set(modelReleases.map((release) => rele
 export function providerColor(provider) {
   return providerColors[provider] || '#65756b';
 }
+
+// CSS class that sets `--provider` from the stylesheet, which is required under a
+// `style-src 'self'` Content-Security-Policy.
+// @param {string} provider
+// @returns {string}
+export function providerSlug(provider) {
+  return `provider-${provider.toLowerCase()}`;
+}

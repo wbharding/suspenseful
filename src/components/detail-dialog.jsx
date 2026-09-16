@@ -93,7 +93,12 @@ export default function DetailDialog({ views = {} }) {
             ×
           </button>
         </header>
-        {ViewComponent ? <ViewComponent {...dialogView} /> : null}
+        {ViewComponent ? (
+          <ViewComponent
+            key={`${dialogView.type}-${dialogView.id ?? dialogView.index ?? ""}`}
+            {...dialogView}
+          />
+        ) : null}
       </div>
     </dialog>
   );

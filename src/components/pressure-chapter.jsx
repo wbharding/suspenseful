@@ -1,7 +1,22 @@
+import { useCallback, useState } from "react";
+import { releaseProviders } from "../data/release-data.js";
+import CapabilityChart, { CapabilityChartFooter } from "./capability-chart.jsx";
 import ChapterSection from "./chapter-section.jsx";
+import CommitmentDiagram from "./commitment-diagram.jsx";
+import GuideCard, {
+  CardInsight,
+  CardNote,
+  EvidenceTag,
+  SourceLinkButton,
+} from "./guide-card.jsx";
+import RecallDemo from "./recall-demo.jsx";
+import ReleaseTimeline, { ReleaseTimelineFooter } from "./release-timeline.jsx";
+import SafetyWorkTiles from "./safety-work-tiles.jsx";
 
-// STUB — cells for this chapter are still to be ported from the v1 prototype.
 export default function PressureChapter() {
+  const [ timelineProviders, setTimelineProviders ] = useState(releaseProviders);
+  const handleFilterChange = useCallback((next) => setTimelineProviders(next), []);
+
   return (
     <ChapterSection
       eyebrow="THE CAPABILITY–READINESS GAP"
@@ -10,6 +25,90 @@ export default function PressureChapter() {
       number="01"
       title="Why the pressure?"
       tone="pressure"
-    />
+    >
+      <GuideCard
+        cellId="1A"
+        className="chart-card"
+        deck="The length of software tasks AI can complete has increased. What has not increased as neatly is our confidence in the consequences."
+        eyebrow="MEASURE THE CHANGE"
+        footer={
+          <>
+            <SourceLinkButton sourceIds="metr,metr-live" />
+            <CapabilityChartFooter />
+          </>
+        }
+        span="span-7"
+        title="From minutes to hours."
+      >
+        <div className="card-label-row">
+          <EvidenceTag>Historical benchmark data</EvidenceTag>
+          <EvidenceTag variant="neutral">Jan 2026 snapshot</EvidenceTag>
+        </div>
+        <CapabilityChart />
+        <CardNote heading="What this measures">
+          Human-expert task time at 50% model success—not how long an AI runs, or whether it can
+          replace a whole job. METR has since revised these estimates.
+        </CardNote>
+      </GuideCard>
+
+      <GuideCard
+        cellId="1B"
+        deck="Safety is not one score. It requires sustained work across several fronts."
+        eyebrow="UNDERSTANDING TAKES WORK"
+        footer={<SourceLinkButton label="Why these workstreams?" sourceIds="amodei,hassabis" />}
+        span="span-5"
+        title="More capable ≠ more understood."
+      >
+        <SafetyWorkTiles />
+        <CardInsight>
+          A system passing today’s tests is not a guarantee of overall safety.
+        </CardInsight>
+      </GuideCard>
+
+      <GuideCard
+        cellId="1C"
+        className="timeline-card"
+        deck="Each block is a dated release. Each pop is one event. Press play to hear the cadence of this selected sample."
+        eyebrow="THE RELEASE RHYTHM"
+        footer={
+          <>
+            <SourceLinkButton label="Coverage & methodology" sourceIds="release-dates" />
+            <ReleaseTimelineFooter providers={timelineProviders} />
+          </>
+        }
+        span="span-12"
+        title="What does the AI race sound like?"
+      >
+        <div className="card-label-row">
+          <EvidenceTag>45 sourced release events</EvidenceTag>
+          <EvidenceTag variant="neutral">Selected sample · Jan 2024–Jul 2026</EvidenceTag>
+        </div>
+        <ReleaseTimeline onFilterChange={handleFilterChange} />
+      </GuideCard>
+
+      <GuideCard
+        cellId="1D"
+        deck="Once model weights are copied, recalling the original does not retrieve every independent copy."
+        eyebrow="A ONE-WAY DOOR"
+        footer={<SourceLinkButton sourceIds="draft,amodei" />}
+        span="span-6"
+        title="Some releases are hard to undo."
+      >
+        <EvidenceTag variant="illustration">Interactive illustration</EvidenceTag>
+        <RecallDemo />
+      </GuideCard>
+
+      <GuideCard
+        cellId="1E"
+        className="incentives-card"
+        deck="Financial commitments and competitive expectations can make restraint harder—even when risks are openly acknowledged."
+        eyebrow="THE COMMITMENTS COMPOUND"
+        footer={<SourceLinkButton label="Argument & limits" sourceIds="draft,amodei" />}
+        span="span-6"
+        title="It gets harder to take your foot off the gas."
+      >
+        <CommitmentDiagram />
+      </GuideCard>
+    </ChapterSection>
   );
 }

@@ -1,3 +1,5 @@
+import useGuideStore from "../hooks/use-guide-store.js";
+import { openSources } from "../lib/open-sources.js";
 import FieldIcon from "./field-icon.jsx";
 import "./guide-card.scss";
 
@@ -53,10 +55,15 @@ export function EvidenceTag({ children, variant = "data" }) {
 // Opens the evidence drawer for one or more source ids.
 //
 // @param {string} sourceIds - one id, or several comma-separated
-// @param {function} onOpenSources - called with sourceIds
-export function SourceLinkButton({ sourceIds, onOpenSources, label = "Evidence & context" }) {
+export function SourceLinkButton({ sourceIds, label = "Evidence & context" }) {
+  const { openDialog } = useGuideStore();
+
   return (
-    <button className="source-link" onClick={() => onOpenSources(sourceIds)} type="button">
+    <button
+      className="source-link"
+      onClick={() => openSources(openDialog, sourceIds)}
+      type="button"
+    >
       <FieldIcon name="book" />
       <span>{label}</span>
       <FieldIcon name="arrow" />
