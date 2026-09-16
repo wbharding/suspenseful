@@ -48,8 +48,8 @@ export default function AboutDialog() {
       </div>
 
       <p className="dialog-intro">
-        The historical benchmark table is from January 2026; the selected release sample ends in
-        July 2026; the survey was conducted in 2023. Source review date: September 15, 2026.
+        The historical benchmark table is from January 2026; the release catalog ends in
+        September 2026; the survey was conducted in 2023. Source review date: September 16, 2026.
       </p>
 
       <div className="dialog-actions">

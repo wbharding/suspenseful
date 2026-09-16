@@ -2,6 +2,7 @@ import { modelReleases } from "../data/release-data.js";
 import { sourceRegistry } from "../data/source-registry.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import { downloadFile, toCsv } from "../lib/download.js";
+import { releaseDateLabel } from "../lib/format.js";
 import { openSources } from "../lib/open-sources.js";
 import { DialogHeading, ExternalLink } from "./detail-dialog.jsx";
 import FieldIcon from "./field-icon.jsx";
@@ -14,13 +15,14 @@ export default function ReleaseDataDialog({ providers }) {
 
   function handleExport() {
     const rows = [
-      [ "date", "release", "provider", "source", "coverage" ],
+      [ "date", "date_precision", "release", "provider", "source", "coverage" ],
       ...events.map((release) => [
-        release.date,
+        release.datePrecision === "month" ? release.date.slice(0, 7) : release.date,
+        release.datePrecision || "day",
         release.name,
         release.provider,
         sourceRegistry[release.source].url,
-        "Selected sample, not exhaustive",
+        "Seven-lab flagship/point catalog, not exhaustive",
       ]),
     ];
     downloadFile("selected-ai-releases.csv", toCsv(rows), "text/csv;charset=utf-8");
@@ -28,10 +30,11 @@ export default function ReleaseDataDialog({ providers }) {
 
   return (
     <>
-      <DialogHeading title="A selected release timeline.">
-        {events.length} events shown with your current provider filters, out of {modelReleases.length}{" "}
-        in the packaged sample. Includes named models, selected point updates and some previews.
-        This is not a complete or consistently sampled industry census.
+      <DialogHeading title="A seven-lab release catalog.">
+        {events.length} events shown with your current lab filters, out of {modelReleases.length}{" "}
+        in the packaged catalog (Anthropic, OpenAI, Google, xAI, Meta, Z.ai, DeepSeek). Named
+        models, point updates and some previews. Not a complete or consistently sampled industry
+        census. Several 2026 dates are provisional.
       </DialogHeading>
 
       <div className="data-table-wrap">
@@ -48,8 +51,12 @@ export default function ReleaseDataDialog({ providers }) {
             {events.length ? (
               events.map((release) => (
                 <tr key={release.id}>
-                  <td>{release.date}</td>
-                  <td>{release.name}</td>
+                  <td>{releaseDateLabel(release)}</td>
+                  <td>
+                    {release.name}
+                    {release.status === "announced" ? " (announced)" : ""}
+                    {release.provisional ? " (provisional)" : ""}
+                  </td>
                   <td>{release.provider}</td>
                   <td>
                     <ExternalLink label="Source" url={sourceRegistry[release.source].url} />
@@ -59,7 +66,7 @@ export default function ReleaseDataDialog({ providers }) {
             ) : (
               <tr>
                 <td colSpan="4">
-                  No providers selected. Change the filters on the page to include releases.
+                  No labs selected. Change the filters on the page to include releases.
                 </td>
               </tr>
             )}

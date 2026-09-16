@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { releaseProviders } from "../data/release-data.js";
+import { modelReleases, releaseProviders } from "../data/release-data.js";
 import CapabilityChart, { CapabilityChartFooter } from "./capability-chart.jsx";
 import ChapterSection from "./chapter-section.jsx";
 import CommitmentDiagram from "./commitment-diagram.jsx";
@@ -68,7 +68,7 @@ export default function PressureChapter() {
       <GuideCard
         cellId="1C"
         className="timeline-card"
-        deck="Each block is a dated release. Each pop is one event. Press play to hear the cadence of this selected sample."
+        deck="Each block is a dated release. Each pop is one event. Hover a block for its name. Press play to hear the cadence."
         eyebrow="THE RELEASE RHYTHM"
         footer={
           <>
@@ -80,8 +80,8 @@ export default function PressureChapter() {
         title="What does the AI race sound like?"
       >
         <div className="card-label-row">
-          <EvidenceTag>45 sourced release events</EvidenceTag>
-          <EvidenceTag variant="neutral">Selected sample · Jan 2024–Jul 2026</EvidenceTag>
+          <EvidenceTag>{modelReleases.length} sourced release events</EvidenceTag>
+          <EvidenceTag variant="neutral">Seven labs · Jan 2024–Sep 2026</EvidenceTag>
         </div>
         <ReleaseTimeline onFilterChange={handleFilterChange} />
       </GuideCard>

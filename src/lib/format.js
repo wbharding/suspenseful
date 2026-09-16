@@ -9,14 +9,19 @@ export function dateMs(value) {
 }
 
 // @param {string} value - ISO date `YYYY-MM-DD`
-// @returns {string} e.g. "Jan 29, 2026"
-export function dateLabel(value) {
-  return new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+// @param {"day"|"month"} [precision="day"] - month-only catalog rows hide the placeholder day
+// @returns {string} e.g. "Jan 29, 2026" or "Mar 2024"
+export function dateLabel(value, precision = "day") {
+  const options = precision === "month"
+    ? { month: "short", year: "numeric", timeZone: "UTC" }
+    : { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" };
+  return new Date(`${value}T00:00:00Z`).toLocaleDateString("en-US", options);
+}
+
+// @param {{ date: string, datePrecision?: "day"|"month" }} release
+// @returns {string}
+export function releaseDateLabel(release) {
+  return dateLabel(release.date, release.datePrecision);
 }
 
 // @param {number} minutes - human-expert minutes at 50% success

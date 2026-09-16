@@ -4,5 +4,9 @@
   "compatibility_date": "2026-09-15",
   "assets": {
     "not_found_handling": "single-page-application"
-  }
+  },
+  "routes": [
+    { "pattern": "suspenseful.ai", "custom_domain": true },
+    { "pattern": "www.suspenseful.ai", "custom_domain": true }
+  ]
 }

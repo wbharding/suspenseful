@@ -5,9 +5,9 @@ import { siteMeta } from "../data/site-meta.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import usePauseSignal from "../hooks/use-pause-signal.js";
 import {
-  dateLabel,
   dateMs,
   monthYearLabel,
+  releaseDateLabel,
   yearMonthFromMs,
   yearMonthKey,
 } from "../lib/format.js";
@@ -17,7 +17,17 @@ import FieldIcon from "./field-icon.jsx";
 const MONTH_NAMES = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 const KERNEL_VARIANTS = [ "k0", "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11" ];
 
-// Element 1C. A selected sample of dated releases, played as a cadence rather than counted as
+// @param {object} release
+// @returns {string}
+function releaseTooltip(release) {
+  const when = releaseDateLabel(release);
+  if (release.status === "announced") {
+    return `${release.name} · ${when} · ${release.provider} · announced, not confirmed shipped`;
+  }
+  return `${release.name} · ${when} · ${release.provider}`;
+}
+
+// Element 1C. A seven-lab catalog of dated releases, played as a cadence rather than counted as
 // a capability score. Sound starts only when the reader turns it on.
 export default function ReleaseTimeline({ onFilterChange }) {
   const { reducedMotion, openDialog, showToast } = useGuideStore();
@@ -46,7 +56,9 @@ export default function ReleaseTimeline({ onFilterChange }) {
   const tickRef = useRef(null);
 
   const events = useMemo(
-    () => modelReleases.filter((release) => providers.has(release.provider)),
+    () => modelReleases
+      .filter((release) => providers.has(release.provider))
+      .sort((a, b) => dateMs(a.date) - dateMs(b.date) || a.id.localeCompare(b.id)),
     [ providers ],
   );
 
@@ -79,7 +91,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
     disablePopSound();
   }, []);
 
-  const spawnPop = useCallback((release) => {
+  const spawnPop = useCallback((release, clusterSize = 1) => {
     setFlashIds((current) => {
       const next = new Set(current);
       next.add(release.id);
@@ -99,7 +111,8 @@ export default function ReleaseTimeline({ onFilterChange }) {
     window.requestAnimationFrame(() => setIsPopping(true));
     window.setTimeout(() => setIsPopping(false), 220);
 
-    const nextKernels = Array.from({ length: 4 }, () => {
+    const kernelCount = clusterSize > 4 ? 2 : 4;
+    const nextKernels = Array.from({ length: kernelCount }, () => {
       kernelSeq.current += 1;
       return {
         id: kernelSeq.current,
@@ -121,7 +134,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
       lastRef.current = now;
       const nextPos = Math.min(
         end,
-        posRef.current + (elapsed / 26000) * (end - start) * speedRef.current,
+        posRef.current + (elapsed / 32000) * (end - start) * speedRef.current,
       );
       posRef.current = nextPos;
 
@@ -130,8 +143,8 @@ export default function ReleaseTimeline({ onFilterChange }) {
       );
       if (crossed.length) {
         crossed.forEach((release, index) => {
-          if (soundRef.current) playPopSound(index * 0.065);
-          spawnPop(release);
+          if (soundRef.current) playPopSound(index * 0.055);
+          spawnPop(release, crossed.length);
         });
         setPos(nextPos);
       } else if (now - paintRef.current > 90) {
@@ -142,7 +155,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
       if (nextPos >= end) {
         handlePause();
         setPos(end);
-        showToast("End of the selected release sample.");
+        showToast("End of this release catalog.");
         return;
       }
       frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
@@ -233,7 +246,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
   } else if (pos >= end) {
     nowPlaying = (
       <>
-        <strong>End of this sample.</strong>
+        <strong>End of this catalog.</strong>
         <small>Release counts are not a capability measure.</small>
       </>
     );
@@ -243,7 +256,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
       <>
         <strong>{last.name}</strong>
         <small>
-          {dateLabel(last.date)} · {last.provider}
+          {releaseDateLabel(last)} · {last.provider}
         </small>
       </>
     );
@@ -328,7 +341,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
               <div className="months">
                 {MONTH_NAMES.map((name, monthIndex) => {
                   const key = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
-                  const isFuture = year === 2026 && monthIndex > 6;
+                  const isFuture = dateMs(`${key}-01`) > end;
                   const monthReleases = events.filter((release) =>
                     yearMonthKey(release.date) === key,
                   );
@@ -342,13 +355,14 @@ export default function ReleaseTimeline({ onFilterChange }) {
                         {monthReleases.map((release) => {
                           const popped = dateMs(release.date) <= pos;
                           const flashing = flashIds.has(release.id);
+                          const tooltip = releaseTooltip(release);
                           return (
                             <button
-                              aria-label={`${release.name}. ${dateLabel(release.date)}. ${release.provider}.`}
-                              className={`release-event ${providerSlug(release.provider)}${popped ? " popped" : ""}${flashing ? " current" : ""}`}
+                              aria-label={tooltip}
+                              className={`release-event ${providerSlug(release.provider)}${popped ? " popped" : ""}${flashing ? " current" : ""}${release.provisional ? " provisional" : ""}${release.status === "announced" ? " announced" : ""}`}
+                              data-tooltip={tooltip}
                               key={release.id}
                               onClick={() => handleOpenRelease(release.id)}
-                              title={`${release.name} · ${dateLabel(release.date)}`}
                               type="button"
                             />
                           );
@@ -379,11 +393,11 @@ export default function ReleaseTimeline({ onFilterChange }) {
         />
         <div className="timeline-caption">
           <span>January 2024</span>
-          <span>July 2026</span>
+          <span>September 2026</span>
         </div>
         <p className="micro">
-          Click any colored block for its release details. Empty months are empty{" "}
-          <em>in this sample</em>, not necessarily in the industry.
+          Hover a block for the model name. Click it for sources. Empty months are empty{" "}
+          <em>in this seven-lab catalog</em>, not necessarily in the industry.
         </p>
       </div>
 
@@ -400,7 +414,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
         <div className="pop-count">
           <strong>{passed.length}</strong>
           <span>
-            of <b>{events.length}</b> selected releases
+            of <b>{events.length}</b> catalogued releases
           </span>
         </div>
         <div className="now-playing">{nowPlaying}</div>
@@ -424,7 +438,7 @@ export function ReleaseTimelineFooter({ providers }) {
         openDialog({
           type: "release-data",
           providers: providers?.length ? providers : releaseProviders,
-          kicker: "DATA TABLE · SELECTED EVENTS",
+          kicker: "DATA TABLE · SEVEN-LAB CATALOG",
         })
       }
       type="button"

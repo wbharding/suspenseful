@@ -30,12 +30,12 @@ export const sourceRegistry = {
     note: "A time horizon measures task difficulty in human-expert minutes at a given success rate, not how long an AI runs. Tasks are predominantly software, machine-learning and cybersecurity work. METR warns that estimates above 16 hours are unreliable with its current task suite. This site does not claim that a benchmark time horizon means a whole job is automatable."
   },
   "release-dates": {
-    title: "Public model release-date registry",
-    publisher: "METR · public analysis repository",
-    date: "Accessed September 15, 2026",
-    url: "https://raw.githubusercontent.com/METR/eval-analysis-public/main/data/external/release_dates.yaml",
-    type: "Release dates",
-    note: "The timeline uses a selected set of dated models from this registry, supplemented by official 2026 launch announcements. Duplicate evaluation scaffolds are removed. This is NOT an exhaustive industry census; early and late coverage differ. Blank months mean no events in this sample, not that no model was released. Release frequency is not a measure of capability."
+    title: "LLM release timeline",
+    publisher: "Bill Harding · Amplenote",
+    date: "September 13, 2026",
+    url: "https://public.amplenote.com/z28idzmc2wTjLNsucS6tBZPB",
+    type: "Compiled release catalog",
+    note: "Seven labs only: Anthropic, OpenAI, Google, xAI, Meta, Z.ai, and DeepSeek. Flagship and point text-LLM releases from January 2024 through 12 September 2026, not an industry census and not a capability score. Same-day named variants are shown as separate blocks. Four rows are month-level (no confirmed day). Several 2026 dates — especially Fable/Mythos, GPT-5.6, Grok 4.7, and GLM-5.x — rest on secondary trackers and are marked provisional. Grok 4.7 is announced, not confirmed shipped. Image, video, audio, and embedding models are out of scope. Blank months mean no events in this catalog."
   },
   amodei: {
     title: "We Must Pace the Frontier",
@@ -154,14 +154,6 @@ export const sourceRegistry = {
     publisher: "Google",
     date: "2026-02-19",
     url: "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-pro-on-gemini-cli-gemini-enterprise-and-vertex-ai",
-    type: "Official release announcement",
-    note: "Used for the named model’s announcement date only. The timeline does not count every model, variant or product update."
-  },
-  "launch-2": {
-    title: "Introducing GPT-5.3 Instant",
-    publisher: "OpenAI",
-    date: "2026-03-03",
-    url: "https://openai.com/index/gpt-5-3-instant/",
     type: "Official release announcement",
     note: "Used for the named model’s announcement date only. The timeline does not count every model, variant or product update."
   },

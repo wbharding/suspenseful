@@ -58,8 +58,8 @@ export default function SourceDrawer({ ids }) {
   return (
     <>
       <DialogHeading title="Sources, not just footnotes.">
-        The data is packaged with this page, not fetched live. Historical benchmarks, selected
-        release events, subjective survey responses and illustrative policy sketches are labeled
+        The data is packaged with this page, not fetched live. Historical benchmarks, a compiled
+        release catalog, subjective survey responses and illustrative policy sketches are labeled
         separately.
       </DialogHeading>
 

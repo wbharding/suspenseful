@@ -13,6 +13,10 @@
   box-shadow: var(--shadow);
 }
 
+.card.timeline-card {
+  overflow: visible;
+}
+
 .card-top {
   display: flex;
   gap: 9px;
