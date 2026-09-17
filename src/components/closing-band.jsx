@@ -1,6 +1,7 @@
 import roadLandscape from "../assets/road-landscape.svg";
 import { siteMeta } from "../data/site-meta.js";
 import useGuideStore from "../hooks/use-guide-store.js";
+import BrandWordmark from "./brand-wordmark.jsx";
 import FieldIcon from "./field-icon.jsx";
 import "./closing-band.scss";
 
@@ -43,14 +44,7 @@ export function SiteFooter() {
 
   return (
     <footer className="site-footer">
-      <a className="brand" href="#top">
-        <span className="brand-mark">
-          <FieldIcon name="road" />
-        </span>
-        <span>
-          a smarter <b>pace.</b>
-        </span>
-      </a>
+      <BrandWordmark />
 
       <p>
         Interactive field guide · v{siteMeta.version}

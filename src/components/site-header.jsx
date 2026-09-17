@@ -1,4 +1,5 @@
 import useGuideStore from "../hooks/use-guide-store.js";
+import BrandWordmark from "./brand-wordmark.jsx";
 import FieldIcon from "./field-icon.jsx";
 import "./site-header.scss";
 
@@ -9,14 +10,7 @@ export default function SiteHeader() {
 
   return (
     <header className="site-header">
-      <a aria-label="A smarter pace, top of page" className="brand" href="#top">
-        <span className="brand-mark">
-          <FieldIcon name="road" />
-        </span>
-        <span>
-          a smarter <b>pace.</b>
-        </span>
-      </a>
+      <BrandWordmark />
 
       <div className="header-actions">
         <button

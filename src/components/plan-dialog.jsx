@@ -3,6 +3,7 @@ import { siteMeta } from "../data/site-meta.js";
 import { sourceRegistry } from "../data/source-registry.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import { downloadFile } from "../lib/download.js";
+import { siteForHostname } from "../site-config.js";
 import { DialogHeading } from "./detail-dialog.jsx";
 import FieldIcon from "./field-icon.jsx";
 
@@ -89,7 +90,7 @@ Revision history:
 ${forecast.history.map((entry) => `- ${entry.date}: ${entry.probability}% — ${entry.rationale || ""}`).join("\n")}`).join("\n\n") : "No forecasts saved."}
 
 ---
-Created with A smarter pace, v${siteMeta.version}. Source outline: ${siteMeta.draftUrl}
+Created with ${siteForHostname(window.location.hostname).brand.name}, v${siteMeta.version}. Source outline: ${siteMeta.draftUrl}
 `;
       downloadFile(`my-ai-action-plan-${stamp}.md`, text, "text/markdown;charset=utf-8");
     }
