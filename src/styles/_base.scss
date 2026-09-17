@@ -1,26 +1,46 @@
 @use "tokens" as *;
+@use "themes";
 @use "z-indexes" as *;
 
-// Runtime palette. --section-color and --section-soft are the two that move: each chapter
-// re-declares them, and every card inside inherits the chapter's accent without any card
+// Theme resolution, in three states. An explicit reader choice stamps data-theme on <html> and
+// wins in both directions; with no choice stamped, the OS preference decides. The :not() guard is
+// what lets a reader pick light on a dark-set OS — without it the media query would override the
+// explicit choice.
+:root {
+  @include themes.light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include themes.dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include themes.dark;
+}
+
+// Metrics and aliases. --section-color and --section-soft are the two that move per chapter: each
+// chapter re-declares them, and every card inside inherits the chapter's accent without any card
 // stylesheet needing to know which chapter it landed in.
 :root {
-  --ink: #{$color-ink};
-  --muted: #{$color-muted};
-  --paper: #{$color-paper};
-  --white: #{$color-white};
-  --pine: #{$color-pine};
-  --line: #{$color-line};
-  --yellow: #{$color-yellow};
-  --blue: #{$color-blue};
-  --red: #{$color-red};
-  --green: #{$color-green};
-  --amber: #{$color-amber};
   --radius: #{$radius-card};
-  --shadow: #{$shadow-card};
+  --shadow: var(--shadow-card);
   --header: #{$header-height};
-  --section-color: var(--blue);
-  --section-soft: #{$color-blue-soft};
+  --section-color: var(--accent-blue);
+  --section-soft: var(--accent-blue-soft);
+
+  // Legacy aliases kept so the ported prototype rules keep resolving. New code should use the
+  // semantic tokens in _themes.scss directly.
+  --ink: var(--text);
+  --muted: var(--text-muted);
+  --paper: var(--page);
+  --white: var(--surface);
+  --line: var(--border);
+  --blue: var(--accent-blue);
+  --red: var(--accent-red);
+  --green: var(--accent-green);
+  --amber: var(--accent-amber);
 }
 
 * {
@@ -122,27 +142,27 @@ select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid $color-focus-ring;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
 input[type="range"] {
-  accent-color: var(--pine);
+  accent-color: var(--accent-green);
 }
 
 input[type="checkbox"] {
   flex: none;
   width: 17px;
   height: 17px;
-  accent-color: var(--pine);
+  accent-color: var(--accent-green);
 }
 
 select {
   max-width: 100%;
   padding: 9px 30px 9px 11px;
-  border: 1px solid #c7d3c9;
+  border: 1px solid var(--border-strong);
   border-radius: 9px;
-  background-color: var(--white);
+  background-color: var(--surface);
   color: var(--ink);
 }
 
@@ -153,9 +173,9 @@ input[type="date"],
 input[type="search"] {
   width: 100%;
   padding: 12px;
-  border: 1px solid #bdcdc2;
+  border: 1px solid var(--border-strong);
   border-radius: 10px;
-  background: $color-white;
+  background: var(--surface);
   color: var(--ink);
 }
 
@@ -182,6 +202,7 @@ svg text {
   padding: 12px 18px;
   border-radius: 6px;
   background: var(--yellow);
+  color: var(--on-yellow);
 }
 
 .skip-link:focus {

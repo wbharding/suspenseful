@@ -16,9 +16,10 @@ const NOTES_MAX_LENGTH = 10000;
 
 // Anything already in storage is untrusted input: it may be from an older version, hand-edited,
 // or referencing an action that no longer exists.
-// @returns {{saved: string[], forecasts: object[], notes: string, motion: boolean|null}}
+// @returns {{saved: string[], forecasts: object[], notes: string, motion: boolean|null,
+//   theme: "light"|"dark"|null}}
 function readStoredPlan() {
-  const empty = { saved: [], forecasts: [], notes: "", motion: null };
+  const empty = { saved: [], forecasts: [], notes: "", motion: null, theme: null };
 
   try {
     const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
@@ -43,6 +44,7 @@ function readStoredPlan() {
         : [],
       notes: typeof raw.notes === "string" ? raw.notes.slice(0, NOTES_MAX_LENGTH) : "",
       motion: typeof raw.motion === "boolean" ? raw.motion : null,
+      theme: raw.theme === "light" || raw.theme === "dark" ? raw.theme : null,
     };
   } catch {
     return empty;
@@ -59,6 +61,15 @@ export function GuideStoreProvider({ children }) {
   const [ reducedMotion, setReducedMotion ] = useState(
     () => initialPlan.motion ?? window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
+
+  // null means "follow the OS". Storing the override rather than the resolved theme is what lets
+  // a reader who never touched the toggle keep tracking their system as it changes (and at
+  // sunset, if they use a scheduled dark mode).
+  const [ themeOverride, setThemeOverride ] = useState(initialPlan.theme);
+  const [ systemTheme, setSystemTheme ] = useState(
+    () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
+  );
+  const theme = themeOverride ?? systemTheme;
 
   // A dialog descriptor rather than a React node, so the store stays plain data and
   // DetailDialog owns the mapping from type to component.
@@ -88,9 +99,10 @@ export function GuideStoreProvider({ children }) {
       forecasts,
       notes,
       motion: reducedMotion,
+      theme: themeOverride,
       ...overrides,
     }),
-    [ savedActionIds, forecasts, notes, reducedMotion ],
+    [ savedActionIds, forecasts, notes, reducedMotion, themeOverride ],
   );
 
   const showToast = useCallback((message) => {
@@ -179,6 +191,30 @@ export function GuideStoreProvider({ children }) {
     showToast(next ? "Reduced motion is on." : "Animations are enabled.");
   }, [ reducedMotion, persist, currentPlan, showToast ]);
 
+  const toggleTheme = useCallback(() => {
+    const next = theme === "dark" ? "light" : "dark";
+    setThemeOverride(next);
+    persist(currentPlan({ theme: next }));
+    showToast(next === "dark" ? "Dark theme on." : "Light theme on.");
+  }, [ theme, persist, currentPlan, showToast ]);
+
+  // Track the OS setting continuously. Because `theme` prefers the override, this only changes
+  // what the reader sees when they have not made a choice of their own.
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (event) => setSystemTheme(event.matches ? "dark" : "light");
+    query.addEventListener("change", handleChange);
+    return () => query.removeEventListener("change", handleChange);
+  }, []);
+
+  // The stylesheet reads data-theme off <html>; it is only stamped for an explicit choice, so
+  // with no override the CSS falls through to its own prefers-color-scheme rules.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (themeOverride) root.dataset.theme = themeOverride;
+    else delete root.dataset.theme;
+  }, [ themeOverride ]);
+
   // Follow the OS preference when the reader has not overridden it here.
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -218,6 +254,7 @@ export function GuideStoreProvider({ children }) {
       planCount: savedActionIds.size + forecasts.length,
       isStorageAvailable,
       reducedMotion,
+      theme,
       dialogView,
       toastMessage,
       pauseSignal,
@@ -230,11 +267,12 @@ export function GuideStoreProvider({ children }) {
       updateNotes,
       flushNotes,
       toggleReducedMotion,
+      toggleTheme,
     }),
     [
-      savedActionIds, forecasts, notes, isStorageAvailable, reducedMotion, dialogView,
+      savedActionIds, forecasts, notes, isStorageAvailable, reducedMotion, theme, dialogView,
       toastMessage, pauseSignal, openDialog, closeDialog, showToast, toggleSavedAction,
-      saveForecast, deleteForecast, updateNotes, flushNotes, toggleReducedMotion,
+      saveForecast, deleteForecast, updateNotes, flushNotes, toggleReducedMotion, toggleTheme,
     ],
   );
 

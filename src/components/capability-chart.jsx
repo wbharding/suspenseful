@@ -113,21 +113,21 @@ export default function CapabilityChart() {
             role="group"
             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
           >
-            <text fill="#67816e" fontSize="10" x={pad.l} y="13">
+            <text fill="var(--chart-axis)" fontSize="10" x={pad.l} y="13">
               Human-expert task time · 50% success
             </text>
             {ticks.map((tick) => (
               <g key={tick}>
-                <path d={`M${pad.l} ${yFor(tick)}H${chartWidth - pad.r}`} stroke="#dfe6df" strokeDasharray="3 4" />
-                <text fill="#748274" fontSize="11" textAnchor="end" x={pad.l - 9} y={yFor(tick) + 4}>
+                <path d={`M${pad.l} ${yFor(tick)}H${chartWidth - pad.r}`} stroke="var(--chart-grid)" strokeDasharray="3 4" />
+                <text fill="var(--chart-axis)" fontSize="11" textAnchor="end" x={pad.l - 9} y={yFor(tick) + 4}>
                   {hoursLabel(tick)}
                 </text>
               </g>
             ))}
             {[ 2023, 2024, 2025, 2026 ].map((year) => (
               <g key={year}>
-                <path d={`M${xFor(`${year}-01-01`)} ${pad.t}V${chartHeight - pad.b}`} stroke="#e8ede4" />
-                <text fill="#758574" fontSize="11" textAnchor="middle" x={xFor(`${year}-01-01`)} y={chartHeight - 15}>
+                <path d={`M${xFor(`${year}-01-01`)} ${pad.t}V${chartHeight - pad.b}`} stroke="var(--chart-grid)" />
+                <text fill="var(--chart-axis)" fontSize="11" textAnchor="middle" x={xFor(`${year}-01-01`)} y={chartHeight - 15}>
                   {year}
                 </text>
               </g>
@@ -143,7 +143,7 @@ export default function CapabilityChart() {
                       fill="none"
                       key={`${model.name}-ci`}
                       opacity=".8"
-                      stroke="#a2bfbe"
+                      stroke="var(--border-strong)"
                       strokeWidth="1.3"
                     />
                   );
@@ -152,7 +152,7 @@ export default function CapabilityChart() {
             <path
               d={path}
               fill="none"
-              stroke="#287486"
+              stroke="var(--chart-line)"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2.3"
@@ -167,14 +167,14 @@ export default function CapabilityChart() {
                   className="chart-point"
                   cx={xFor(model.date)}
                   cy={yFor(estimate)}
-                  fill={isSelected ? "#c29b38" : "#287486"}
+                  fill={isSelected ? "var(--chart-selected)" : "var(--chart-line)"}
                   key={model.name}
                   onClick={() => handleSelectModel(model.name)}
                   onFocus={() => handleSelectModel(model.name)}
                   onKeyDown={(event) => handlePointKeyDown(event, model.name)}
                   r={isSelected ? 6 : 4.7}
                   role="button"
-                  stroke="#fffefa"
+                  stroke="var(--surface)"
                   strokeWidth="2"
                   tabIndex={0}
                 >

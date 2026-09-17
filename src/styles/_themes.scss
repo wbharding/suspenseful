@@ -1,0 +1,158 @@
+// Theme definitions: the semantic palette, published twice.
+//
+// Every color on the page resolves through one of the custom properties below. Nothing outside
+// this file should hardcode a hex value, because a raw hex cannot follow the theme. This file is
+// the one exception — it is where the literals live.
+//
+// The scale is deliberately small. The v1 prototype carried ~280 one-off tints — dozens of
+// near-identical near-whites and greens that no reader could tell apart — and each one was a
+// color that would have needed a hand-tuned dark counterpart. Collapsing them onto this scale is
+// what makes a dark theme maintainable rather than a second 3800-line stylesheet.
+//
+// Naming is by role, not appearance: --surface-sunken is "recessed relative to the page", which
+// is a lighter tint in light mode and a darker one in dark mode. Never name a token for the color
+// it currently happens to be.
+
+// Surfaces run page -> surface -> raised, from furthest back to nearest the reader. Sunken is the
+// inset case (wells, chart backdrops, table stripes) and reads as recessed in both themes.
+@mixin light {
+  color-scheme: light;
+
+  --page: #f7f7f0;
+  --surface: #fffefa;
+  --surface-raised: #fff;
+  --surface-sunken: #f1f3e9;
+  --surface-hover: #edf0e6;
+
+  --border: #dce3d9;
+  --border-strong: #c4cdbb;
+  --border-subtle: #e7ebdf;
+
+  --text: #193a37;
+  --text-muted: #60736e;
+  --text-subtle: #7f8b73;
+
+  // Brand constants. The pine/yellow pair is the masthead identity and holds its hue across both
+  // themes. Pine is a *background* for the inverted bands (hero, closing), so it stays dark in
+  // dark mode too — the --on-pine-* foregrounds are what those bands sit their text on. Using
+  // --surface/--border there instead would flip them light-on-light.
+  --pine: #143f3a;
+  --pine-hover: #245b4f;
+  --on-pine: #fffefa;
+  --on-pine-muted: #c8d6cd;
+  --on-pine-subtle: #9bb0a5;
+  --on-pine-line: #ffffff26;
+  // Pine as a foreground on a normal surface. Split from --pine because that one is a band
+  // background and must stay dark in both themes, while text has to lighten to stay readable.
+  --pine-text: #143f3a;
+  --yellow: #f3d56b;
+  --yellow-hover: #ffe48b;
+  --on-yellow: #143f3a;
+
+  // Accent families. Each is a readable foreground on --surface; -soft is its tinted background,
+  // and -border sits between them for outlines on a soft fill.
+  --accent-blue: #357b9a;
+  --accent-blue-soft: #e8f2f5;
+  --accent-blue-border: #bcd3c4;
+  --accent-red: #b85249;
+  --accent-red-soft: #f9e9e5;
+  --accent-red-border: #e7ccc3;
+  --accent-green: #287760;
+  --accent-green-soft: #e2f1e6;
+  --accent-green-border: #bfd2bd;
+  --accent-amber: #9e6f23;
+  --accent-amber-soft: #f7efd8;
+  --accent-amber-border: #e8d7ac;
+  --accent-violet: #69618c;
+
+  // Provider series. These are categorical, not semantic: seven lab identities that must stay
+  // mutually distinguishable, so they are their own ramp rather than reuse of the accents above.
+  --provider-anthropic: #c06b45;
+  --provider-openai: #25756b;
+  --provider-google: #497fac;
+  --provider-xai: #6d6c9d;
+  --provider-meta: #5a7a9a;
+  --provider-zai: #9a5e87;
+  --provider-deepseek: #b59732;
+  --provider-unknown: #65756b;
+
+  --focus-ring: #cb9730;
+  --chart-line: #287486;
+  --chart-selected: #c29b38;
+  --chart-grid: #dfe6df;
+  --chart-axis: #748274;
+
+  --shadow-card: 0 7px 30px #143f3a0f;
+  --shadow-dialog: 0 24px 60px #143f3a2e;
+  --scrim: #102d2ba8;
+}
+
+// Dark mode is not an inversion. Surfaces are neutral grey, carrying only a trace of warmth so
+// the pine-and-yellow brand does not read as a clash against them. The accents are lifted in
+// lightness and pulled back in saturation — the light-mode accents are far too dark to read
+// against a dark ground, and fully saturated ones vibrate against it.
+@mixin dark {
+  color-scheme: dark;
+
+  --page: #17181a;
+  --surface: #202124;
+  --surface-raised: #282a2d;
+  --surface-sunken: #121315;
+  --surface-hover: #303236;
+
+  --border: #3a3d41;
+  --border-strong: #4d5155;
+  --border-subtle: #2c2e31;
+
+  --text: #eceded;
+  --text-muted: #adb0b3;
+  --text-subtle: #8e9296;
+
+  --pine: #234f47;
+  --pine-hover: #2f6b60;
+  --on-pine: #f2f7f2;
+  --on-pine-muted: #c2d2ca;
+  --on-pine-subtle: #94a9a0;
+  --on-pine-line: #ffffff1f;
+  --pine-text: #7fc4b4;
+  --yellow: #f0cf63;
+  --yellow-hover: #ffe48b;
+  --on-yellow: #17181a;
+
+  --accent-blue: #74b8d4;
+  --accent-blue-soft: #1a2b33;
+  --accent-blue-border: #2e4b57;
+  --accent-red: #e59288;
+  --accent-red-soft: #35211f;
+  --accent-red-border: #613832;
+  --accent-green: #6fc39d;
+  --accent-green-soft: #162b26;
+  --accent-green-border: #2d4f44;
+  --accent-amber: #e0b566;
+  --accent-amber-soft: #2f2715;
+  --accent-amber-border: #55442a;
+  --accent-violet: #a79ad0;
+
+  // Same seven identities, lifted and desaturated for a dark ground while holding their hue
+  // order so a reader moving between themes recognises the same lab in the same place.
+  --provider-anthropic: #e39468;
+  --provider-openai: #4fae9f;
+  --provider-google: #7fb0dd;
+  --provider-xai: #a49fd6;
+  --provider-meta: #8fb2d4;
+  --provider-zai: #cf94bd;
+  --provider-deepseek: #dcbc5e;
+  --provider-unknown: #9aa8a2;
+
+  --focus-ring: #e9b955;
+  --chart-line: #5fb3c4;
+  --chart-selected: #e0b556;
+  --chart-grid: #383b3f;
+  --chart-axis: #93979b;
+
+  // Shadows read as depth only against a light ground. On a dark one they are near-invisible, so
+  // they go deeper and lean on the border tokens for separation instead.
+  --shadow-card: 0 7px 30px #0006;
+  --shadow-dialog: 0 24px 60px #0009;
+  --scrim: #0b0c0dd6;
+}

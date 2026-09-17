@@ -1,33 +1,11 @@
 @use "sass:map";
 
-// Palette and metrics for the field guide, ported from the single-file v1 prototype.
+// Non-color design tokens: metrics, type and breakpoints.
 //
-// These are the authoring source of truth. _base.scss re-publishes them as custom properties on
-// :root, because two of them (--section-color, --section-soft) get overridden per chapter and
-// have to resolve at runtime rather than at compile time.
-$color-ink: #193a37;
-$color-muted: #60736e;
-$color-paper: #f7f7f0;
-$color-white: #fffefa;
-$color-pine: #143f3a;
-$color-line: #dce3d9;
-$color-yellow: #f3d56b;
-
-$color-blue: #357b9a;
-$color-blue-soft: #e8f2f5;
-$color-red: #b85249;
-$color-red-soft: #f9e9e5;
-$color-green: #287760;
-$color-green-soft: #e2f1e6;
-$color-amber: #9e6f23;
-$color-amber-soft: #f7efd8;
-
-$color-focus-ring: #cb9730;
-$color-chart-line: #287486;
-$color-chart-selected: #c29b38;
-
+// Color lives in _themes.scss as custom properties, not here. A Sass variable is resolved at
+// compile time and so cannot follow the theme — anything that needs to change between light and
+// dark has to be a custom property.
 $radius-card: 20px;
-$shadow-card: 0 7px 30px #143f3a06;
 $header-height: 72px;
 $page-measure: 1280px;
 

@@ -10,18 +10,18 @@
 }
 
 .risks {
-  --section-color: var(--red);
-  --section-soft: #{$color-red-soft};
+  --section-color: var(--accent-red);
+  --section-soft: var(--accent-red-soft);
 }
 
 .slowdown {
-  --section-color: var(--green);
-  --section-soft: #{$color-green-soft};
+  --section-color: var(--accent-green);
+  --section-soft: var(--accent-green-soft);
 }
 
 .actions {
-  --section-color: var(--amber);
-  --section-soft: #{$color-amber-soft};
+  --section-color: var(--accent-amber);
+  --section-soft: var(--accent-amber-soft);
 }
 
 .chapter-title {

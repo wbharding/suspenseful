@@ -4,7 +4,7 @@
 .hero {
   overflow: hidden;
   background: var(--pine);
-  color: #fbf8ec;
+  color: var(--on-pine);
 }
 
 .hero-inner {
@@ -23,7 +23,7 @@
 }
 
 .hero .eyebrow {
-  color: #d5e2ca;
+  color: var(--on-pine-muted);
   font-size: 10px;
   letter-spacing: 0.18em;
 }
@@ -49,7 +49,7 @@
 .hero-explainer {
   max-width: 397px;
   margin: 16px 0 26px;
-  color: #ceded1;
+  color: var(--on-pine-muted);
   font-size: 14px;
   line-height: 1.75;
 }
@@ -58,7 +58,7 @@
   display: flex;
   gap: 10px;
   margin-top: 20px;
-  color: #bcd3c4;
+  color: var(--on-pine-subtle);
   font-size: 10px;
 }
 
@@ -76,9 +76,9 @@
 }
 
 .landscape-hero {
-  border: 1px solid #acc7a85c;
+  border: 1px solid var(--on-pine-line);
   border-radius: 24px;
-  box-shadow: 0 18px 50px #062b2855;
+  box-shadow: 0 18px 50px var(--scrim);
   rotate: -2deg;
 }
 
@@ -89,8 +89,8 @@
   padding: 16px 25px;
   border-radius: 3px;
   background: var(--yellow);
-  box-shadow: 0 9px 25px #103b3a35;
-  color: var(--pine);
+  box-shadow: 0 9px 25px var(--shadow-card);
+  color: var(--on-yellow);
   font-size: 18px;
   font-weight: 750;
   letter-spacing: -0.025em;
@@ -109,8 +109,8 @@
   gap: 45px;
   align-items: center;
   padding-block: 17px;
-  border-top: 1px solid #8aad971f;
-  color: #d1decf;
+  border-top: 1px solid var(--on-pine-line);
+  color: var(--on-pine-muted);
   font-size: 11px;
 
   @include page-gutters;

@@ -21,7 +21,7 @@
   align-items: stretch;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
-  background: #f7f7f0f2;
+  background: color-mix(in srgb, var(--page) 95%, transparent);
   backdrop-filter: blur(12px);
 
   @include page-gutters;
@@ -40,7 +40,7 @@
   min-height: 66px;
   padding: 8px 3px 5px;
   border-bottom: 3px solid transparent;
-  color: #66766d;
+  color: var(--text-muted);
   font-size: 12px;
   font-weight: 650;
   text-decoration: none;
@@ -53,13 +53,13 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #e8ebe1;
+  background: var(--surface-hover);
   font-size: 11px;
 }
 
 .chapter-nav a.active {
-  border-bottom-color: var(--pine);
-  color: var(--pine);
+  border-bottom-color: var(--pine-text);
+  color: var(--pine-text);
 }
 
 .chapter-nav a.active > span {

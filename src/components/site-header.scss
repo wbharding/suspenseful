@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   height: var(--header);
-  border-bottom: 1px solid #e1e5db;
+  border-bottom: 1px solid var(--border-subtle);
   background: var(--paper);
 
   @include page-gutters;

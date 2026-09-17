@@ -7,8 +7,8 @@
   align-items: center;
   max-height: 490px;
   overflow: hidden;
-  background: $color-pine;
-  color: #fff9e3;
+  background: var(--pine);
+  color: var(--on-pine);
 }
 
 .closing-art {
@@ -35,7 +35,7 @@
 
 .closing-copy > .eyebrow {
   margin-bottom: 19px;
-  color: #bbd59c;
+  color: var(--on-pine-subtle);
   font-size: 9px;
 }
 
@@ -51,7 +51,7 @@
 
 .closing-copy > p:not(.eyebrow) {
   margin-top: 17px;
-  color: #c1d9c5;
+  color: var(--on-pine-muted);
   font-size: 12px;
   line-height: 1.7;
 }
@@ -98,7 +98,7 @@
 
 .privacy-note {
   padding-left: 24px;
-  border-left: 1px solid #d6ddce;
+  border-left: 1px solid var(--border);
   font-size: 9px;
   line-height: 1.7;
 }

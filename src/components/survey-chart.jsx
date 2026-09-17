@@ -81,7 +81,7 @@ export default function SurveyChart() {
               return (
                 <g key={question.id} opacity={isActive ? "1" : ".48"}>
                   <text
-                    fill="#556959"
+                    fill="var(--chart-axis)"
                     fontSize="11"
                     x={compact ? left : 0}
                     y={compact ? y - 15 : y + 4}
@@ -90,27 +90,27 @@ export default function SurveyChart() {
                   </text>
                   <path
                     d={`M${left} ${y}H${chartWidth - right}`}
-                    stroke="#e1e3d7"
+                    stroke="var(--chart-grid)"
                     strokeLinecap="round"
                     strokeWidth="7"
                   />
                   <path
                     d={`M${xFor(question.median)} ${y}H${xFor(question.mean)}`}
-                    stroke="#c99982"
+                    stroke="var(--accent-red-border)"
                     strokeWidth="3"
                   />
                   <circle
                     cx={xFor(question.median)}
                     cy={y}
-                    fill="#b26356"
+                    fill="var(--accent-red)"
                     r="6"
-                    stroke="#fffefa"
+                    stroke="var(--surface)"
                     strokeWidth="1.5"
                   />
                   <path
                     d={`m${xFor(question.mean)} ${y - 6} 6 6-6 6-6-6Z`}
-                    fill="#fffefa"
-                    stroke="#244e48"
+                    fill="var(--surface)"
+                    stroke="var(--text)"
                     strokeWidth="2"
                   />
                 </g>
@@ -118,7 +118,7 @@ export default function SurveyChart() {
             })}
             {[ 0, 25, 50, 75, 100 ].map((tick) => (
               <text
-                fill="#748572"
+                fill="var(--chart-axis)"
                 fontSize="10"
                 key={tick}
                 textAnchor="middle"

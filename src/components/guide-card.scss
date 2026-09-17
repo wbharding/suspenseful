@@ -62,8 +62,8 @@
   align-items: center;
   padding: 4px 8px;
   border-radius: 5px;
-  background: #e7f0e8;
-  color: #345e46;
+  background: var(--surface-hover);
+  color: var(--accent-green);
   font-size: 9px;
   font-weight: 650;
   letter-spacing: 0.015em;
@@ -74,18 +74,18 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #3a865c;
+  background: var(--accent-green);
 }
 
 .tag-neutral {
-  background: #efefe7;
-  color: #657064;
+  background: var(--surface-sunken);
+  color: var(--text-muted);
 }
 
 .tag-illustration {
   margin-top: 13px;
-  background: #fbf0db;
-  color: #82632a;
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
 }
 
 .card-footer {
@@ -96,7 +96,7 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: 15px;
-  border-top: 1px solid #e6eadf;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .source-link {
@@ -125,8 +125,8 @@
   margin: 17px 0;
   padding: 12px 14px;
   border-radius: 10px;
-  background: #eef3ed;
-  color: #526858;
+  background: var(--surface-sunken);
+  color: var(--text-muted);
   font-size: 11px;
   line-height: 1.6;
 }
@@ -159,7 +159,7 @@
   width: 35px;
   height: 35px;
   border-radius: 10px;
-  background: #fffefa80;
+  background: color-mix(in srgb, var(--surface) 50%, transparent);
 }
 
 .note-strip {
@@ -170,7 +170,7 @@
   padding: 15px 18px;
   border-radius: 10px;
   background: var(--section-soft);
-  color: #765148;
+  color: var(--accent-red);
   font-size: 12px;
 }
 

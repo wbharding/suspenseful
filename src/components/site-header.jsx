@@ -3,10 +3,11 @@ import BrandWordmark from "./brand-wordmark.jsx";
 import FieldIcon from "./field-icon.jsx";
 import "./site-header.scss";
 
-// Fixed-height masthead. The three controls are the ones a reader may want at any point in the
-// page: the evidence library, the motion switch, and their own saved plan.
+// Fixed-height masthead. The four controls are the ones a reader may want at any point in the
+// page: the evidence library, the theme and motion switches, and their own saved plan.
 export default function SiteHeader() {
-  const { planCount, reducedMotion, openDialog, toggleReducedMotion } = useGuideStore();
+  const { planCount, reducedMotion, theme, openDialog, toggleReducedMotion, toggleTheme } =
+    useGuideStore();
 
   return (
     <header className="site-header">
@@ -20,6 +21,16 @@ export default function SiteHeader() {
         >
           <FieldIcon name="book" />
           <span>Sources &amp; notes</span>
+        </button>
+
+        <button
+          aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          aria-pressed={theme === "dark"}
+          className="icon-btn"
+          onClick={toggleTheme}
+          type="button"
+        >
+          <FieldIcon name="bulb" />
         </button>
 
         <button

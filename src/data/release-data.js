@@ -146,24 +146,25 @@ export const modelReleases = [
   }),
 ];
 
-// Provider colours for the timeline blocks and filter chips.
+// Provider colours for the timeline blocks and filter chips. These resolve through the theme's
+// provider tokens rather than naming a hex, so each lab keeps a distinct identity in both themes.
 export const providerColors = {
-  Anthropic: "#c06b45",
-  OpenAI: "#25756b",
-  Google: "#497fac",
-  xAI: "#6d6c9d",
-  Meta: "#5a7a9a",
-  "Z.ai": "#9a5e87",
-  DeepSeek: "#b59732",
+  Anthropic: "var(--provider-anthropic)",
+  OpenAI: "var(--provider-openai)",
+  Google: "var(--provider-google)",
+  xAI: "var(--provider-xai)",
+  Meta: "var(--provider-meta)",
+  "Z.ai": "var(--provider-zai)",
+  DeepSeek: "var(--provider-deepseek)",
 };
 
 // Stable chip order, matching the catalog’s lab list rather than first-seen date.
 export const releaseProviders = [ "Anthropic", "OpenAI", "Google", "xAI", "Meta", "Z.ai", "DeepSeek" ];
 
 // @param {string} provider
-// @returns {string} hex colour, with a neutral fallback for an unlisted provider
+// @returns {string} CSS colour value, with a neutral fallback for an unlisted provider
 export function providerColor(provider) {
-  return providerColors[provider] || "#65756b";
+  return providerColors[provider] || "var(--provider-unknown)";
 }
 
 // CSS class that sets `--provider` from the stylesheet, which is required under a
