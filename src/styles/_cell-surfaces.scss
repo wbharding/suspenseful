@@ -722,74 +722,130 @@
   margin-top:15px;
   flex-wrap:wrap
 }
-.risk-tabs {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin:23px 0 15px
+.risk-bands {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  margin:23px 0 13px;
+  list-style:none;
+  padding:0
 }
-.risk-tab {
+.risk-band {
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:13px;
+  width:100%;
   text-align:left;
-  border:1px solid var(--accent-red-border);
+  padding:11px 13px;
+  border-radius:11px;
+  border:1px solid transparent;
+  background:var(--band-soft);
+  transition:transform .15s ease,box-shadow .15s ease
+}
+.risk-band-art {
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:47px;
+  height:47px;
   border-radius:9px;
+  background:var(--band-tint);
+  color:var(--band-ink)
+}
+.risk-band-art>.icon {
+  width:25px;
+  height:25px
+}
+.risk-band-text {
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0
+}
+.risk-band-text>strong {
+  font-size:14px;
+  letter-spacing:-.01em;
+  line-height:1.3;
+  color:var(--band-ink)
+}
+.risk-band-summary {
   font-size:11px;
-  font-weight:650;
-  background:var(--accent-red-soft);
-  padding:12px 10px;
-  min-height:51px
+  line-height:1.45;
+  color:var(--text-muted)
 }
-.risk-tab>.icon:first-child {
-  width:21px;
-  height:21px;
-  color:var(--accent-red)
-}
-.risk-tab>.icon:last-child {
-  width:13px;
-  height:13px;
+.risk-band>.icon:last-child {
+  width:14px;
+  height:14px;
   margin-left:auto;
-  opacity:.5
+  flex:none;
+  opacity:.45;
+  color:var(--band-ink)
 }
-.risk-tab:nth-child(2) {
-  background:var(--accent-red-soft)
+.risk-band:hover {
+  transform:translateY(-2px);
+  box-shadow:0 3px 12px #0000001f
 }
-.risk-tab:nth-child(3) {
-  background:var(--accent-violet)
+.risk-band:hover>.icon:last-child {
+  opacity:.9
 }
-.risk-tab:nth-child(4) {
-  background:var(--border-subtle)
+// The four bands run warm to cold, echoing the printed original. Ordering is a spectrum of
+// character, not a probability ranking — the darkening is a reading cue, not a severity scale.
+.risk-band.tone-jobs {
+  --band-soft:var(--accent-amber-soft);
+  --band-tint:var(--accent-amber-border);
+  --band-ink:var(--accent-amber)
 }
-.risk-tab.active {
-  border-color:var(--accent-red);
-  box-shadow:inset 0 0 0 1px var(--accent-red)
+.risk-band.tone-misuse {
+  --band-soft:var(--accent-red-soft);
+  --band-tint:var(--accent-red-border);
+  --band-ink:var(--accent-red)
 }
-.risk-tab:hover {
-  transform:translateY(-2px)
+.risk-band.tone-power {
+  --band-soft:var(--surface-sunken);
+  --band-tint:var(--border-strong);
+  --band-ink:var(--accent-violet)
 }
-.risk-detail {
-  border-top:1px solid var(--accent-red-border);
-  padding-top:14px
+.risk-band.tone-control {
+  --band-soft:var(--pine);
+  --band-tint:var(--on-pine-line);
+  --band-ink:var(--on-pine)
 }
-.risk-detail h4 {
-  font-size:17px;
-  letter-spacing:-.02em;
-  line-height:1.4
+.risk-band.tone-control .risk-band-summary {
+  color:var(--on-pine-muted)
 }
-.risk-detail p {
+.risk-bands-note {
+  font-size:10px;
+  color:var(--text-subtle);
+  text-align:center;
+  line-height:1.5
+}
+.risk-explainer {
+  border-left:3px solid var(--band-ink,var(--accent-red));
+  padding-left:15px;
+  margin:19px 0
+}
+.risk-explainer-label {
+  display:inline-block;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--text-subtle);
+  margin-bottom:9px
+}
+.risk-explainer blockquote {
+  font-size:15px;
+  line-height:1.6;
+  margin:0 0 13px;
+  color:var(--text)
+}
+.risk-explainer-attribution {
   font-size:11px;
-  color:var(--muted);
-  line-height:1.65;
-  margin-top:7px
+  color:var(--text-muted)
 }
-.risk-detail .risk-response {
-  color:var(--accent-red);
-  font-weight:650;
-  font-size:10px
-}
-.risk-detail .source-link {
-  margin-top:10px
+.risk-explainer-attribution a {
+  color:var(--text);
+  font-weight:650
 }
 .quote-grid {
   display:grid;
@@ -2245,16 +2301,23 @@ td a {
   .span-6 .card-top .eyebrow {
     font-size:8px
   }
-  .risk-tabs {
-    grid-template-columns:1fr
-  }
-  .risk-tab {
+  .risk-band {
     padding:9px 10px;
-    min-height:40px
+    gap:10px
   }
-  .risk-tab>.icon:first-child {
-    width:17px;
-    height:17px
+  .risk-band-art {
+    width:38px;
+    height:38px
+  }
+  .risk-band-art>.icon {
+    width:20px;
+    height:20px
+  }
+  .risk-band-text>strong {
+    font-size:12px
+  }
+  .risk-band-summary {
+    font-size:10px
   }
   .race-controls {
     align-items:flex-start;
@@ -3041,29 +3104,23 @@ td a {
     font-size:9px;
     gap:6px
   }
-  .risk-tabs {
-    grid-template-columns:1fr 1fr;
-    gap:8px;
+  .risk-bands {
+    gap:6px;
     margin-top:21px
   }
-  .risk-tab {
-    font-size:10px;
-    min-height:52px;
-    gap:7px;
+  .risk-band {
+    gap:11px;
     padding:10px
   }
-  .risk-tab>.icon:first-child {
-    width:19px;
-    height:19px
+  .risk-band-art {
+    width:42px;
+    height:42px
   }
-  .risk-tab>.icon:last-child {
+  .risk-band>.icon:last-child {
     display:none
   }
-  .risk-detail h4 {
-    font-size:17px
-  }
-  .risk-detail p {
-    font-size:11px
+  .risk-explainer blockquote {
+    font-size:14px
   }
   .quote-grid {
     grid-template-columns:1fr;
@@ -3621,9 +3678,8 @@ td a {
   .hero-sticker {
     font-size:13px
   }
-  .risk-tab {
-    font-size:9px;
-    padding:9px
+  .risk-band-text>strong {
+    font-size:12px
   }
   .survey-callout>strong {
     font-size:58px

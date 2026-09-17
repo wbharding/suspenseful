@@ -125,6 +125,14 @@ export const sourceRegistry = {
     type: "Recommendation / scenario",
     note: "A proposal for how the world should navigate superintelligence, explicitly not a prediction of what will happen. Included as one substantial coordination proposal, not as a consensus plan."
   },
+  kokotajlo: {
+    title: "Daniel Kokotajlo on AI 2040 and Plan A",
+    publisher: "The 80,000 Hours Podcast · interviewed by Luisa Rodriguez",
+    date: "2026",
+    url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
+    type: "Interview transcript",
+    note: "Quotes are verbatim from the published transcript, where Kokotajlo canvasses five problems in reverse order; the four shown here are his numbers one, two, four and five. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. These are his forecasts and concerns, not measured probabilities, and the wider transcript is more hedged than any single excerpt. He describes the harms; he is not the source for the suggested responses beside them, and other people quoted on this page would respond differently."
+  },
   senate: {
     title: "Contacting U.S. Senators",
     publisher: "U.S. Senate",
