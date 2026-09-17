@@ -20,7 +20,10 @@ export default function BuilderQuotes() {
             type="button"
           >
             <div className="quote-person">
-              <span className="avatar">{quote.initials}</span>
+              <span className="avatar">
+                {quote.initials}
+                <img alt="" height="37" src={quote.avatar} width="33" />
+              </span>
               <span>
                 <strong>{quote.name}</strong>
                 <small>{quote.company}</small>
