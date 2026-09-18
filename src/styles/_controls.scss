@@ -93,22 +93,6 @@
   }
 }
 
-.btn.play-spark:not(.is-playing)::after {
-  position: absolute;
-  inset: -6px;
-  border: 2px dashed color-mix(in srgb, var(--yellow) 80%, var(--accent-amber));
-  border-radius: 14px;
-  animation: play-spark-spin 8s linear infinite;
-  content: "";
-  pointer-events: none;
-}
-
-@keyframes play-spark-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .btn.small {
   gap: 7px;
   min-height: 38px;
