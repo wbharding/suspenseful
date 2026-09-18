@@ -29,7 +29,7 @@ export default function RisksChapter() {
 
       <GuideCard
         cellId="2B"
-        deck="Explore the spectrum. Higher placement does not imply a known probability or an inevitable sequence."
+        deck="Five harms. Spin the jewel, or jump by year. Higher placement does not imply a known probability or an inevitable sequence."
         eyebrow="THE RISK LANDSCAPE"
         span="span-6"
         title="Different harms. Different responses."

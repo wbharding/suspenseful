@@ -1,4 +1,6 @@
 import useScrollProgress from "../hooks/use-scroll-progress.js";
+import usePathname from "../hooks/use-pathname.js";
+import { pathIsChoices } from "../lib/navigate.js";
 import { GuideStoreProvider } from "../state/guide-store.jsx";
 import ActionsChapter from "./actions-chapter.jsx";
 import { dialogViews as actionsDialogViews } from "./actions-dialogs.js";
@@ -6,6 +8,7 @@ import ChapterNav, { ReadingProgress } from "./chapter-nav.jsx";
 import ClosingBand, { SiteFooter } from "./closing-band.jsx";
 import DetailDialog from "./detail-dialog.jsx";
 import HeroBanner from "./hero-banner.jsx";
+import PolicyPage from "./policy-page.jsx";
 import PressureChapter from "./pressure-chapter.jsx";
 import { dialogViews as pressureDialogViews } from "./pressure-dialogs.js";
 import RisksChapter from "./risks-chapter.jsx";
@@ -33,7 +36,24 @@ const DIALOG_VIEWS = {
 };
 
 function FieldGuideLayout() {
+  const pathname = usePathname();
+  const isChoices = pathIsChoices(pathname);
   const { progressPercent, activeChapterId } = useScrollProgress(CHAPTERS.map((one) => one.id));
+
+  if (isChoices) {
+    return (
+      <>
+        <a className="skip-link" href="#main">
+          Skip to the choices
+        </a>
+        <SiteHeader />
+        <PolicyPage />
+        <SiteFooter />
+        <DetailDialog views={DIALOG_VIEWS} />
+        <ToastMessage />
+      </>
+    );
+  }
 
   return (
     <>

@@ -1,0 +1,75 @@
+.race-dial {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-sunken);
+}
+
+.dial-face {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.dial-face svg {
+  width: 150px;
+  height: auto;
+}
+
+.dial-face strong {
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.dial-face small {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.dial-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dial-slider input {
+  width: 100%;
+}
+
+.dial-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.dial-labels button {
+  padding: 6px 4px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dial-labels button.is-active {
+  color: var(--accent-red);
+}
+
+.race-dial-note {
+  max-width: 280px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media (max-width: 620px) {
+  .race-dial {
+    grid-template-columns: 1fr;
+  }
+}

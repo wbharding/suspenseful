@@ -131,7 +131,7 @@ export const sourceRegistry = {
     date: "2026",
     url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
     type: "Interview transcript",
-    note: "Quotes are verbatim from the published transcript, where Kokotajlo canvasses five problems in reverse order; the four shown here are his numbers one, two, four and five. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. These are his forecasts and concerns, not measured probabilities, and the wider transcript is more hedged than any single excerpt. He describes the harms; he is not the source for the suggested responses beside them, and other people quoted on this page would respond differently."
+    note: "Quotes are verbatim from the published transcript, where Kokotajlo canvasses five problems in reverse order. All five appear on this page. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. These are his forecasts and concerns, not measured probabilities, and the wider transcript is more hedged than any single excerpt. He describes the harms; he is not the source for the suggested responses beside them, and other people quoted on this page would respond differently."
   },
   senate: {
     title: "Contacting U.S. Senators",
@@ -228,6 +228,38 @@ export const sourceRegistry = {
     url: "https://www.anthropic.com/news/claude-opus-5",
     type: "Official release announcement",
     note: "Used for the named model’s announcement date only. The timeline does not count every model, variant or product update."
+  },
+  alphago: {
+    title: "AlphaGo",
+    publisher: "Google DeepMind",
+    date: "January–March 2016",
+    url: "https://deepmind.google/research/breakthroughs/alphago/",
+    type: "Research announcement",
+    note: "DeepMind described professional Go as a grand challenge widely expected to remain out of reach for at least a decade. Fan Hui’s ‘another ten years’ remark is contemporaneous reporting of that same surprise, not a formal forecast survey."
+  },
+  alphafold: {
+    title: "Highly accurate protein structure prediction with AlphaFold",
+    publisher: "Nature / DeepMind",
+    date: "November 30, 2020",
+    url: "https://www.nature.com/articles/s41586-021-03819-2",
+    type: "Research paper",
+    note: "DeepMind and CASP framed protein-structure prediction as a 50-year grand challenge. ‘The problem is solved’ is John Moult’s contemporaneous assessment of CASP14, not a claim that every related biological question is closed."
+  },
+  superglue: {
+    title: "SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding Systems",
+    publisher: "NeurIPS",
+    date: "2019",
+    url: "https://arxiv.org/abs/1905.00537",
+    type: "Benchmark paper",
+    note: "SuperGLUE was introduced because GLUE had already been saturated. The later saturation of SuperGLUE itself is the graveyard point; the paper is the source for why a ‘harder’ successor was needed so soon."
+  },
+  "expert-survey-2022": {
+    title: "2022 Expert Survey on Progress in AI",
+    publisher: "AI Impacts · Grace et al.",
+    date: "2022",
+    url: "https://wiki.aiimpacts.org/doku.php?id=ai_timelines:predictions_of_human-level_ai_timelines:ai_timeline_surveys:2022_expert_survey_on_progress_in_ai",
+    type: "Expert survey",
+    note: "Aggregate expert forecasts, not a single person’s bet. Task-level questions (including high-school contest mathematics) had later medians than the years in which gold-level IMO systems were later reported. Surveys are snapshots of belief, not clocks."
   }
 };
 

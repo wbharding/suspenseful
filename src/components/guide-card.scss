@@ -30,13 +30,13 @@
   border: 1px solid color-mix(in srgb, var(--section-color) 12%, transparent);
   border-radius: 5px;
   background: var(--section-soft);
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 750;
   letter-spacing: 0.015em;
 }
 
 .card-top .eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 0.12em;
 }
 
@@ -44,7 +44,7 @@
   max-width: 820px;
   margin-top: 12px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
@@ -64,7 +64,7 @@
   border-radius: 5px;
   background: var(--surface-hover);
   color: var(--accent-green);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 650;
   letter-spacing: 0.015em;
   line-height: 1.6;
@@ -105,7 +105,7 @@
   align-items: center;
   padding: 4px 0;
   color: var(--section-color);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 650;
   line-height: 1.5;
   text-align: left;
@@ -127,7 +127,7 @@
   border-radius: 10px;
   background: var(--surface-sunken);
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -135,7 +135,7 @@
   display: block;
   margin-bottom: 2px;
   color: var(--ink);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .insight {
@@ -171,7 +171,7 @@
   border-radius: 10px;
   background: var(--section-soft);
   color: var(--accent-red);
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .note-strip .icon {

@@ -3,21 +3,32 @@ import useGuideStore from "../hooks/use-guide-store.js";
 import usePauseSignal from "../hooks/use-pause-signal.js";
 import FieldIcon from "./field-icon.jsx";
 import RaceCarMark from "./race-car-mark.jsx";
+import "./race-illustration.scss";
 
 const LANES = [ "AI labs", "Companies", "Nations", "Startups" ];
 const BIAS = [ 0.1, -0.08, 0.17, -0.15 ];
 const CAR_WIDTH = 48;
 
+const DIAL_STOPS = [
+  { id: "myth", label: "Myth", hint: "It cannot happen.", speed: 1.65, gate: false },
+  { id: "fable", label: "Fable", hint: "A tale for other people.", speed: 1.25, gate: false },
+  { id: "omen", label: "Omen", hint: "The sky is trying to speak.", speed: 1, gate: false },
+  { id: "oracle", label: "Oracle", hint: "The warning has a source.", speed: 0.7, gate: true },
+  { id: "fate", label: "Fate", hint: "Unless the rules change.", speed: 0.42, gate: true },
+];
+
 // Element 2A. An illustration of incentives, not a model of accident probabilities.
 export default function RaceIllustration() {
   const { reducedMotion } = useGuideStore();
   const [ playing, setPlaying ] = useState(false);
-  const [ checkpoint, setCheckpoint ] = useState(false);
+  const [ dialIndex, setDialIndex ] = useState(2);
   const [ offsets, setOffsets ] = useState([ 0, 0, 0, 0 ]);
   const [ trackWidth, setTrackWidth ] = useState(200);
   const [ message, setMessage ] = useState("Individually rational. Collectively risky.");
-
   const [ hasRun, setHasRun ] = useState(false);
+
+  const dial = DIAL_STOPS[dialIndex];
+  const checkpoint = dial.gate;
 
   const lanesRef = useRef(null);
   const trackRefs = useRef([]);
@@ -26,13 +37,15 @@ export default function RaceIllustration() {
   const lastRef = useRef(0);
   const lastPaintRef = useRef(0);
   const frameRef = useRef(0);
-  const checkpointRef = useRef(false);
+  const checkpointRef = useRef(checkpoint);
+  const speedRef = useRef(dial.speed);
   const reducedRef = useRef(reducedMotion);
   const tickRef = useRef(null);
 
   useEffect(() => {
     checkpointRef.current = checkpoint;
-  }, [ checkpoint ]);
+    speedRef.current = dial.speed;
+  }, [ checkpoint, dial.speed ]);
 
   useEffect(() => {
     reducedRef.current = reducedMotion;
@@ -84,7 +97,7 @@ export default function RaceIllustration() {
   useEffect(() => {
     tickRef.current = (now) => {
       if (!playingRef.current) return;
-      elapsedRef.current += Math.min(120, now - lastRef.current);
+      elapsedRef.current += Math.min(120, now - lastRef.current) * speedRef.current;
       lastRef.current = now;
       if (now - lastPaintRef.current > (reducedRef.current ? 500 : 30)) {
         setOffsets(measureOffsets(elapsedRef.current, checkpointRef.current));
@@ -121,19 +134,17 @@ export default function RaceIllustration() {
     frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
   }
 
-  function handleCheckpoint(checked) {
-    setCheckpoint(checked);
+  function handleDial(index) {
+    const next = DIAL_STOPS[index];
+    setDialIndex(index);
     elapsedRef.current = 0;
     setHasRun(false);
-    setOffsets(measureOffsets(0, checked));
-    setMessage(
-      checked
-        ? "One checkpoint, shared across lanes. Press play to see the difference."
-        : "Individually rational. Collectively risky.",
-    );
+    setOffsets(measureOffsets(0, next.gate));
+    setMessage(`${next.label}: ${next.hint} Press play to see the difference.`);
   }
 
   const playLabel = playing ? "Pause the race" : hasRun ? "Run again" : "Run the race";
+  const dialAngle = -120 + (dialIndex / (DIAL_STOPS.length - 1)) * 240;
 
   return (
     <>
@@ -173,20 +184,64 @@ export default function RaceIllustration() {
           </div>
         </div>
       </div>
+
+      <div className="race-dial" role="group" aria-label="How seriously the field treats the risk">
+        <div className="dial-face">
+          <svg aria-hidden="true" viewBox="0 0 160 120">
+            <path d="M20 96 A60 60 0 1 1 140 96" fill="none" stroke="var(--border-strong)" strokeWidth="10" />
+            <line
+              stroke="var(--accent-red)"
+              strokeLinecap="round"
+              strokeWidth="4"
+              transform={`rotate(${dialAngle} 80 96)`}
+              x1="80"
+              x2="80"
+              y1="96"
+              y2="42"
+            />
+            <circle cx="80" cy="96" fill="var(--text)" r="6" />
+          </svg>
+          <strong>{dial.label}</strong>
+          <small>{dial.hint}</small>
+        </div>
+        <label className="dial-slider">
+          <span className="eyebrow">Arcane setting</span>
+          <input
+            aria-valuetext={dial.label}
+            max={DIAL_STOPS.length - 1}
+            min="0"
+            onChange={(event) => handleDial(Number(event.target.value))}
+            step="1"
+            type="range"
+            value={dialIndex}
+          />
+          <span className="dial-labels">
+            {DIAL_STOPS.map((stop) => (
+              <button
+                className={stop.id === dial.id ? "is-active" : ""}
+                key={stop.id}
+                onClick={() => handleDial(DIAL_STOPS.indexOf(stop))}
+                type="button"
+              >
+                {stop.label}
+              </button>
+            ))}
+          </span>
+        </label>
+      </div>
+
       <div className="race-controls">
-        <button className="btn small primary" onClick={handleToggleRace} type="button">
+        <button
+          className={`btn play-spark${playing ? " is-playing" : ""}`}
+          onClick={handleToggleRace}
+          type="button"
+        >
           <FieldIcon name={playing ? "pause" : "play"} />
           {playLabel}
         </button>
-        <label className="switch-label">
-          <input
-            checked={checkpoint}
-            onChange={(event) => handleCheckpoint(event.target.checked)}
-            type="checkbox"
-          />
-          <span className="switch-track" />
-          Shared checkpoint
-        </label>
+        <p className="race-dial-note">
+          {checkpoint ? "The dial has raised a shared checkpoint." : "No shared gate while the risk is still a story."}
+        </p>
       </div>
       <p aria-live="polite" className="demo-message">
         {message}

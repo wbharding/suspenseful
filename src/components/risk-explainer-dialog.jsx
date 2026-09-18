@@ -18,10 +18,12 @@ export default function RiskExplainerDialog({ index = 0 }) {
 
   return (
     <>
-      <DialogHeading title={risk.title}>{lede}</DialogHeading>
+      <DialogHeading title={risk.title}>
+        {risk.year}. {lede}
+      </DialogHeading>
 
       <div className={`risk-explainer tone-${risk.tone}`}>
-        <span className="risk-explainer-label">{label}</span>
+        <span className="risk-explainer-label">{risk.year} · {label}</span>
         {quotes.map((quote) => (
           <blockquote key={quote.slice(0, 40)}>{quote}</blockquote>
         ))}

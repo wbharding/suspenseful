@@ -34,11 +34,11 @@
   min-height:61px
 }
 .chart-selected strong {
-  font-size:13px;
+  font-size:16px;
   display:block
 }
 .chart-selected small {
-  font-size:9px;
+  font-size:13px;
   color:var(--muted)
 }
 .chart-selected .selected-horizon {
@@ -51,7 +51,7 @@
 .chart-selected .selected-horizon small {
   display:block;
   text-align:right;
-  font-size:9px;
+  font-size:13px;
   letter-spacing:0;
   font-weight:500
 }
@@ -60,12 +60,12 @@
   align-items:center;
   justify-content:space-between;
   gap:15px;
-  font-size:10px;
+  font-size:15px;
   color:var(--muted);
   padding-top:11px
 }
 .select-model select {
-  font-size:11px;
+  font-size:15px;
   padding:5px 8px;
   max-width:68%
 }
@@ -130,10 +130,10 @@
   background:var(--accent-violet)
 }
 .safety-tile strong {
-  font-size:12px
+  font-size:16px
 }
 .safety-tile>span:not(.tile-illustration) {
-  font-size:10px;
+  font-size:15px;
   color:var(--muted);
   line-height:1.5;
   margin-top:4px
@@ -165,14 +165,17 @@
 .playback-controls {
   display:flex;
   align-items:center;
-  gap:7px
+  gap:10px
+}
+.playback-controls .btn.play-spark {
+  min-height:56px
 }
 .playback-controls .icon-btn {
   height:39px;
   min-width:39px
 }
 .playback-controls .btn.primary {
-  font-size:12px;
+  font-size:16px;
   min-height:39px;
   padding:10px 13px
 }
@@ -189,7 +192,7 @@
   align-items:center;
   gap:5px;
   padding:5px 7px;
-  font-size:9px;
+  font-size:13px;
   background:var(--surface-sunken);
   color:var(--text-subtle);
   opacity:.65
@@ -230,7 +233,7 @@
   overflow:visible
 }
 .year-label {
-  font-size:11px;
+  font-size:15px;
   font-weight:750;
   padding-top:2px
 }
@@ -247,7 +250,7 @@
   flex-direction:column
 }
 .month-name {
-  font-size:8px;
+  font-size:13px;
   color:var(--text-muted);
   display:block;
   text-align:center;
@@ -321,7 +324,7 @@
   border-radius:4px;
   background:var(--text);
   color:var(--accent-amber-soft);
-  font-size:9px;
+  font-size:13px;
   font-weight:650;
   line-height:1.35;
   letter-spacing:0;
@@ -331,7 +334,7 @@
 }
 .release-events:empty:after {
   content:"·";
-  font-size:12px;
+  font-size:16px;
   line-height:38px;
   color:var(--border-strong);
   align-self:center
@@ -349,7 +352,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  font-size:10px;
+  font-size:15px;
   font-weight:600;
   margin:19px 0 3px
 }
@@ -358,7 +361,7 @@
   background:var(--surface-hover);
   padding:2px 7px;
   border-radius:4px;
-  font-size:10px
+  font-size:15px
 }
 .scrubber {
   width:100%;
@@ -369,7 +372,7 @@
 .timeline-caption {
   display:flex;
   justify-content:space-between;
-  font-size:9px;
+  font-size:13px;
   color:var(--muted);
   margin-bottom:12px
 }
@@ -392,7 +395,7 @@
   align-self:start
 }
 .stage-eyebrow {
-  font-size:9px;
+  font-size:13px;
   font-weight:750;
   letter-spacing:.15em;
   color:var(--accent-amber);
@@ -422,12 +425,12 @@
 }
 .pop-count>span {
   max-width:91px;
-  font-size:10px;
+  font-size:15px;
   color:var(--accent-amber);
   line-height:1.45
 }
 .now-playing {
-  font-size:10px;
+  font-size:15px;
   text-align:center;
   min-height:62px;
   display:flex;
@@ -442,7 +445,7 @@
   max-width:190px
 }
 .now-playing>small {
-  font-size:9px;
+  font-size:13px;
   color:var(--accent-amber);
   margin-top:3px
 }
@@ -451,7 +454,7 @@
   border-top:1px solid var(--accent-amber-border);
   padding-top:11px;
   color:var(--accent-amber);
-  font-size:9px;
+  font-size:13px;
   width:100%
 }
 #pop-particles {
@@ -554,7 +557,7 @@
   margin-top:4px
 }
 .demo-buttons .btn.small {
-  font-size:11px
+  font-size:15px
 }
 .commitment-diagram {
   display:flex;
@@ -571,7 +574,7 @@
   flex-direction:column;
   align-items:center;
   text-align:center;
-  font-size:10px;
+  font-size:15px;
   line-height:1.4;
   gap:9px
 }
@@ -595,7 +598,7 @@
   border-left:2px solid var(--border)
 }
 .pullquote small {
-  font-size:10px;
+  font-size:15px;
   color:var(--muted);
   font-weight:400;
   letter-spacing:0;
@@ -618,7 +621,7 @@
   background:var(--border-subtle);
   border-bottom:1px solid var(--border);
   padding:9px 13px;
-  font-size:11px;
+  font-size:15px;
   font-style:italic;
   color:var(--text-muted)
 }
@@ -638,7 +641,7 @@
   overflow:hidden
 }
 .race-lane>span {
-  font-size:9px;
+  font-size:13px;
   font-weight:650;
   min-width:76px;
   padding-left:12px
@@ -700,7 +703,7 @@
   left:50%;
   top:61px;
   transform:translateX(-50%);
-  font-size:7px;
+  font-size:13px;
   font-weight:800;
   line-height:1.3;
   background:var(--text);
@@ -769,7 +772,7 @@
   color:var(--band-ink)
 }
 .risk-band-summary {
-  font-size:11px;
+  font-size:15px;
   line-height:1.45;
   color:var(--text-muted)
 }
@@ -813,8 +816,11 @@
 .risk-band.tone-control .risk-band-summary {
   color:var(--on-pine-muted)
 }
+.risk-explainer.tone-war {
+  --band-ink:#8a3b22
+}
 .risk-bands-note {
-  font-size:10px;
+  font-size:15px;
   color:var(--text-subtle);
   text-align:center;
   line-height:1.5
@@ -826,7 +832,7 @@
 }
 .risk-explainer-label {
   display:inline-block;
-  font-size:9px;
+  font-size:13px;
   font-weight:700;
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -840,7 +846,7 @@
   color:var(--text)
 }
 .risk-explainer-attribution {
-  font-size:11px;
+  font-size:15px;
   color:var(--text-muted)
 }
 .risk-explainer-attribution a {
@@ -881,7 +887,7 @@
   background:var(--border-subtle);
   display:grid;
   place-items:center;
-  font-size:11px;
+  font-size:15px;
   font-weight:750;
   color:var(--text-muted);
   flex:none;
@@ -907,15 +913,15 @@
 }
 .quote-person strong {
   display:block;
-  font-size:11px
+  font-size:15px
 }
 .quote-person small {
-  font-size:9px;
+  font-size:13px;
   color:var(--muted);
   display:block
 }
 .quote-date {
-  font-size:8px;
+  font-size:13px;
   color:var(--text-muted);
   margin-left:auto;
   align-self:flex-start;
@@ -931,13 +937,13 @@
   color:var(--text)
 }
 .quote-card p {
-  font-size:10px;
+  font-size:15px;
   line-height:1.5;
   color:var(--text-muted);
   margin-top:auto
 }
 .quote-context {
-  font-size:9px;
+  font-size:13px;
   display:flex;
   gap:5px;
   align-items:center;
@@ -962,7 +968,7 @@
 }
 .survey-callout>.eyebrow {
   color:var(--accent-red);
-  font-size:9px
+  font-size:13px
 }
 .survey-callout>strong {
   display:block;
@@ -980,7 +986,7 @@
   display:inline-block
 }
 .survey-callout>p {
-  font-size:12px;
+  font-size:16px;
   line-height:1.7;
   margin-top:6px;
   color:var(--accent-red);
@@ -992,7 +998,7 @@
   padding-top:15px;
   display:flex;
   gap:9px;
-  font-size:10px;
+  font-size:15px;
   line-height:1.55;
   color:var(--accent-red)
 }
@@ -1006,12 +1012,12 @@
 }
 .field-label {
   display:block;
-  font-size:11px;
+  font-size:15px;
   font-weight:650;
   margin-bottom:7px
 }
 .survey-interactive>select {
-  font-size:12px;
+  font-size:16px;
   width:100%;
   padding:12px;
   border-color:var(--accent-amber-border)
@@ -1025,7 +1031,7 @@
   display:block
 }
 .survey-question-copy {
-  font-size:12px;
+  font-size:16px;
   line-height:1.7;
   min-height:42px;
   color:var(--muted)
@@ -1041,14 +1047,14 @@
   font-weight:700
 }
 .survey-stat-row>div small {
-  font-size:9px;
+  font-size:13px;
   display:block;
   font-weight:500;
   color:var(--muted);
   margin-bottom:2px
 }
 .survey-stat-row>span {
-  font-size:10px;
+  font-size:15px;
   color:var(--muted);
   margin-left:auto;
   align-self:center
@@ -1056,7 +1062,7 @@
 .survey-legend {
   display:flex;
   gap:19px;
-  font-size:10px;
+  font-size:15px;
   color:var(--text-muted);
   margin:8px 0 12px
 }
@@ -1098,12 +1104,19 @@
   gap:9px
 }
 .history-art {
-  height:91px;
+  height:148px;
   display:grid;
   place-items:center;
   width:calc(100% + 18px);
-  background:radial-gradient(circle,var(--border) 35%,transparent 36%),linear-gradient(45deg,var(--surface-hover),var(--border-subtle));
+  overflow:hidden;
+  background:var(--surface-sunken);
   margin-bottom:2px
+}
+.history-art img {
+  width:100%;
+  height:148px;
+  object-fit:cover;
+  display:block
 }
 .history-art .icon {
   width:47px;
@@ -1128,11 +1141,11 @@
   color:var(--accent-green)
 }
 .history-item strong {
-  font-size:11px;
+  font-size:15px;
   line-height:1.4
 }
 .history-item>span:not(.history-art):not(.history-year) {
-  font-size:10px;
+  font-size:15px;
   line-height:1.5;
   color:var(--text-muted)
 }
@@ -1160,7 +1173,7 @@
   background:var(--accent-green);
   color:var(--yellow-hover);
   text-align:center;
-  font-size:12px;
+  font-size:16px;
   font-weight:750;
   letter-spacing:.08em;
   padding:12px
@@ -1209,11 +1222,11 @@
   color:var(--accent-green)
 }
 .checkpoint-pillar strong {
-  font-size:10px;
+  font-size:15px;
   line-height:1.4
 }
 .checkpoint-pillar small {
-  font-size:8px;
+  font-size:13px;
   line-height:1.5;
   color:var(--text-subtle);
   max-width:115px
@@ -1301,7 +1314,7 @@
   border:1px solid var(--border);
   border-radius:10px;
   padding:16px 12px;
-  font-size:11px;
+  font-size:15px;
   font-weight:650;
   line-height:1.4;
   text-align:left;
@@ -1330,14 +1343,14 @@
   max-width:610px
 }
 .workstream-detail p {
-  font-size:12px;
+  font-size:16px;
   color:var(--muted);
   line-height:1.7;
   margin-top:13px;
   max-width:630px
 }
 .deliverable {
-  font-size:11px;
+  font-size:15px;
   display:flex;
   gap:9px;
   align-items:center;
@@ -1370,7 +1383,7 @@
   color:color-mix(in srgb, var(--accent-green) 13%, transparent)
 }
 .useful-ai>.eyebrow {
-  font-size:8px;
+  font-size:13px;
   letter-spacing:.12em;
   color:var(--border-strong)
 }
@@ -1381,7 +1394,7 @@
   position:relative
 }
 .useful-ai>p {
-  font-size:11px;
+  font-size:15px;
   line-height:1.7;
   color:var(--border-strong);
   margin:13px 0 20px
@@ -1390,7 +1403,7 @@
   display:flex;
   flex-direction:column;
   gap:12px;
-  font-size:11px;
+  font-size:15px;
   color:var(--border-subtle)
 }
 .useful-ai>div>span {
@@ -1436,7 +1449,7 @@
   letter-spacing:-.025em
 }
 .policy-option small {
-  font-size:9px;
+  font-size:13px;
   color:var(--text-muted);
   line-height:1.5;
   margin-top:4px
@@ -1484,7 +1497,7 @@
   display:flex;
   justify-content:space-between;
   gap:10px;
-  font-size:8px;
+  font-size:13px;
   color:var(--text-subtle);
   letter-spacing:.1em;
   margin:12px 0 23px
@@ -1503,13 +1516,13 @@
   padding:21px 23px
 }
 .policy-detail-grid .eyebrow {
-  font-size:9px;
+  font-size:13px;
   color:var(--accent-green);
   letter-spacing:.08em;
   margin-bottom:8px
 }
 .policy-detail-grid p {
-  font-size:12px;
+  font-size:16px;
   line-height:1.7;
   color:var(--text-muted)
 }
@@ -1555,7 +1568,7 @@
   min-width:0
 }
 .action-text .text-action {
-  font-size:13px;
+  font-size:16px;
   font-weight:700;
   line-height:1.5;
   padding:0
@@ -1566,7 +1579,7 @@
   flex:none
 }
 .action-text>p {
-  font-size:11px;
+  font-size:15px;
   color:var(--text-muted);
   line-height:1.6;
   margin-top:5px;
@@ -1626,7 +1639,7 @@
   font-size:24px
 }
 .plan-card p:not(.eyebrow) {
-  font-size:11px;
+  font-size:15px;
   color:var(--text-subtle);
   max-width:650px;
   line-height:1.65;
@@ -1634,7 +1647,16 @@
 }
 .plan-card .btn {
   white-space:nowrap;
-  font-size:12px
+  font-size:16px
+}
+.plan-actions {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:none
+}
+.plan-actions .btn {
+  white-space:normal
 }
 
 /* Dialog extras: data tables, plan, forecasts, meeting draft. */
@@ -1648,7 +1670,7 @@
 table {
   width:100%;
   border-collapse:collapse;
-  font-size:11px;
+  font-size:15px;
   line-height:1.5;
   text-align:left
 }
@@ -1658,7 +1680,7 @@ thead {
   background:var(--surface-hover)
 }
 th {
-  font-size:10px;
+  font-size:15px;
   font-weight:650;
   padding:11px 12px;
   white-space:nowrap
@@ -1682,7 +1704,7 @@ td a {
   text-align:center;
   background:var(--surface-sunken);
   border-radius:12px;
-  font-size:12px;
+  font-size:16px;
   color:var(--text-subtle);
   line-height:1.75
 }
@@ -1706,14 +1728,14 @@ td a {
 }
 .field>span {
   display:block;
-  font-size:11px;
+  font-size:15px;
   font-weight:650;
   margin-bottom:7px
 }
 .field small {
   display:block;
   color:var(--text-subtle);
-  font-size:10px;
+  font-size:15px;
   margin-top:5px
 }
 .forecast-form {
@@ -1729,17 +1751,17 @@ td a {
 }
 .forecast-form textarea {
   min-height:90px;
-  font-size:12px
+  font-size:16px
 }
 .forecast-form input {
-  font-size:12px
+  font-size:16px
 }
 .local-note {
   display:flex;
   align-items:center;
   gap:9px;
   color:var(--text-subtle);
-  font-size:10px;
+  font-size:15px;
   margin:18px 0
 }
 .local-note .icon {
@@ -1773,11 +1795,11 @@ td a {
   min-width:0
 }
 .saved-plan-item strong {
-  font-size:12px;
+  font-size:16px;
   display:block
 }
 .saved-plan-item small {
-  font-size:10px;
+  font-size:15px;
   color:var(--text-subtle);
   display:block;
   margin-top:3px
@@ -1813,7 +1835,7 @@ td a {
   white-space:nowrap
 }
 .forecast-entry p {
-  font-size:11px;
+  font-size:15px;
   color:var(--text-subtle);
   line-height:1.7;
   margin-top:8px;
@@ -1821,12 +1843,12 @@ td a {
   overflow-wrap:anywhere
 }
 .forecast-entry .forecast-meta {
-  font-size:9px;
+  font-size:13px;
   color:var(--text-subtle);
   margin-top:13px
 }
 .forecast-history {
-  font-size:10px;
+  font-size:15px;
   padding:10px 0 0;
   border-top:1px solid var(--border-subtle);
   margin-top:12px;
@@ -1840,7 +1862,7 @@ td a {
   margin-top:9px
 }
 .meeting-draft {
-  font-size:12px;
+  font-size:16px;
   min-height:295px;
   line-height:1.75;
   margin-top:10px;
@@ -1867,17 +1889,17 @@ td a {
   background:var(--page)
 }
 .about-grid strong {
-  font-size:12px
+  font-size:16px
 }
 .about-grid p {
-  font-size:11px;
+  font-size:15px;
   color:var(--text-subtle);
   line-height:1.7;
   margin-top:7px
 }
 .after-source {
   margin-top:20px;
-  font-size:11px;
+  font-size:15px;
   color:var(--text-subtle)
 }
 .modal-nav {
@@ -1887,7 +1909,7 @@ td a {
 }
 .back-btn {
   margin-bottom:15px;
-  font-size:11px;
+  font-size:15px;
   color:var(--text-subtle);
   display:inline-flex;
   align-items:center;
@@ -1899,7 +1921,7 @@ td a {
   height:13px
 }
 .privacy-warning {
-  font-size:11px;
+  font-size:15px;
   background:var(--accent-amber-soft);
   padding:12px 14px;
   border-radius:8px;
@@ -1940,10 +1962,10 @@ td a {
     gap:7px
   }
   .quote-date {
-    font-size:7px
+    font-size:13px
   }
   .quote-person strong {
-    font-size:10px
+    font-size:15px
   }
   .build-layout {
     grid-template-columns:minmax(0,1fr) 265px;
@@ -1963,7 +1985,7 @@ td a {
     font-size:20px
   }
   .hero-explainer {
-    font-size:13px
+    font-size:16px
   }
   .hero-sticker {
     font-size:16px;
@@ -1988,7 +2010,7 @@ td a {
   }
   .chapter-intro {
     max-width:220px;
-    font-size:11px
+    font-size:15px
   }
   .chapter-nav>div {
     gap:15px
@@ -1997,14 +2019,14 @@ td a {
     display:none
   }
   .chapter-nav a {
-    font-size:11px
+    font-size:15px
   }
   .timeline-layout {
     grid-template-columns:minmax(0,1fr) 190px;
     gap:22px
   }
   .month-name {
-    font-size:7px
+    font-size:13px
   }
   .release-year {
     gap:8px
@@ -2030,7 +2052,7 @@ td a {
   .quote-date {
     margin-left:42px;
     margin-top:-5px;
-    font-size:7px
+    font-size:13px
   }
   .quote-card blockquote {
     font-size:18px
@@ -2058,20 +2080,20 @@ td a {
     padding:12px 5px
   }
   .checkpoint-pillar small {
-    font-size:7px
+    font-size:13px
   }
   .workstream-tabs {
     gap:7px
   }
   .workstream-tabs>button {
-    font-size:10px;
+    font-size:15px;
     padding:13px 10px
   }
   .policy-option {
     padding:15px 12px 20px
   }
   .policy-option strong {
-    font-size:13px
+    font-size:16px
   }
   .policy-dot {
     right:12px;
@@ -2085,7 +2107,7 @@ td a {
   }
   .plan-card .btn {
     padding:12px;
-    font-size:11px
+    font-size:15px
   }
   .closing-copy {
     padding:35px
@@ -2126,28 +2148,28 @@ td a {
     font-size:18px
   }
   .hero .eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .hero-explainer {
-    font-size:12px
+    font-size:16px
   }
   .hero-sticker {
-    font-size:13px;
+    font-size:16px;
     bottom:39px;
     padding:10px 15px
   }
   .hero-sticker span {
-    font-size:10px
+    font-size:15px
   }
   .hero-visual {
     align-self:center
   }
   .hero-bottom {
     padding:14px 28px;
-    font-size:10px
+    font-size:15px
   }
   .hero-bottom>span {
-    font-size:8px
+    font-size:13px
   }
   .chapter-nav {
     padding:0 24px
@@ -2158,14 +2180,14 @@ td a {
     gap:10px
   }
   .chapter-nav a {
-    font-size:10px;
+    font-size:15px;
     gap:6px;
     min-height:59px
   }
   .chapter-nav a>span {
     width:21px;
     height:21px;
-    font-size:9px
+    font-size:13px
   }
   .chapter {
     padding-top:47px
@@ -2184,11 +2206,11 @@ td a {
   }
   .chapter-intro {
     max-width:190px;
-    font-size:10px;
+    font-size:15px;
     padding-left:8px
   }
   .chapter-title .eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .span-7,.span-5 {
     grid-column:span 12
@@ -2202,10 +2224,10 @@ td a {
     padding:13px
   }
   .safety-tile strong {
-    font-size:11px
+    font-size:15px
   }
   .safety-tile>span:not(.tile-illustration) {
-    font-size:9px
+    font-size:13px
   }
   .insight {
     font-size:15px;
@@ -2219,7 +2241,7 @@ td a {
     font-size:25px
   }
   .card-deck {
-    font-size:12px
+    font-size:16px
   }
   .timeline-layout {
     grid-template-columns:minmax(0,1fr) 165px;
@@ -2229,7 +2251,7 @@ td a {
     gap:5px
   }
   .filter-chip {
-    font-size:8px;
+    font-size:13px;
     padding:4px 5px
   }
   .timeline-toolbar {
@@ -2237,7 +2259,7 @@ td a {
     align-items:flex-start
   }
   .playback-controls .btn.primary {
-    font-size:10px;
+    font-size:15px;
     padding:10px
   }
   .playback-controls .btn.primary .icon {
@@ -2245,24 +2267,24 @@ td a {
     height:15px
   }
   .playback-controls .btn.small {
-    font-size:10px;
+    font-size:15px;
     padding:9px
   }
   .timeline-toolbar .compact-select {
-    font-size:9px
+    font-size:13px
   }
   .release-year {
     grid-template-columns:30px 1fr;
     gap:5px
   }
   .year-label {
-    font-size:9px
+    font-size:13px
   }
   .months {
     gap:2px
   }
   .month-name {
-    font-size:6px
+    font-size:13px
   }
   .release-events {
     min-height:48px;
@@ -2277,7 +2299,7 @@ td a {
     width:113px
   }
   .stage-eyebrow {
-    font-size:7px
+    font-size:13px
   }
   .popcorn-stage {
     min-height:315px;
@@ -2287,19 +2309,19 @@ td a {
     font-size:31px
   }
   .pop-count>span {
-    font-size:8px
+    font-size:13px
   }
   .now-playing {
-    font-size:9px
+    font-size:13px
   }
   .now-playing small {
-    font-size:8px
+    font-size:13px
   }
   .popcorn-stage>.micro {
-    font-size:8px
+    font-size:13px
   }
   .span-6 .card-top .eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .risk-band {
     padding:9px 10px;
@@ -2314,10 +2336,10 @@ td a {
     height:20px
   }
   .risk-band-text>strong {
-    font-size:12px
+    font-size:16px
   }
   .risk-band-summary {
-    font-size:10px
+    font-size:15px
   }
   .race-controls {
     align-items:flex-start;
@@ -2325,7 +2347,7 @@ td a {
   }
   .race-lane>span {
     min-width:63px;
-    font-size:8px;
+    font-size:13px;
     padding-left:8px
   }
   .race-lanes {
@@ -2342,7 +2364,7 @@ td a {
     gap:6px
   }
   .demo-buttons .btn.small {
-    font-size:9px;
+    font-size:13px;
     padding:8px
   }
   .demo-buttons .btn .icon {
@@ -2362,7 +2384,7 @@ td a {
     height:28px
   }
   .commitment-diagram>div {
-    font-size:9px
+    font-size:13px
   }
   .pullquote {
     font-size:25px
@@ -2373,13 +2395,13 @@ td a {
   .quote-date {
     margin-top:0;
     margin-left:auto;
-    font-size:7px
+    font-size:13px
   }
   .quote-person {
     flex-wrap:nowrap
   }
   .quote-person strong {
-    font-size:10px
+    font-size:15px
   }
   .quote-card blockquote {
     font-size:18px
@@ -2399,16 +2421,16 @@ td a {
     margin-top:7px
   }
   .survey-callout>p {
-    font-size:11px
+    font-size:15px
   }
   .survey-callout>.eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .survey-interactive select {
-    font-size:11px
+    font-size:15px
   }
   .survey-question-copy {
-    font-size:11px
+    font-size:15px
   }
   .history-grid {
     gap:5px
@@ -2421,26 +2443,26 @@ td a {
     height:34px
   }
   .history-item strong {
-    font-size:9px
+    font-size:13px
   }
   .history-year {
     font-size:22px
   }
   .history-item>span:not(.history-art):not(.history-year) {
-    font-size:8px
+    font-size:13px
   }
   .checkpoint-roof {
-    font-size:10px
+    font-size:15px
   }
   .checkpoint-pillars {
     gap:5px;
     padding:8px 6px 0
   }
   .checkpoint-pillar strong {
-    font-size:8px
+    font-size:13px
   }
   .checkpoint-pillar small {
-    font-size:7px
+    font-size:13px
   }
   .pillar-icon>.icon {
     width:20px;
@@ -2477,30 +2499,30 @@ td a {
     font-size:26px
   }
   .useful-ai>p {
-    font-size:10px
+    font-size:15px
   }
   .useful-ai>div {
-    font-size:10px;
+    font-size:15px;
     gap:15px
   }
   .useful-ai>.eyebrow {
-    font-size:7px
+    font-size:13px
   }
   .policy-option strong {
-    font-size:11px
+    font-size:15px
   }
   .policy-option small {
-    font-size:8px
+    font-size:13px
   }
   .policy-detail-grid {
     padding:18px;
     gap:20px
   }
   .policy-detail-grid p {
-    font-size:11px
+    font-size:15px
   }
   .policy-detail-grid .eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .action-item {
     gap:10px;
@@ -2516,11 +2538,11 @@ td a {
     height:23px
   }
   .action-text .text-action {
-    font-size:11px;
+    font-size:15px;
     gap:4px
   }
   .action-text p {
-    font-size:10px
+    font-size:15px
   }
   .action-text .text-action>.icon {
     width:11px;
@@ -2556,7 +2578,7 @@ td a {
     font-size:29px
   }
   .closing-copy p:not(.eyebrow) {
-    font-size:10px
+    font-size:15px
   }
   .site-footer {
     flex-wrap:wrap;
@@ -2631,7 +2653,7 @@ td a {
     display:none
   }
   .header-plan>.plan-count {
-    font-size:9px;
+    font-size:13px;
     width:15px;
     min-width:15px;
     height:16px
@@ -2651,7 +2673,7 @@ td a {
     max-width:500px
   }
   .hero .eyebrow {
-    font-size:8px;
+    font-size:13px;
     letter-spacing:.15em
   }
   .hero h1 {
@@ -2663,19 +2685,19 @@ td a {
     line-height:1.35
   }
   .hero-explainer {
-    font-size:12px;
+    font-size:16px;
     max-width:360px;
     line-height:1.7;
     margin-top:12px;
     margin-bottom:20px
   }
   .hero .btn.yellow {
-    font-size:12px;
+    font-size:16px;
     padding:12px 16px;
     min-height:43px
   }
   .hero-meta {
-    font-size:9px;
+    font-size:13px;
     margin-top:14px
   }
   .hero-visual {
@@ -2694,7 +2716,7 @@ td a {
     padding:11px 17px
   }
   .hero-sticker span {
-    font-size:10px
+    font-size:15px
   }
   .hero-bottom {
     display:none
@@ -2713,13 +2735,13 @@ td a {
     justify-content:center;
     text-align:center;
     min-height:69px;
-    font-size:9px;
+    font-size:13px;
     padding:8px 4px 6px
   }
   .chapter-nav a>span {
     width:21px;
     height:21px;
-    font-size:9px
+    font-size:13px
   }
   .page-content {
     margin:0 14px
@@ -2749,7 +2771,7 @@ td a {
     line-height:1.1
   }
   .chapter-title .eyebrow {
-    font-size:7px;
+    font-size:13px;
     letter-spacing:.11em;
     line-height:1.5;
     margin-bottom:5px
@@ -2759,7 +2781,7 @@ td a {
     max-width:none;
     margin:0 0 0 55px;
     padding:0;
-    font-size:11px;
+    font-size:15px;
     line-height:1.6
   }
   .chapter-grid {
@@ -2777,18 +2799,18 @@ td a {
     gap:8px
   }
   .card-top .eyebrow,.span-6 .card-top .eyebrow {
-    font-size:8px;
+    font-size:13px;
     letter-spacing:.1em
   }
   .cell-id {
-    font-size:9px
+    font-size:13px
   }
   .card h3 {
     font-size:25px;
     line-height:1.15
   }
   .card-deck {
-    font-size:12px;
+    font-size:16px;
     line-height:1.7;
     margin-top:11px
   }
@@ -2797,7 +2819,7 @@ td a {
     gap:6px
   }
   .tag {
-    font-size:8px;
+    font-size:13px;
     padding:4px 6px
   }
   .chart-controls {
@@ -2805,19 +2827,19 @@ td a {
     margin-top:18px
   }
   .segmented button {
-    font-size:9px;
+    font-size:13px;
     padding:5px 7px
   }
   .compact-select {
-    font-size:9px
+    font-size:13px
   }
   .compact-select select {
-    font-size:9px;
+    font-size:13px;
     min-height:29px;
     padding:5px
   }
   .check-label {
-    font-size:9px;
+    font-size:13px;
     gap:3px;
     margin-left:0
   }
@@ -2827,28 +2849,28 @@ td a {
     min-height:59px
   }
   .chart-selected strong {
-    font-size:11px
+    font-size:15px
   }
   .chart-selected small {
-    font-size:8px
+    font-size:13px
   }
   .chart-selected .selected-horizon {
     font-size:19px
   }
   .chart-selected .selected-horizon small {
-    font-size:8px
+    font-size:13px
   }
   .select-model {
     justify-content:space-between;
-    font-size:9px;
+    font-size:13px;
     gap:8px
   }
   .select-model select {
-    font-size:9px;
+    font-size:13px;
     max-width:65%
   }
   .card-note {
-    font-size:10px;
+    font-size:15px;
     padding:12px;
     margin:15px 0
   }
@@ -2857,10 +2879,10 @@ td a {
     padding-top:12px
   }
   .source-link {
-    font-size:10px
+    font-size:15px
   }
   .text-btn {
-    font-size:10px
+    font-size:15px
   }
   .card-footer .text-btn .icon {
     width:12px;
@@ -2876,10 +2898,10 @@ td a {
     min-height:150px
   }
   .safety-tile strong {
-    font-size:11px
+    font-size:15px
   }
   .safety-tile>span:not(.tile-illustration) {
-    font-size:10px
+    font-size:15px
   }
   .tile-illustration {
     width:48px;
@@ -2914,7 +2936,7 @@ td a {
     flex-wrap:wrap
   }
   .playback-controls .btn.primary {
-    font-size:10px;
+    font-size:15px;
     padding:9px;
     min-height:36px
   }
@@ -2925,7 +2947,7 @@ td a {
     padding:7px
   }
   .playback-controls .btn.small {
-    font-size:9px;
+    font-size:13px;
     padding:8px 6px;
     min-height:34px
   }
@@ -2934,11 +2956,11 @@ td a {
     height:14px
   }
   .timeline-toolbar .compact-select {
-    font-size:8px;
+    font-size:13px;
     gap:4px
   }
   .timeline-toolbar .compact-select select {
-    font-size:9px;
+    font-size:13px;
     min-height:28px;
     padding:3px
   }
@@ -2947,7 +2969,7 @@ td a {
     gap:6px
   }
   .filter-chip {
-    font-size:8px;
+    font-size:13px;
     padding:5px 6px;
     min-height:27px
   }
@@ -2957,13 +2979,13 @@ td a {
     margin:17px 0
   }
   .year-label {
-    font-size:9px
+    font-size:13px
   }
   .months {
     gap:3px
   }
   .month-name {
-    font-size:6px;
+    font-size:13px;
     margin-bottom:5px
   }
   .release-events {
@@ -2977,17 +2999,17 @@ td a {
     border-radius:1px
   }
   .scrub-row {
-    font-size:9px;
+    font-size:13px;
     margin-top:14px
   }
   .scrub-row output {
-    font-size:9px
+    font-size:13px
   }
   .timeline-caption {
-    font-size:8px
+    font-size:13px
   }
   .timeline-main>.micro {
-    font-size:9px;
+    font-size:13px;
     margin-bottom:0
   }
   .popcorn-stage {
@@ -3002,7 +3024,7 @@ td a {
   .stage-eyebrow {
     grid-column:2;
     grid-row:1;
-    font-size:8px;
+    font-size:13px;
     align-self:end
   }
   .popcorn-art {
@@ -3022,19 +3044,19 @@ td a {
   }
   .pop-count>span {
     max-width:120px;
-    font-size:9px
+    font-size:13px
   }
   .now-playing {
     grid-column:2;
     grid-row:3;
-    font-size:10px;
+    font-size:15px;
     text-align:left;
     align-items:flex-start;
     min-height:37px;
     margin-top:2px
   }
   .now-playing small {
-    font-size:8px
+    font-size:13px
   }
   .popcorn-stage>.micro {
     grid-column:2;
@@ -3042,7 +3064,7 @@ td a {
     padding-top:8px;
     margin-top:6px;
     text-align:left;
-    font-size:8px
+    font-size:13px
   }
   .pop-kernel {
     left:23%;
@@ -3055,11 +3077,11 @@ td a {
     min-height:155px
   }
   .demo-buttons .btn.small {
-    font-size:10px;
+    font-size:15px;
     padding:8px
   }
   .demo-message {
-    font-size:10px;
+    font-size:15px;
     margin-top:11px
   }
   .commitment-diagram {
@@ -3068,7 +3090,7 @@ td a {
     gap:11px
   }
   .commitment-diagram>div {
-    font-size:10px
+    font-size:15px
   }
   .commitment-diagram>div>.icon {
     width:32px;
@@ -3079,11 +3101,11 @@ td a {
     margin-bottom:24px
   }
   .race-caption {
-    font-size:10px
+    font-size:15px
   }
   .race-lane>span {
     min-width:73px;
-    font-size:9px;
+    font-size:13px;
     padding-left:11px
   }
   .race-car {
@@ -3098,10 +3120,10 @@ td a {
     gap:9px
   }
   .race-controls .btn.small {
-    font-size:11px
+    font-size:15px
   }
   .switch-label {
-    font-size:9px;
+    font-size:13px;
     gap:6px
   }
   .risk-bands {
@@ -3134,13 +3156,13 @@ td a {
     gap:9px
   }
   .quote-person strong {
-    font-size:11px
+    font-size:15px
   }
   .quote-person small {
-    font-size:9px
+    font-size:13px
   }
   .quote-date {
-    font-size:8px
+    font-size:13px
   }
   .quote-card blockquote {
     font-size:22px;
@@ -3148,15 +3170,15 @@ td a {
     line-height:1.35
   }
   .quote-card p {
-    font-size:11px
+    font-size:15px
   }
   .quote-context {
-    font-size:10px;
+    font-size:15px;
     margin-top:13px
   }
   .note-strip {
     padding:13px;
-    font-size:10px;
+    font-size:15px;
     line-height:1.6;
     gap:9px;
     margin-top:16px;
@@ -3185,20 +3207,20 @@ td a {
     margin-top:10px
   }
   .survey-callout>p {
-    font-size:12px;
+    font-size:16px;
     max-width:none
   }
   .survey-warning {
     margin-top:15px;
     padding-top:13px;
-    font-size:10px
+    font-size:15px
   }
   .survey-interactive>select {
-    font-size:11px;
+    font-size:15px;
     padding:11px
   }
   .survey-question-copy {
-    font-size:11px;
+    font-size:15px;
     min-height:0
   }
   .survey-stat-row {
@@ -3208,17 +3230,17 @@ td a {
     font-size:22px
   }
   .survey-stat-row>div small {
-    font-size:9px
+    font-size:13px
   }
   .survey-stat-row>span {
-    font-size:9px
+    font-size:13px
   }
   .survey-legend {
-    font-size:9px;
+    font-size:13px;
     gap:16px
   }
   .survey-interactive>.micro {
-    font-size:9px
+    font-size:13px
   }
   .history-grid {
     gap:8px;
@@ -3235,16 +3257,16 @@ td a {
     font-size:24px
   }
   .history-item strong {
-    font-size:10px
+    font-size:15px
   }
   .history-item>span:not(.history-art):not(.history-year) {
-    font-size:9px
+    font-size:13px
   }
   .history-grid+.micro {
-    font-size:10px
+    font-size:15px
   }
   .checkpoint-roof {
-    font-size:11px
+    font-size:15px
   }
   .checkpoint-pillars {
     padding:10px 8px 0;
@@ -3255,10 +3277,10 @@ td a {
     gap:8px
   }
   .checkpoint-pillar strong {
-    font-size:9px
+    font-size:13px
   }
   .checkpoint-pillar small {
-    font-size:8px
+    font-size:13px
   }
   .pillar-icon>.icon {
     width:23px;
@@ -3277,7 +3299,7 @@ td a {
     gap:8px
   }
   .workstream-tabs>button {
-    font-size:10px;
+    font-size:15px;
     padding:14px 11px;
     gap:10px;
     min-height:65px
@@ -3294,10 +3316,10 @@ td a {
     font-size:22px
   }
   .workstream-detail p {
-    font-size:11px
+    font-size:15px
   }
   .deliverable {
-    font-size:10px;
+    font-size:15px;
     gap:9px;
     align-items:flex-start
   }
@@ -3312,7 +3334,7 @@ td a {
   }
   .useful-ai>.eyebrow {
     grid-column:1/3;
-    font-size:8px;
+    font-size:13px;
     margin-bottom:5px
   }
   .useful-ai>h4 {
@@ -3324,13 +3346,13 @@ td a {
   .useful-ai>p {
     grid-column:1;
     grid-row:3;
-    font-size:10px;
+    font-size:15px;
     margin-bottom:0
   }
   .useful-ai>div {
     grid-column:2;
     grid-row:2/4;
-    font-size:10px;
+    font-size:15px;
     align-self:center;
     gap:14px
   }
@@ -3348,10 +3370,10 @@ td a {
     padding:15px 13px
   }
   .policy-option strong {
-    font-size:12px
+    font-size:16px
   }
   .policy-option small {
-    font-size:9px
+    font-size:13px
   }
   .policy-symbol .icon {
     width:25px;
@@ -3362,7 +3384,7 @@ td a {
     height:10px
   }
   .spectrum-labels {
-    font-size:7px;
+    font-size:13px;
     margin-bottom:20px
   }
   .policy-detail-grid {
@@ -3372,14 +3394,14 @@ td a {
     padding:20px
   }
   .policy-detail-grid .eyebrow {
-    font-size:8px;
+    font-size:13px;
     letter-spacing:.1em
   }
   .policy-detail-grid p {
-    font-size:11px
+    font-size:15px
   }
   .policy-card>.micro {
-    font-size:9px
+    font-size:13px
   }
   .action-list {
     margin-top:18px
@@ -3397,11 +3419,11 @@ td a {
     height:24px
   }
   .action-text .text-action {
-    font-size:12px;
+    font-size:16px;
     gap:7px
   }
   .action-text>p {
-    font-size:10px;
+    font-size:15px;
     margin-top:7px
   }
   .action-text .text-action>.icon {
@@ -3423,7 +3445,7 @@ td a {
     font-size:25px
   }
   .plan-card p:not(.eyebrow) {
-    font-size:11px;
+    font-size:15px;
     line-height:1.7
   }
   .plan-card .btn {
@@ -3431,14 +3453,14 @@ td a {
     width:auto;
     min-height:44px;
     padding:12px 16px;
-    font-size:12px
+    font-size:16px
   }
   .plan-card .btn .icon {
     display:block;
     width:17px
   }
   .plan-card .eyebrow {
-    font-size:8px
+    font-size:13px
   }
   .chapter:last-child {
     padding-bottom:35px
@@ -3470,15 +3492,15 @@ td a {
     line-height:1.18
   }
   .closing-copy>p:not(.eyebrow) {
-    font-size:11px;
+    font-size:15px;
     line-height:1.8
   }
   .closing-copy>.eyebrow {
-    font-size:8px;
+    font-size:13px;
     margin-bottom:16px
   }
   .closing-copy>.btn {
-    font-size:11px;
+    font-size:15px;
     padding:12px 16px
   }
   .site-footer {
@@ -3493,14 +3515,14 @@ td a {
     width:calc(50% - 10px)
   }
   .site-footer>p {
-    font-size:8px
+    font-size:13px
   }
   .site-footer>.privacy-note {
-    font-size:8px;
+    font-size:13px;
     max-width:130px
   }
   .site-footer .text-btn {
-    font-size:8px;
+    font-size:13px;
     line-height:1.7
   }
   dialog {
@@ -3519,7 +3541,7 @@ td a {
     font-size:27px
   }
   .dialog-intro {
-    font-size:12px;
+    font-size:16px;
     margin-bottom:20px
   }
   .source-item {
@@ -3529,25 +3551,25 @@ td a {
     font-size:17px
   }
   .source-item p:not(.source-publisher) {
-    font-size:11px
+    font-size:15px
   }
   .source-meta {
-    font-size:8px
+    font-size:13px
   }
   .source-item .source-publisher {
-    font-size:9px
+    font-size:13px
   }
   .source-search {
     top:66px
   }
   .source-search input {
-    font-size:12px
+    font-size:16px
   }
   .source-search small {
-    font-size:9px
+    font-size:13px
   }
   .dialog-actions .btn {
-    font-size:11px;
+    font-size:15px;
     min-height:41px;
     padding:10px 12px
   }
@@ -3566,7 +3588,7 @@ td a {
     padding:17px
   }
   .field>span {
-    font-size:10px
+    font-size:15px
   }
   .forecast-form h3 {
     font-size:22px
@@ -3585,17 +3607,17 @@ td a {
     gap:9px
   }
   .saved-plan-item strong {
-    font-size:11px
+    font-size:15px
   }
   .saved-plan-item small {
-    font-size:9px
+    font-size:13px
   }
   .saved-plan-item>.icon {
     width:18px;
     height:18px
   }
   .toast {
-    font-size:11px;
+    font-size:15px;
     bottom:17px;
     min-width:180px;
     padding:10px 16px
@@ -3604,22 +3626,22 @@ td a {
     gap:8px
   }
   .dialog-intro+.micro {
-    font-size:10px
+    font-size:15px
   }
   table {
-    font-size:10px
+    font-size:15px
   }
   th,td {
     padding:9px 10px
   }
   th {
-    font-size:9px
+    font-size:13px
   }
   .privacy-warning {
-    font-size:10px
+    font-size:15px
   }
   .meeting-draft {
-    font-size:11px;
+    font-size:15px;
     min-height:380px
   }
 }
@@ -3648,7 +3670,7 @@ td a {
     padding:20px 16px
   }
   .chapter-nav a {
-    font-size:8px
+    font-size:13px
   }
   .chapter-title h2 {
     font-size:25px
@@ -3657,7 +3679,7 @@ td a {
     font-size:24px
   }
   .card-top .eyebrow {
-    font-size:7px
+    font-size:13px
   }
   .timeline-toolbar .compact-select {
     width:100%;
@@ -3670,16 +3692,16 @@ td a {
     gap:7px
   }
   .check-label {
-    font-size:8px
+    font-size:13px
   }
   .select-model select {
     max-width:63%
   }
   .hero-sticker {
-    font-size:13px
+    font-size:16px
   }
   .risk-band-text>strong {
-    font-size:12px
+    font-size:16px
   }
   .survey-callout>strong {
     font-size:58px
@@ -3688,7 +3710,7 @@ td a {
     font-size:21px
   }
   .checkpoint-pillar small {
-    font-size:7px
+    font-size:13px
   }
   .checkpoint-road.gate-open .gate-car {
     transform:translateX(180px)
@@ -3697,13 +3719,13 @@ td a {
     gap:7px
   }
   .card-footer .source-link,.card-footer .text-btn {
-    font-size:9px
+    font-size:13px
   }
   .action-item {
     gap:9px
   }
   .action-text .text-action {
-    font-size:11px
+    font-size:15px
   }
   .action-icon {
     width:36px;
@@ -3736,7 +3758,7 @@ html:has(body.reduce-motion) {
 }
 @media print {
   body {
-    font-size:12px;
+    font-size:16px;
     background:white
   }
   .site-header,.chapter-nav,.reading-progress,.hero .btn,.hero-meta,.source-link,.text-btn,.btn,.icon-btn,.timeline-toolbar,.timeline-filters,.scrub-row,.scrubber,.timeline-caption,.chart-controls,.select-model,.demo-buttons,.race-controls,.dialog-shell,.toast,.site-footer>div,.save-action {
@@ -3795,7 +3817,7 @@ html:has(body.reduce-motion) {
     font-size:21px
   }
   .card-deck {
-    font-size:11px
+    font-size:15px
   }
   .span-5,.span-7 {
     grid-column:span 6
@@ -3847,7 +3869,7 @@ html:has(body.reduce-motion) {
     grid-template-columns:1fr 175px
   }
   .timeline-main>.micro {
-    font-size:9px
+    font-size:13px
   }
   .safety-tile {
     min-height:110px
@@ -3860,14 +3882,14 @@ html:has(body.reduce-motion) {
     width:22px
   }
   .insight {
-    font-size:12px;
+    font-size:16px;
     padding:12px
   }
   .copy-node {
     opacity:1
   }
   .chart-selected {
-    font-size:10px
+    font-size:15px
   }
   a {
     text-decoration:none

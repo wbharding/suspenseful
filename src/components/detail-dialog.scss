@@ -40,7 +40,7 @@ dialog::backdrop {
 
 .dialog-top > .eyebrow {
   color: var(--text-subtle);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .dialog-top .icon-btn {
@@ -61,7 +61,7 @@ dialog::backdrop {
 .dialog-intro {
   margin-bottom: 23px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.75;
 }
 
@@ -88,7 +88,7 @@ dialog::backdrop {
   justify-content: space-between;
   margin-bottom: 7px;
   color: var(--text-subtle);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .source-item h3 {
@@ -100,13 +100,13 @@ dialog::backdrop {
 .source-item .source-publisher {
   margin-top: 4px;
   color: var(--text-subtle);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .source-item p:not(.source-publisher) {
   margin-top: 11px;
   color: var(--text-subtle);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -116,7 +116,7 @@ dialog::backdrop {
   align-items: center;
   margin-top: 12px;
   color: var(--accent-green);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 650;
 }
 
@@ -136,7 +136,7 @@ dialog::backdrop {
 .source-search input {
   min-height: 44px;
   padding-left: 40px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .source-search > .icon {
@@ -151,7 +151,7 @@ dialog::backdrop {
   display: block;
   margin-top: 7px;
   color: var(--text-subtle);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .empty-state {
@@ -160,7 +160,7 @@ dialog::backdrop {
   border: 1px dashed var(--border);
   border-radius: 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -171,7 +171,7 @@ dialog::backdrop {
   border-radius: 0 8px 8px 0;
   background: var(--accent-amber-soft);
   color: var(--accent-amber);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -198,13 +198,13 @@ dialog::backdrop {
 }
 
 .about-grid strong {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .about-grid p {
   margin-top: 5px;
   color: var(--text-subtle);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -221,7 +221,7 @@ dialog::backdrop {
   background: var(--text);
   box-shadow: 0 4px 25px var(--shadow-card);
   color: var(--accent-amber-soft);
-  font-size: 12px;
+  font-size: 16px;
   opacity: 0;
   pointer-events: none;
   text-align: center;

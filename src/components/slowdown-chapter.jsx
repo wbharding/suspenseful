@@ -2,7 +2,6 @@ import ChapterSection from "./chapter-section.jsx";
 import GuideCard, { SourceLinkButton } from "./guide-card.jsx";
 import HistoryPrecedents from "./history-precedents.jsx";
 import PauseWorkstreams from "./pause-workstreams.jsx";
-import PolicySpectrum from "./policy-spectrum.jsx";
 import SharedCheckpoint from "./shared-checkpoint.jsx";
 
 export default function SlowdownChapter() {
@@ -51,17 +50,6 @@ export default function SlowdownChapter() {
         title="A pause should have a job to do."
       >
         <PauseWorkstreams />
-      </GuideCard>
-
-      <GuideCard
-        cellId="3D"
-        className="policy-card"
-        deck="There are lighter-touch measures and stronger interventions. Select one to see the mechanism—and its tradeoff."
-        eyebrow="A SPECTRUM OF PROPOSALS"
-        span="span-12"
-        title="Not an off switch. A set of choices."
-      >
-        <PolicySpectrum />
       </GuideCard>
     </ChapterSection>
   );

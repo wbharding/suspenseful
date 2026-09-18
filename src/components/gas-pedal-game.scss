@@ -1,0 +1,140 @@
+.gas-game {
+  margin-top: 12px;
+}
+
+.gas-dash {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-sunken);
+}
+
+.gas-speedo {
+  display: grid;
+  justify-items: center;
+  color: var(--text);
+}
+
+.gas-speedo svg {
+  width: 140px;
+  height: auto;
+}
+
+.gas-speedo strong {
+  margin-top: -18px;
+  font-size: 28px;
+  letter-spacing: -0.05em;
+}
+
+.gas-speedo small {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.gas-road {
+  position: relative;
+  overflow: hidden;
+  height: 84px;
+  border-radius: 10px;
+  background: linear-gradient(#3b3b3b, #2a2a2a);
+}
+
+.gas-road::before {
+  position: absolute;
+  inset: 38px 0;
+  border-top: 4px dashed #f3d56b;
+  content: "";
+}
+
+.gas-game.is-playing .gas-road::before {
+  animation: road-dash 0.6s linear infinite;
+}
+
+.gas-car {
+  position: absolute;
+  top: 28px;
+  left: 42%;
+  width: 52px;
+  height: 28px;
+  border-radius: 8px 14px 6px 6px;
+  background: var(--accent-red);
+  box-shadow: 0 6px 0 #111;
+}
+
+.gas-car::before,
+.gas-car::after {
+  position: absolute;
+  bottom: -8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #111;
+  content: "";
+}
+
+.gas-car::before {
+  left: 6px;
+}
+
+.gas-car::after {
+  right: 6px;
+}
+
+.gas-pedals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0 10px;
+}
+
+.gas-pedal {
+  min-height: 72px;
+  border: 2px solid var(--border-strong);
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 750;
+  touch-action: none;
+  user-select: none;
+}
+
+.gas-pedal.is-gas {
+  background: var(--accent-green-soft);
+  color: var(--accent-green);
+}
+
+.gas-pedal.is-brake {
+  background: var(--accent-red-soft);
+  color: var(--accent-red);
+}
+
+.gas-pedal[aria-pressed="true"] {
+  transform: translateY(3px);
+}
+
+.gas-score {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 650;
+}
+
+@keyframes road-dash {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-18px);
+  }
+}
+
+@media (max-width: 620px) {
+  .gas-dash {
+    grid-template-columns: 1fr;
+  }
+}

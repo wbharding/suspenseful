@@ -24,7 +24,7 @@
 
 .hero .eyebrow {
   color: var(--on-pine-muted);
-  font-size: 10px;
+  font-size: 15px;
   letter-spacing: 0.18em;
 }
 
@@ -59,7 +59,7 @@
   gap: 10px;
   margin-top: 20px;
   color: var(--on-pine-subtle);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .hero-visual {
@@ -100,7 +100,7 @@
 .hero-sticker span {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -111,7 +111,7 @@
   padding-block: 17px;
   border-top: 1px solid var(--on-pine-line);
   color: var(--on-pine-muted);
-  font-size: 11px;
+  font-size: 15px;
 
   @include page-gutters;
 }
@@ -121,7 +121,7 @@
   gap: 8px;
   align-items: center;
   color: var(--yellow);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
   white-space: nowrap;

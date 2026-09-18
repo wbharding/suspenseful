@@ -13,7 +13,7 @@
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--white);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 680;
   line-height: 1.3;
   text-decoration: none;
@@ -46,11 +46,74 @@
   background: var(--yellow-hover);
 }
 
+.btn.play-spark {
+  position: relative;
+  z-index: 1;
+  min-height: 56px;
+  padding: 14px 26px;
+  overflow: visible;
+  border-color: var(--yellow);
+  background: var(--yellow);
+  color: var(--on-yellow);
+  font-size: 18px;
+  font-weight: 750;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--yellow) 75%, transparent);
+}
+
+.btn.play-spark:hover {
+  background: var(--yellow-hover);
+}
+
+.btn.play-spark .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.btn.play-spark:not(.is-playing) {
+  animation: play-spark-pulse 1.7s ease-out infinite;
+}
+
+.btn.play-spark.is-playing {
+  border-color: var(--pine);
+  background: var(--pine);
+  color: var(--on-pine);
+}
+
+@keyframes play-spark-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--yellow) 70%, transparent);
+  }
+
+  70% {
+    box-shadow: 0 0 0 18px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.btn.play-spark:not(.is-playing)::after {
+  position: absolute;
+  inset: -6px;
+  border: 2px dashed color-mix(in srgb, var(--yellow) 80%, var(--accent-amber));
+  border-radius: 14px;
+  animation: play-spark-spin 8s linear infinite;
+  content: "";
+  pointer-events: none;
+}
+
+@keyframes play-spark-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .btn.small {
   gap: 7px;
   min-height: 38px;
   padding: 8px 12px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .btn.small .icon {
@@ -97,7 +160,7 @@
   border-radius: 5px;
   background: var(--border);
   color: var(--pine-text);
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .btn.primary .plan-count {
@@ -106,7 +169,7 @@
 }
 
 .eyebrow {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 750;
   letter-spacing: 0.14em;
   line-height: 1.6;
@@ -124,7 +187,7 @@
 
 .micro {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 15px;
   line-height: 1.55;
 }
 
@@ -134,7 +197,7 @@
   gap: 8px;
   align-items: center;
   padding: 7px 0;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 650;
   line-height: 1.5;
   text-align: left;
@@ -168,7 +231,7 @@
   min-height: 28px;
   padding: 6px 9px;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -183,7 +246,7 @@
   gap: 7px;
   align-items: center;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -192,7 +255,7 @@
   min-height: 30px;
   padding: 5px;
   border-color: var(--border);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .check-label {
@@ -201,7 +264,7 @@
   align-items: center;
   margin-left: auto;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .check-label input {
@@ -212,7 +275,7 @@
 .field-label {
   display: block;
   margin-bottom: 7px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 650;
 }
 
@@ -220,7 +283,7 @@
   min-height: 18px;
   margin: 13px 0 20px;
   color: var(--section-color);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   line-height: 1.6;
 }
@@ -231,7 +294,7 @@
   gap: 7px;
   align-items: center;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 // The checkbox itself stays the pointer and touch target; the track is paint layered under it.

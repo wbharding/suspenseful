@@ -1,6 +1,7 @@
 import useGuideStore from "../hooks/use-guide-store.js";
 import ActionList from "./action-list.jsx";
 import ChapterSection from "./chapter-section.jsx";
+import ChoicesLink from "./choices-link.jsx";
 import FieldIcon from "./field-icon.jsx";
 import GuideCard from "./guide-card.jsx";
 
@@ -48,14 +49,19 @@ export default function ActionsChapter() {
             in this browser; this prototype has no server.
           </p>
         </div>
-        <button
-          className="btn primary"
-          onClick={() => openDialog({ type: "plan", kicker: "YOUR LOCAL ACTION PLAN" })}
-          type="button"
-        >
-          Open my plan <b className="plan-count">{planCount}</b>
-          <FieldIcon name="arrow" />
-        </button>
+        <div className="plan-actions">
+          <button
+            className="btn primary"
+            onClick={() => openDialog({ type: "plan", kicker: "YOUR LOCAL ACTION PLAN" })}
+            type="button"
+          >
+            Open my plan <b className="plan-count">{planCount}</b>
+            <FieldIcon name="arrow" />
+          </button>
+          <ChoicesLink className="btn yellow">
+            Not an off switch — the set of choices <FieldIcon name="arrow" />
+          </ChoicesLink>
+        </div>
       </article>
     </ChapterSection>
   );

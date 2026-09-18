@@ -24,7 +24,7 @@ export default function CapabilityChart() {
   const compact = width > 0 && width < 460;
   const chartWidth = compact ? 360 : 660;
   const chartHeight = compact ? 265 : 292;
-  const pad = { l: compact ? 41 : 49, r: compact ? 14 : 20, t: 30, b: 39 };
+  const pad = { l: compact ? 56 : 68, r: compact ? 14 : 20, t: 36, b: 42 };
   const x0 = dateMs(CHART_START);
   const x1 = dateMs(CHART_END);
   const max = showIntervals ? 1440 : 360;
@@ -113,13 +113,13 @@ export default function CapabilityChart() {
             role="group"
             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
           >
-            <text fill="var(--chart-axis)" fontSize="10" x={pad.l} y="13">
+            <text fill="var(--chart-axis)" fontSize="14" x={pad.l} y="16">
               Human-expert task time · 50% success
             </text>
             {ticks.map((tick) => (
               <g key={tick}>
                 <path d={`M${pad.l} ${yFor(tick)}H${chartWidth - pad.r}`} stroke="var(--chart-grid)" strokeDasharray="3 4" />
-                <text fill="var(--chart-axis)" fontSize="11" textAnchor="end" x={pad.l - 9} y={yFor(tick) + 4}>
+                <text fill="var(--chart-axis)" fontSize="14" textAnchor="end" x={pad.l - 9} y={yFor(tick) + 4}>
                   {hoursLabel(tick)}
                 </text>
               </g>
@@ -127,7 +127,7 @@ export default function CapabilityChart() {
             {[ 2023, 2024, 2025, 2026 ].map((year) => (
               <g key={year}>
                 <path d={`M${xFor(`${year}-01-01`)} ${pad.t}V${chartHeight - pad.b}`} stroke="var(--chart-grid)" />
-                <text fill="var(--chart-axis)" fontSize="11" textAnchor="middle" x={xFor(`${year}-01-01`)} y={chartHeight - 15}>
+                <text fill="var(--chart-axis)" fontSize="14" textAnchor="middle" x={xFor(`${year}-01-01`)} y={chartHeight - 12}>
                   {year}
                 </text>
               </g>

@@ -28,9 +28,9 @@
   --border-strong: #c4cdbb;
   --border-subtle: #e7ebdf;
 
-  --text: #193a37;
-  --text-muted: #60736e;
-  --text-subtle: #7f8b73;
+  --text: #102e2c;
+  --text-muted: #334d49;
+  --text-subtle: #3f5a55;
 
   // Brand constants. The pine/yellow pair is the masthead identity and holds its hue across both
   // themes. Pine is a *background* for the inverted bands (hero, closing), so it stays dark in
@@ -80,7 +80,7 @@
   --chart-line: #287486;
   --chart-selected: #c29b38;
   --chart-grid: #dfe6df;
-  --chart-axis: #748274;
+  --chart-axis: #334d49;
 
   --shadow-card: 0 7px 30px #143f3a0f;
   --shadow-dialog: 0 24px 60px #143f3a2e;
@@ -104,9 +104,9 @@
   --border-strong: #4d5155;
   --border-subtle: #2c2e31;
 
-  --text: #eceded;
-  --text-muted: #adb0b3;
-  --text-subtle: #8e9296;
+  --text: #f4f5f5;
+  --text-muted: #cdd0d3;
+  --text-subtle: #b4b8bc;
 
   --pine: #234f47;
   --pine-hover: #2f6b60;
@@ -148,7 +148,7 @@
   --chart-line: #5fb3c4;
   --chart-selected: #e0b556;
   --chart-grid: #383b3f;
-  --chart-axis: #93979b;
+  --chart-axis: #cdd0d3;
 
   // Shadows read as depth only against a light ground. On a dark one they are near-invisible, so
   // they go deeper and lean on the border tokens for separation instead.

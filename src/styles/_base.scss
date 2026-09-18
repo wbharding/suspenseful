@@ -58,8 +58,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: $font-body;
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 18px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -81,16 +81,16 @@ h4 {
 }
 
 h2 {
-  font-size: clamp(27px, 3vw, 39px);
+  font-size: clamp(30px, 3.2vw, 42px);
 }
 
 h3 {
   max-width: 690px;
-  font-size: clamp(24px, 2.1vw, 29px);
+  font-size: clamp(26px, 2.3vw, 32px);
 }
 
 h4 {
-  font-size: 23px;
+  font-size: 26px;
 }
 
 em {

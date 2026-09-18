@@ -1,0 +1,34 @@
+@use "../styles/tokens" as *;
+
+.policy-page {
+  max-width: $page-measure;
+  margin: 0 auto;
+  padding: 36px 0 80px;
+
+  @include page-gutters;
+}
+
+.policy-page .text-btn {
+  margin-bottom: 18px;
+}
+
+.policy-page .text-btn .icon {
+  transform: rotate(180deg);
+}
+
+.policy-page h1 {
+  margin: 8px 0 16px;
+  font-size: clamp(36px, 5vw, 56px);
+}
+
+.policy-page-deck {
+  max-width: 640px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.policy-page .policy-spectrum {
+  margin-top: 28px;
+}

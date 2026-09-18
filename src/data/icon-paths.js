@@ -82,6 +82,12 @@ export const iconShapes = {
     { tag: "circle", cx: "12", cy: "12", r: "10" },
     { tag: "path", d: "m16 8-2 6-6 2 2-6Z" },
   ],
+  target: [
+    { tag: "circle", cx: "12", cy: "12", r: "9" },
+    { tag: "circle", cx: "12", cy: "12", r: "5" },
+    { tag: "circle", cx: "12", cy: "12", r: "1.5" },
+    { tag: "path", d: "M12 1v3M12 20v3M1 12h3M20 12h3" },
+  ],
   landmark: [
     { tag: "path", d: "m2 7 10-5 10 5ZM2 21h20M4 10v8m5-8v8m6-8v8m5-8v8M2 18h20" },
   ],

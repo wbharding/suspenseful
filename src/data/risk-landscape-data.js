@@ -2,8 +2,8 @@
 // character, not a probability ranking or a sequence in time.
 //
 // `explainer` holds Daniel Kokotajlo's account of the same harm, from his 80,000 Hours interview
-// about AI 2040 / Plan A. He canvasses five problems in reverse order; four of them line up with
-// the four bands here. Quotes are verbatim from the published transcript — see the `kokotajlo`
+// about AI 2040 / Plan A. He canvasses five problems in reverse order; all five are here.
+// Quotes are verbatim from the published transcript — see the `kokotajlo`
 // entry in the source registry. `response` stays sourced to the registry ids it always was:
 // Kokotajlo is one voice on the harm, not the authority behind every suggested response.
 
@@ -13,6 +13,7 @@ export const riskLandscape = [
     subtitle: "Disruption does not wait for superintelligence.",
     icon: "briefcase",
     tone: "jobs",
+    year: 2023,
     summary: "Labor disruption, scams, misinformation",
     body: "AI can change the economics of tasks, the skills employers need and the cost of producing persuasive content. The concern is both livelihood disruption and a harder-to-trust information environment.",
     response: "A useful response: support transitions, measure real impacts and strengthen authentication.",
@@ -31,6 +32,7 @@ export const riskLandscape = [
     subtitle: "More capability can also empower bad actors.",
     icon: "shield-alert",
     tone: "misuse",
+    year: 2024,
     summary: "Cyberattacks and biological misuse",
     body: "The same capabilities that help legitimate users can lower barriers to cyber abuse and other serious misuse. How much the risk rises depends on the task, access controls and defensive progress.",
     response: "A useful response: independent capability testing, stronger security and incident reporting.",
@@ -45,10 +47,31 @@ export const riskLandscape = [
     }
   },
   {
+    title: "A first-mover still facing nukes",
+    subtitle: "Superintelligence in one country does not retire everyone else’s weapons.",
+    icon: "target",
+    tone: "war",
+    year: 2027,
+    summary: "If the US gets there first, others still have nuclear arsenals",
+    body: "A US lead in superintelligence would not leave other nuclear powers unarmed. The fear that the leader could invent a counter to deterrence — or economically hollow out everyone else — is the kind of shock that has preceded wars before. Timing and likelihood remain uncertain; the mechanism is a broken balance of power, not a timetable.",
+    response: "A useful response: shared verification, slowing the race that creates the trap, and treating great-power fear as a first-class risk.",
+    source: "kokotajlo",
+    explainer: {
+      label: "Problem three of five",
+      lede: "Kokotajlo’s third problem is World War III: not because the US is uniquely villainous, but because a sudden, one-sided leap at superintelligence can panic states that still hold nuclear weapons.",
+      quotes: [
+        "Number three is World War III. Right now all the world’s leading AI companies and most of the world’s compute is in the United States, and right now the United States has the world’s best military. But I wouldn’t say that most of the world is fearing that they’re going to be conquered by the United States. And most of the world isn’t fearing that they’re going to be completely economically disempowered by the United States either.",
+        "One way of putting it would be: if a handful of companies are going to be taking all the jobs, it’s one thing to be a US citizen where you can hope for a UBI or something like that. But what if you’re Russia, and now all your jobs have gone to US companies, and you’re Putin and you’re sitting on your pile of nuclear weapons and you’re getting worried that maybe the AIs will invent some counter to your nuclear weapons any month now. That’s the sort of scary situation that I think we’re headed towards. That’s why I say World War III.",
+        "It’s a sort of Thucydides trap situation, where right now there’s a balance of power between all these different nations, economically and militarily. But that balance is going to be absolutely upset and it’s going to swing wildly towards the nations that have superintelligence. It probably will just be just one nation at first. And that’s going to create this mounting sense of crisis and fear in many countries. Then that could lead to escalation and could lead to war."
+      ]
+    }
+  },
+  {
     title: "Concentrated power",
     subtitle: "Who gets a say in the systems that shape our lives?",
     icon: "network",
     tone: "power",
+    year: 2030,
     summary: "Fewer people controlling essential systems",
     body: "Control over models, compute and deployment can translate into influence over information and opportunity. But centralizing the authority to regulate AI can create its own concentration risks.",
     response: "A useful response: accountable oversight, contestability and meaningful public participation.",
@@ -68,6 +91,7 @@ export const riskLandscape = [
     subtitle: "A system can pursue a goal we did not intend.",
     icon: "compass",
     tone: "control",
+    year: 2040,
     summary: "Systems acting against human interests",
     body: "A more capable agent might take unintended actions or defeat safeguards in pursuit of an objective. Extreme scenarios include permanent human disempowerment; the likelihood and timing remain disputed.",
     response: "A useful response: alignment research, realistic evaluations and layered containment.",

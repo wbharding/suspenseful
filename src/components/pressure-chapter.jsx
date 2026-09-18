@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
 import { modelReleases, releaseProviders } from "../data/release-data.js";
 import CapabilityChart, { CapabilityChartFooter } from "./capability-chart.jsx";
+import BenchmarkGraveyard from "./benchmark-graveyard.jsx";
 import ChapterSection from "./chapter-section.jsx";
-import CommitmentDiagram from "./commitment-diagram.jsx";
+import GasPedalGame from "./gas-pedal-game.jsx";
 import GuideCard, {
   CardInsight,
   CardNote,
@@ -37,18 +38,23 @@ export default function PressureChapter() {
             <CapabilityChartFooter />
           </>
         }
-        span="span-7"
+        span="span-12"
         title="From minutes to hours."
       >
         <div className="card-label-row">
           <EvidenceTag>Historical benchmark data</EvidenceTag>
           <EvidenceTag variant="neutral">Jan 2026 snapshot</EvidenceTag>
         </div>
-        <CapabilityChart />
-        <CardNote heading="What this measures">
-          Human-expert task time at 50% model success—not how long an AI runs, or whether it can
-          replace a whole job. METR has since revised these estimates.
-        </CardNote>
+        <div className="horizon-split">
+          <div className="horizon-chart">
+            <CapabilityChart />
+            <CardNote heading="What this measures">
+              Human-expert task time at 50% model success—not how long an AI runs, or whether it can
+              replace a whole job. METR has since revised these estimates.
+            </CardNote>
+          </div>
+          <BenchmarkGraveyard />
+        </div>
       </GuideCard>
 
       <GuideCard
@@ -56,7 +62,7 @@ export default function PressureChapter() {
         deck="Safety is not one score. It requires sustained work across several fronts."
         eyebrow="UNDERSTANDING TAKES WORK"
         footer={<SourceLinkButton label="Why these workstreams?" sourceIds="amodei,hassabis" />}
-        span="span-5"
+        span="span-12"
         title="More capable ≠ more understood."
       >
         <SafetyWorkTiles />
@@ -68,7 +74,7 @@ export default function PressureChapter() {
       <GuideCard
         cellId="1C"
         className="timeline-card"
-        deck="Each block is a dated release. Each pop is one event. Hover a block for its name. Press play to hear the cadence."
+        deck="Each block is a dated release. Each pop is one event. Hover a block for its name. Press the yellow play control — it loops back so you can tell the difference after the frog boiled."
         eyebrow="THE RELEASE RHYTHM"
         footer={
           <>
@@ -107,7 +113,8 @@ export default function PressureChapter() {
         span="span-6"
         title="It gets harder to take your foot off the gas."
       >
-        <CommitmentDiagram />
+        <EvidenceTag variant="illustration">Driving illustration</EvidenceTag>
+        <GasPedalGame />
       </GuideCard>
     </ChapterSection>
   );

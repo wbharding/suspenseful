@@ -153,9 +153,13 @@ export default function ReleaseTimeline({ onFilterChange }) {
       }
 
       if (nextPos >= end) {
-        handlePause();
-        setPos(end);
-        showToast("End of this release catalog.");
+        posRef.current = start;
+        setPos(start);
+        setFlashIds(new Set());
+        setKernels([]);
+        showToast("Back at the start. After the frog boiled, 2024 looks quiet.");
+        lastRef.current = now;
+        frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
         return;
       }
       frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
@@ -276,7 +280,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
           <div className="playback-controls">
             <button
               aria-label={playing ? "Pause release timeline" : "Play release timeline"}
-              className="btn primary"
+              className={`btn play-spark${playing ? " is-playing" : ""}`}
               disabled={events.length === 0}
               onClick={handlePlay}
               type="button"

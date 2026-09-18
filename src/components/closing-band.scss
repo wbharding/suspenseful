@@ -36,7 +36,7 @@
 .closing-copy > .eyebrow {
   margin-bottom: 19px;
   color: var(--on-pine-subtle);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .closing-copy > h2 {
@@ -52,13 +52,13 @@
 .closing-copy > p:not(.eyebrow) {
   margin-top: 17px;
   color: var(--on-pine-muted);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
 .closing-copy > .btn {
   margin-top: 22px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .site-footer {
@@ -67,7 +67,7 @@
   align-items: flex-start;
   padding-block: 32px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 15px;
 
   @include page-gutters;
 }
@@ -79,7 +79,7 @@
 }
 
 .site-footer > p {
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.7;
 }
 
@@ -92,14 +92,14 @@
 
 .site-footer .text-btn {
   padding: 1px 0;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 500;
 }
 
 .privacy-note {
   padding-left: 24px;
   border-left: 1px solid var(--border);
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.7;
 }
 

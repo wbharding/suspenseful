@@ -1,86 +1,110 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import useGuideStore from "../hooks/use-guide-store.js";
 import FieldIcon from "./field-icon.jsx";
+import "./recall-demo.scss";
 
-const COPY_NODES = [
-  [ 238, 15 ],
-  [ 238, 72 ],
-  [ 238, 130 ],
-  [ 382, 15 ],
-  [ 382, 72 ],
-  [ 382, 130 ],
+const REELS = [
+  { id: "origin", idle: "ORIGINAL", released: "COPIED", recalled: "RECALLED" },
+  { id: "copy-a", idle: "EMPTY", released: "AT LARGE", recalled: "AT LARGE" },
+  { id: "copy-b", idle: "EMPTY", released: "AT LARGE", recalled: "AT LARGE" },
+  { id: "copy-c", idle: "EMPTY", released: "AT LARGE", recalled: "AT LARGE" },
 ];
 
-// Element 1D. Weights can be copied. Recalling the original does not retrieve the copies.
-export default function RecallDemo() {
-  const [ released, setReleased ] = useState(false);
-  const [ recalled, setRecalled ] = useState(false);
+const SPIN_MS = 1100;
 
-  function handleReset() {
-    setReleased(false);
-    setRecalled(false);
+// Element 1D. A casino roll: releasing weights is easy; recalling them does not retrieve the copies.
+export default function RecallDemo() {
+  const { reducedMotion } = useGuideStore();
+  const [ phase, setPhase ] = useState("idle");
+  const [ spinning, setSpinning ] = useState(false);
+  const spinTimer = useRef(0);
+
+  useEffect(() => () => window.clearTimeout(spinTimer.current), []);
+
+  function rollTo(nextPhase) {
+    if (reducedMotion) {
+      setSpinning(false);
+      setPhase(nextPhase);
+      return;
+    }
+    setSpinning(true);
+    window.clearTimeout(spinTimer.current);
+    spinTimer.current = window.setTimeout(() => {
+      setSpinning(false);
+      setPhase(nextPhase);
+    }, SPIN_MS);
   }
 
-  let message = "Try it: release the weights, then attempt to recall them.";
-  if (recalled) message = "The original can be withdrawn. Independent copies are still out there.";
-  else if (released) message = "The weights have spread to other machines. Now try to recall them.";
+  function handleReset() {
+    window.clearTimeout(spinTimer.current);
+    setSpinning(false);
+    setPhase("idle");
+  }
 
-  const networkClass = `model-network${released ? " released" : ""}${recalled ? " recalled" : ""}`;
+  let message = "Pull the lever. Release the weights, then try to recall them.";
+  if (phase === "recalled") {
+    message = "The house can take the original back. The copies still pay out — somewhere else.";
+  } else if (phase === "released") {
+    message = "The weights are on the floor. Now try to recall them.";
+  }
 
   return (
-    <>
-      <div className={networkClass}>
-        <svg aria-label="Illustration of a model being copied to independent machines" role="img" viewBox="0 0 500 185">
-          <g className="network-lines" fill="none" stroke="var(--border-strong)" strokeWidth="1.5">
-            <path d="M102 90C177 90 161 34 238 34M102 90H238M102 90C177 90 161 151 238 151M276 34H379M276 90h103M276 151h103" />
-          </g>
-          <g className="origin-node">
-            <rect fill="var(--pine)" height="79" rx="12" width="76" x="28" y="51" />
-            <path d="M43 66h46M43 76h21" stroke="var(--on-pine)" strokeWidth="3" />
-            <text fill="white" fontFamily="system-ui" fontSize="18" fontWeight="700" textAnchor="middle" x="66" y="104">
-              AI
-            </text>
-            <text fill="var(--chart-axis)" fontFamily="system-ui" fontSize="12" textAnchor="middle" x="66" y="156">
-              Original
-            </text>
-          </g>
-          {COPY_NODES.map(([ x, y ], index) => (
-            <g className="copy-node" key={index} transform={`translate(${x} ${y})`}>
-              <rect fill="var(--accent-green)" height="30" rx="4" width="43" />
-              <rect fill="var(--accent-green-soft)" height="18" rx="2" width="33" x="5" y="5" />
-              <path d="M21 30v6M10 37h22" stroke="var(--accent-green)" strokeWidth="3" />
-            </g>
-          ))}
-          <text fill="var(--chart-axis)" fontFamily="system-ui" fontSize="12" textAnchor="middle" x="329" y="181">
-            Independent copies
-          </text>
-        </svg>
+    <div className={`recall-casino${spinning ? " is-spinning" : ""} phase-${phase}`}>
+      <div className="casino-marquee" aria-hidden="true">
+        <span>RELEASE</span>
+        <span>·</span>
+        <span>COPY</span>
+        <span>·</span>
+        <span>RECALL?</span>
+        <span>·</span>
+        <span>HOUSE EDGE</span>
       </div>
-      <div className="demo-buttons">
+
+      <div className="casino-window">
+        {REELS.map((reel, index) => (
+          <div className={`casino-reel reel-${reel.id}`} key={reel.id} style={{ "--reel-delay": `${index * 90}ms` }}>
+            <div className="reel-strip">
+              <span>{reel.idle}</span>
+              <span>{reel.released}</span>
+              <span>{reel.recalled}</span>
+              <span>{reel.idle}</span>
+            </div>
+            <strong>{reel[phase] ?? reel.idle}</strong>
+          </div>
+        ))}
+      </div>
+
+      <div className="casino-payout">
+        <span className="payout-chip">Original</span>
+        <span className="payout-chip is-copy">Independent copies</span>
+      </div>
+
+      <div className="demo-buttons casino-buttons">
         <button
-          className="btn primary small"
-          disabled={released}
-          onClick={() => setReleased(true)}
+          className="btn primary"
+          disabled={phase !== "idle" || spinning}
+          onClick={() => rollTo("released")}
           type="button"
         >
-          <FieldIcon name="network" />
+          <FieldIcon name="spark" />
           Release the model
         </button>
         <button
-          className="btn small"
-          disabled={!released || recalled}
-          onClick={() => setRecalled(true)}
+          className="btn yellow"
+          disabled={phase !== "released" || spinning}
+          onClick={() => rollTo("recalled")}
           type="button"
         >
           <FieldIcon name="reset" />
           Attempt recall
         </button>
-        <button aria-label="Reset illustration" className="icon-btn" onClick={handleReset} type="button">
+        <button aria-label="Reset illustration" className="icon-btn bordered" onClick={handleReset} type="button">
           <FieldIcon name="reset" />
         </button>
       </div>
       <p aria-live="polite" className="demo-message">
         {message}
       </p>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,88 @@
+@use "../styles/tokens" as *;
+
+.horizon-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.85fr);
+  gap: 28px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.benchmark-graveyard {
+  min-width: 0;
+}
+
+.graveyard-lede {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.benchmark-graveyard ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grave-stone {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  column-gap: 12px;
+  width: 100%;
+  padding: 12px 14px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px 14px 6px 6px;
+  background:
+    linear-gradient(180deg, var(--surface-raised), var(--surface-sunken));
+  text-align: left;
+  box-shadow: inset 0 1px 0 #fff6, 0 6px 0 color-mix(in srgb, var(--text) 12%, transparent);
+}
+
+.grave-stone:hover {
+  transform: translateY(-2px);
+}
+
+.grave-year {
+  grid-row: 1 / span 4;
+  align-self: center;
+  color: var(--accent-amber);
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.grave-stone strong {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.grave-stone em {
+  color: var(--accent-red);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 650;
+}
+
+.grave-stone blockquote {
+  margin: 6px 0 4px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.grave-stone small {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@include breakpoint-down(laptop) {
+  .horizon-split {
+    grid-template-columns: 1fr;
+  }
+}
