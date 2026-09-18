@@ -50,7 +50,8 @@ export default function CapabilityDataDialog() {
 
       <div className="privacy-warning">
         METR later revised its estimates. This is deliberately not presented as the current
-        leaderboard.
+        leaderboard. The chart draws one line: the TH 1.1 value where METR published one, the
+        TH 1.0 value otherwise. Both are below, unmerged.
       </div>
 
       <div className="data-table-wrap">
@@ -63,6 +64,7 @@ export default function CapabilityDataDialog() {
               <th className="number">Interval</th>
               <th className="number">TH 1.1</th>
               <th className="number">Interval</th>
+              <th>Charted</th>
             </tr>
           </thead>
           <tbody>
@@ -74,6 +76,7 @@ export default function CapabilityDataDialog() {
                 <td className="number">{intervalCell(model.horizons.v10)}</td>
                 <td className="number">{model.horizons.v11 ? model.horizons.v11[0] : "—"}</td>
                 <td className="number">{intervalCell(model.horizons.v11)}</td>
+                <td>{model.horizons.v11 ? "TH 1.1" : "TH 1.0"}</td>
               </tr>
             ))}
           </tbody>

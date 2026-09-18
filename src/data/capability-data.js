@@ -2,9 +2,16 @@
 // success. Each horizon is [estimate, intervalLow, intervalHigh] from the reported bootstrapped
 // confidence interval.
 //
-// The two benchmark versions are deliberately kept apart rather than merged: METR revised its
-// estimates between them, and several models were never scored under 1.1. A model with no `v11`
-// entry is omitted from that series instead of being interpolated.
+// Both raw benchmark versions are kept in the data, because they are not interchangeable: METR
+// revised its estimates between 1.0 and 1.1, and several models were only ever scored under 1.0.
+// The chart shows a single merged series — asking a general reader to pick a benchmark revision
+// was asking them to choose between two things they have no basis to tell apart.
+//
+// Merge rule: use the 1.1 measurement when METR published one, otherwise fall back to 1.0. That
+// keeps every model on the chart without inventing a number for any of them. Nothing is averaged
+// or interpolated. Each merged point carries the `version` it actually came from, so the tooltip,
+// the readout and the data table can still say which measurement is being shown — the detail is
+// demoted, not discarded. The full side-by-side stays in the data dialog.
 
 export const benchmarkVersions = [
   { id: 'v11', label: 'TH 1.1', fullLabel: 'Time Horizon 1.1' },
@@ -121,4 +128,20 @@ export const capabilityModels = [
 // @returns {object[]} models scored under that benchmark version, in date order
 export function modelsForVersion(versionId) {
   return capabilityModels.filter((model) => Array.isArray(model.horizons[versionId]));
+}
+
+// One point per model: the 1.1 measurement where it exists, otherwise the 1.0 one. `version`
+// records which, so nothing downstream has to guess.
+//
+// @returns {object[]} models with a resolved `horizon` and `version`, in date order
+export function mergedCapabilitySeries() {
+  return capabilityModels
+    .map((model) => {
+      const versionId = Array.isArray(model.horizons.v11) ? "v11" : "v10";
+      const horizon = model.horizons[versionId];
+      if (!Array.isArray(horizon)) return null;
+      const version = benchmarkVersions.find((entry) => entry.id === versionId);
+      return { ...model, horizon, versionId, versionLabel: version.fullLabel };
+    })
+    .filter(Boolean);
 }

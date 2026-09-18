@@ -39,7 +39,7 @@ export default function PressureChapter() {
           </>
         }
         span="span-12"
-        title="From minutes to hours."
+        title="Fast, faster, what’s next?"
       >
         <div className="card-label-row">
           <EvidenceTag>Historical benchmark data</EvidenceTag>
@@ -50,7 +50,8 @@ export default function PressureChapter() {
             <CapabilityChart />
             <CardNote heading="What this measures">
               Human-expert task time at 50% model success—not how long an AI runs, or whether it can
-              replace a whole job. METR has since revised these estimates.
+              replace a whole job. Points use METR’s Time Horizon 1.1 measurement where one exists
+              and 1.0 otherwise; the readout names which. METR has since revised these estimates.
             </CardNote>
           </div>
           <BenchmarkGraveyard />

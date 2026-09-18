@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { benchmarkVersions, modelsForVersion } from "../data/capability-data.js";
+import { mergedCapabilitySeries } from "../data/capability-data.js";
 import useElementWidth from "../hooks/use-element-width.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import { dateLabel, dateMs, hoursLabel } from "../lib/format.js";
@@ -8,18 +8,15 @@ import FieldIcon from "./field-icon.jsx";
 const CHART_START = "2023-01-01";
 const CHART_END = "2026-01-01";
 
-// Element 1A. Historical METR time horizons. The two benchmark versions stay separate: a model
-// missing from 1.1 is omitted from that series rather than interpolated.
+// Element 1A. Historical METR time horizons as one merged series: the 1.1 measurement where METR
+// published one, the 1.0 measurement otherwise. Each point still reports which benchmark version
+// it came from; the full side-by-side lives in the data dialog.
 export default function CapabilityChart() {
   const [ chartRef, width ] = useElementWidth();
-  const [ versionId, setVersionId ] = useState("v11");
   const [ scale, setScale ] = useState("log");
   const [ showIntervals, setShowIntervals ] = useState(true);
-  const [ selectedName, setSelectedName ] = useState(
-    () => modelsForVersion("v11").at(-1)?.name,
-  );
-
-  const models = useMemo(() => modelsForVersion(versionId), [ versionId ]);
+  const models = useMemo(() => mergedCapabilitySeries(), []);
+  const [ selectedName, setSelectedName ] = useState(() => models.at(-1)?.name);
   const selected = models.find((model) => model.name === selectedName) || models.at(-1);
   const compact = width > 0 && width < 460;
   const chartWidth = compact ? 360 : 660;
@@ -48,7 +45,7 @@ export default function CapabilityChart() {
 
   const path = models
     .map((model, index) => {
-      const [ estimate ] = model.horizons[versionId];
+      const [ estimate ] = model.horizon;
       return `${index ? "L" : "M"}${xFor(model.date).toFixed(2)},${yFor(estimate).toFixed(2)}`;
     })
     .join(" ");
@@ -63,28 +60,11 @@ export default function CapabilityChart() {
     handleSelectModel(name);
   }
 
-  const horizon = selected?.horizons[versionId];
-  const versionLabel = versionId === "v11" ? "Time Horizon 1.1" : "Time Horizon 1.0";
+  const horizon = selected?.horizon;
 
   return (
     <>
       <div className="chart-controls">
-        <div aria-label="Benchmark version" className="segmented">
-          {benchmarkVersions.map((version) => {
-            const isActive = version.id === versionId;
-            return (
-              <button
-                aria-pressed={isActive}
-                className={isActive ? "active" : ""}
-                key={version.id}
-                onClick={() => setVersionId(version.id)}
-                type="button"
-              >
-                {version.label}
-              </button>
-            );
-          })}
-        </div>
         <label className="compact-select">
           Scale{" "}
           <select
@@ -134,7 +114,7 @@ export default function CapabilityChart() {
             ))}
             {showIntervals
               ? models.map((model) => {
-                  const [ , low, high ] = model.horizons[versionId];
+                  const [ , low, high ] = model.horizon;
                   const x = xFor(model.date);
                   return (
                     <path
@@ -158,7 +138,7 @@ export default function CapabilityChart() {
               strokeWidth="2.3"
             />
             {models.map((model) => {
-              const [ estimate, low, high ] = model.horizons[versionId];
+              const [ estimate, low, high ] = model.horizon;
               const isSelected = model.name === selected?.name;
               return (
                 <circle
@@ -194,7 +174,7 @@ export default function CapabilityChart() {
             <div>
               <strong>{selected.name}</strong>
               <small>
-                {dateLabel(selected.date)} · {versionLabel}
+                {dateLabel(selected.date)} · {selected.versionLabel}
               </small>
             </div>
             <div className="selected-horizon">
