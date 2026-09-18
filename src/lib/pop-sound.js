@@ -1,15 +1,17 @@
-// Optional popcorn pops for the release timeline. Audio starts only after the reader turns it
-// on; a missing or locked audio device leaves the visual playback alone.
+// Popcorn pops for the release timeline. Sound is on by default, but a browser only unlocks
+// audio inside a user gesture, so the context is resumed from the play/sound click; a missing or
+// locked audio device leaves the visual playback alone.
 
 let audioContext = null;
 
+// @param {boolean} [confirm] - play one pop as an audible confirmation that sound is live
 // @returns {Promise<boolean>} true when a context is running
-export async function enablePopSound() {
+export async function enablePopSound(confirm = true) {
   const Context = window.AudioContext || window.webkitAudioContext;
   if (!Context) throw new Error("Audio is not supported");
   if (!audioContext) audioContext = new Context();
   await audioContext.resume();
-  playPopSound();
+  if (confirm) playPopSound();
   return audioContext.state === "running";
 }
 

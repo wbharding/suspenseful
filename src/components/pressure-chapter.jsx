@@ -39,7 +39,7 @@ export default function PressureChapter() {
           </>
         }
         span="span-12"
-        title="Fast, faster, what’s next?"
+        title="Fast, faster, and then, um?"
       >
         <div className="card-label-row">
           <EvidenceTag>Historical benchmark data</EvidenceTag>

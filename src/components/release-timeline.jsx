@@ -28,7 +28,8 @@ function releaseTooltip(release) {
 }
 
 // Element 1C. A seven-lab catalog of dated releases, played as a cadence rather than counted as
-// a capability score. Sound starts only when the reader turns it on.
+// a capability score. Sound is on by default and unlocks on the first play, since browsers only
+// let audio start inside a user gesture.
 export default function ReleaseTimeline({ onFilterChange }) {
   const { reducedMotion, openDialog, showToast } = useGuideStore();
   const start = dateMs(siteMeta.timelineStart);
@@ -36,7 +37,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
 
   const [ providers, setProviders ] = useState(() => new Set(releaseProviders));
   const [ speed, setSpeed ] = useState(1);
-  const [ soundOn, setSoundOn ] = useState(false);
+  const [ soundOn, setSoundOn ] = useState(true);
   const [ playing, setPlaying ] = useState(false);
   const [ pos, setPos ] = useState(start);
   const [ flashIds, setFlashIds ] = useState(() => new Set());
@@ -46,7 +47,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
   const posRef = useRef(start);
   const playingRef = useRef(false);
   const speedRef = useRef(1);
-  const soundRef = useRef(false);
+  const soundRef = useRef(true);
   const lastRef = useRef(0);
   const paintRef = useRef(0);
   const frameRef = useRef(0);
@@ -172,6 +173,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
       handlePause();
       return;
     }
+    if (soundRef.current) unlockSound();
     if (posRef.current >= end) {
       posRef.current = start;
       setPos(start);
@@ -192,18 +194,30 @@ export default function ReleaseTimeline({ onFilterChange }) {
     setIsPopping(false);
   }
 
-  async function handleSound() {
-    if (soundOn) {
-      setSoundOn(false);
-      return;
-    }
+  // Browsers only unlock an audio context inside a user gesture, so this runs from a click.
+  // @param {boolean} [confirm] - play one pop to confirm sound is live
+  async function unlockSound(confirm = false) {
     try {
-      await enablePopSound();
-      setSoundOn(true);
+      await enablePopSound(confirm);
+      return true;
     } catch {
+      soundRef.current = false;
       setSoundOn(false);
       showToast("Audio is unavailable here. Visual playback still works.");
+      return false;
     }
+  }
+
+  async function handleSound() {
+    if (soundOn) {
+      soundRef.current = false;
+      setSoundOn(false);
+      disablePopSound();
+      return;
+    }
+    soundRef.current = true;
+    setSoundOn(true);
+    await unlockSound(true);
   }
 
   function handleScrub(value) {
@@ -268,7 +282,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
     nowPlaying = (
       <>
         <span>Ready when you are.</span>
-        <small>Sound starts only when you turn it on.</small>
+        <small>Pops play with the releases—turn sound off any time.</small>
       </>
     );
   }
