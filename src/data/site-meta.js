@@ -2,8 +2,8 @@
 
 export const siteMeta = {
   version: "1.0.0",
-  reviewed: "2026-09-16",
+  reviewed: "2026-09-29",
   draftUrl: "https://public.amplenote.com/Vs6mjq7U3j5BMpe464fTuZG8",
   timelineStart: "2024-01-01",
-  timelineEnd: "2026-09-16"
+  timelineEnd: "2026-09-29"
 };

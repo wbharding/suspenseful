@@ -30,28 +30,39 @@ export default function PressureChapter() {
       <GuideCard
         cellId="1A"
         className="chart-card"
-        deck="The length of software tasks AI can complete has increased. What has not increased as neatly is our confidence in the consequences."
-        eyebrow="MEASURE THE CHANGE"
+        eyebrow="RECOGNIZE THE PACE"
         footer={
           <>
-            <SourceLinkButton sourceIds="metr,metr-live" />
+            <SourceLinkButton sourceIds="metr,metr-2024,metr-live" />
             <CapabilityChartFooter />
           </>
         }
         span="span-12"
-        title="Fast, faster, and then, um?"
+        title="Building intelligence: Fast, faster, well past humanity's fastest... then what?"
       >
-        <div className="card-label-row">
-          <EvidenceTag>Historical benchmark data</EvidenceTag>
-          <EvidenceTag variant="neutral">Jan 2026 snapshot</EvidenceTag>
-        </div>
         <div className="horizon-split">
           <div className="horizon-chart">
+            <p className="card-deck">
+              Practically every test humankind has ever devised to measure IQ or capability has <em>already been maxed out</em> by AI.
+              This is making it increasingly difficult to even understand how "smart" AI is getting, let alone how to
+              govern it.
+            </p>
+            <p className="card-deck">
+              The only durable method of gauging progress velocity that has kept up with AI's exponential ascent:&nbsp;
+              <strong>How long can it work productively on a task?</strong>
+            </p>
+            <p className="card-deck">Like so many other benchmarks, this durable stalwart is on its last legs.
+              Read the technical definition of it before if you're curious why.</p>
+            <div className="card-label-row">
+              <EvidenceTag>Historical benchmark data</EvidenceTag>
+              <EvidenceTag variant="neutral">2023–2025 model releases</EvidenceTag>
+            </div>
             <CapabilityChart />
             <CardNote heading="What this measures">
               Human-expert task time at 50% model success—not how long an AI runs, or whether it can
               replace a whole job. Points use METR’s Time Horizon 1.1 measurement where one exists
-              and 1.0 otherwise; the readout names which. METR has since revised these estimates.
+              and 1.0 otherwise; the readout names which. The 2024 points use METR’s downloadable
+              results retrieved September 29, 2026; other points retain the January 2026 snapshot.
             </CardNote>
           </div>
           <BenchmarkGraveyard />

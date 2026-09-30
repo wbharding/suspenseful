@@ -139,11 +139,12 @@ export const modelReleases = [
   entry("2026-09-01", "Claude Mythos 5.1", "Anthropic", { provisional: true }),
   entry("2026-09-02", "Gemini 3.8 Flash", "Google"),
   entry("2026-09-10", "DeepSeek-V4.1-Flash", "DeepSeek"),
-  entry("2026-09-12", "Grok 4.7", "xAI", {
-    provisional: true,
-    status: "announced",
-    note: "Announced for 12 Sep 2026; the catalog marks shipment as uncertain",
-  }),
+  entry("2026-09-21", "Grok 4.7", "xAI", { source: "launch-grok-4-7" }),
+  entry("2026-09-22", "Claude Opus 5.5", "Anthropic", { source: "launch-opus-5-5" }),
+  entry("2026-09-22", "GPT-6 Sol", "OpenAI", { source: "launch-gpt-6-sol-luna" }),
+  entry("2026-09-22", "GPT-6 Luna", "OpenAI", { source: "launch-gpt-6-sol-luna" }),
+  entry("2026-09-28", "Claude Sonnet 5.5", "Anthropic", { source: "launch-sonnet-5-5" }),
+  entry("2026-09-29", "GPT-6.1 Sol", "OpenAI", { source: "launch-gpt-6-1-sol" }),
 ];
 
 // Provider colours for the timeline blocks and filter chips. These resolve through the theme's

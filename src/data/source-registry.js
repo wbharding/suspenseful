@@ -5,6 +5,55 @@
 // living in a footnote nobody opens.
 
 export const sourceRegistry = {
+  "metr-2024": {
+    "title": "2024 models \u2014 METR downloadable results",
+    "publisher": "METR",
+    "date": "Retrieved September 29, 2026",
+    "url": "https://metr.org/assets/benchmark_results_1_1.yaml",
+    "type": "Benchmark data",
+    "note": "The seven 2024 models use the downloadable TH 1.1 results and matching TH 1.0 file (https://metr.org/assets/benchmark_results_1_0.yaml), including release dates and reported 95% intervals in minutes. These files include later revisions and are not the January comparison-table snapshot used for the other points."
+  },
+  "launch-grok-4-7": {
+    "title": "Introducing Grok 4.7",
+    "publisher": "xAI",
+    "date": "2026-09-21",
+    "url": "https://x.ai/news/grok-4-7",
+    "type": "Official release announcement",
+    "note": "Confirms the named model\u2019s release and availability. Named models from a shared announcement are counted separately."
+  },
+  "launch-opus-5-5": {
+    "title": "Introducing Claude Opus 5.5",
+    "publisher": "Anthropic",
+    "date": "2026-09-22",
+    "url": "https://www.anthropic.com/claude-opus-5-5",
+    "type": "Official release announcement",
+    "note": "Confirms the named model\u2019s release and availability. Named models from a shared announcement are counted separately."
+  },
+  "launch-gpt-6-sol-luna": {
+    "title": "Introducing GPT-6 Sol and Luna",
+    "publisher": "OpenAI",
+    "date": "2026-09-22",
+    "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "type": "Official release announcement",
+    "note": "Confirms the named model\u2019s release and availability. Named models from a shared announcement are counted separately."
+  },
+  "launch-sonnet-5-5": {
+    "title": "Introducing Claude Sonnet 5.5",
+    "publisher": "Anthropic",
+    "date": "2026-09-28",
+    "url": "https://www.anthropic.com/claude-sonnet-5-5",
+    "type": "Official release announcement",
+    "note": "Confirms the named model\u2019s release and availability. Named models from a shared announcement are counted separately."
+  },
+  "launch-gpt-6-1-sol": {
+    "title": "Introducing GPT-6.1 Sol",
+    "publisher": "OpenAI",
+    "date": "2026-09-29",
+    "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+    "type": "Official release announcement",
+    "note": "Confirms the named model\u2019s release and availability. Named models from a shared announcement are counted separately."
+  },
+
   draft: {
     title: "Original infographic outline",
     publisher: "Bill Harding · Amplenote",
@@ -35,7 +84,7 @@ export const sourceRegistry = {
     date: "September 13, 2026",
     url: "https://public.amplenote.com/z28idzmc2wTjLNsucS6tBZPB",
     type: "Compiled release catalog",
-    note: "Seven labs only: Anthropic, OpenAI, Google, xAI, Meta, Z.ai, and DeepSeek. Flagship and point text-LLM releases from January 2024 through 12 September 2026, not an industry census and not a capability score. Same-day named variants are shown as separate blocks. Four rows are month-level (no confirmed day). Several 2026 dates — especially Fable/Mythos, GPT-5.6, Grok 4.7, and GLM-5.x — rest on secondary trackers and are marked provisional. Grok 4.7 is announced, not confirmed shipped. Image, video, audio, and embedding models are out of scope. Blank months mean no events in this catalog."
+    note: "Seven labs only: Anthropic, OpenAI, Google, xAI, Meta, Z.ai, and DeepSeek. The original catalog covers flagship and point text-LLM releases from January 2024 through 12 September 2026, not an industry census and not a capability score. Same-day named variants are shown as separate blocks. Four rows are month-level (no confirmed day). Several 2026 dates — especially Fable/Mythos, GPT-5.6, and GLM-5.x — rest on secondary trackers and are marked provisional. Official announcements supplement this catalog through September 29, 2026, and replace Grok 4.7’s tentative September 12 date with its confirmed September 21 release. Image, video, audio, and embedding models are out of scope. Blank months mean no events in this catalog."
   },
   amodei: {
     title: "We Must Pace the Frontier",

@@ -33,23 +33,24 @@ export default function CapabilityDataDialog() {
         model.date,
         ...(model.horizons.v10 || [ "", "", "" ]),
         ...(model.horizons.v11 || [ "", "", "" ]),
-        "2026-01-29",
-        sourceRegistry.metr.url,
+        model.snapshot || "2026-01-29",
+        sourceRegistry[model.source || "metr"].url,
       ]),
     ];
-    downloadFile("metr-historical-january-2026.csv", toCsv(rows), "text/csv;charset=utf-8");
+    downloadFile("metr-historical.csv", toCsv(rows), "text/csv;charset=utf-8");
   }
 
   return (
     <>
       <DialogHeading title="The actual benchmark numbers.">
-        Historical January 29, 2026 publication snapshot. All values are{" "}
+        Historical model releases from 2023–2025. All values are{" "}
         <strong>human-expert minutes at 50% model success</strong>. Intervals are those reported
-        in METR’s comparison table. Missing values stay missing.
+        by METR. The 2024 rows use downloadable results retrieved September 29, 2026;
+        other rows use the January 29, 2026 comparison table. Missing values stay missing.
       </DialogHeading>
 
       <div className="privacy-warning">
-        METR later revised its estimates. This is deliberately not presented as the current
+        These sources contain different revisions of METR’s estimates. This is not the current
         leaderboard. The chart draws one line: the TH 1.1 value where METR published one, the
         TH 1.0 value otherwise. Both are below, unmerged.
       </div>
@@ -65,6 +66,7 @@ export default function CapabilityDataDialog() {
               <th className="number">TH 1.1</th>
               <th className="number">Interval</th>
               <th>Charted</th>
+              <th>Source snapshot / retrieval</th>
             </tr>
           </thead>
           <tbody>
@@ -77,6 +79,7 @@ export default function CapabilityDataDialog() {
                 <td className="number">{model.horizons.v11 ? model.horizons.v11[0] : "—"}</td>
                 <td className="number">{intervalCell(model.horizons.v11)}</td>
                 <td>{model.horizons.v11 ? "TH 1.1" : "TH 1.0"}</td>
+                <td>{model.snapshot || "2026-01-29"}</td>
               </tr>
             ))}
           </tbody>
@@ -88,7 +91,7 @@ export default function CapabilityDataDialog() {
           <FieldIcon name="download" />
           Download CSV
         </button>
-        <button className="btn" onClick={() => openSources(openDialog, "metr,metr-live")} type="button">
+        <button className="btn" onClick={() => openSources(openDialog, "metr,metr-2024,metr-live")} type="button">
           Methodology & revisions
         </button>
       </div>

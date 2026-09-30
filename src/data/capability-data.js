@@ -2,6 +2,10 @@
 // success. Each horizon is [estimate, intervalLow, intervalHigh] from the reported bootstrapped
 // confidence interval.
 //
+// The 2024 models come from METR’s downloadable results retrieved September 29, 2026;
+// the other models retain the January 29 comparison-table snapshot. Dates are model release
+// dates, not evaluation/publication dates. Per-model source and snapshot preserve provenance.
+//
 // Both raw benchmark versions are kept in the data, because they are not interchangeable: METR
 // revised its estimates between 1.0 and 1.1, and several models were only ever scored under 1.0.
 // The chart shows a single merged series — asking a general reader to pick a benchmark revision
@@ -35,6 +39,83 @@ export const capabilityModels = [
     horizons: {
       v11: [3.6, 1.6, 7.5],
       v10: [8.5, 4, 16.1]
+    }
+  },
+  {
+    name: "Claude 3 Opus",
+    date: "2024-03-04",
+    provider: "Anthropic",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [3.952262, 1.706313, 8.76484],
+      v10: [7.148402, 3.217769, 14.764711]
+    }
+  },
+  {
+    name: "GPT-4 Turbo",
+    date: "2024-04-09",
+    provider: "OpenAI",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [3.732787, 1.980046, 6.736613],
+      v10: [7.777455, 4.050277, 14.21142]
+    }
+  },
+  {
+    name: "GPT-4o",
+    date: "2024-05-13",
+    provider: "OpenAI",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [6.991195, 4.001482, 12.905741],
+      v10: [10.174857, 5.000948, 19.508766]
+    }
+  },
+  {
+    name: "Claude 3.5 Sonnet (June)",
+    date: "2024-06-20",
+    provider: "Anthropic",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [11.395377, 5.489734, 22.384214],
+      v10: [19.764601, 10.531997, 35.808873]
+    }
+  },
+  {
+    name: "o1-preview",
+    date: "2024-09-12",
+    provider: "OpenAI",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [20.326586, 11.716193, 33.379877],
+      v10: [23.254728, 12.640748, 39.370195]
+    }
+  },
+  {
+    name: "Claude 3.5 Sonnet (October)",
+    date: "2024-10-22",
+    provider: "Anthropic",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [20.522872, 10.144026, 40.82028],
+      v10: [30.454555, 14.72191, 60.891717]
+    }
+  },
+  {
+    name: "o1",
+    date: "2024-12-05",
+    provider: "OpenAI",
+    source: "metr-2024",
+    snapshot: "2026-09-29",
+    horizons: {
+      v11: [38.831588, 21.164512, 64.95249],
+      v10: [41.551706, 19.822684, 85.806317]
     }
   },
   {

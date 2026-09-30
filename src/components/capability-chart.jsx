@@ -175,6 +175,7 @@ export default function CapabilityChart() {
               <strong>{selected.name}</strong>
               <small>
                 {dateLabel(selected.date)} · {selected.versionLabel}
+                {selected.source === "metr-2024" ? " · Sep 2026 retrieval" : " · Jan 2026 snapshot"}
               </small>
             </div>
             <div className="selected-horizon">
