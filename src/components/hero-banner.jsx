@@ -34,11 +34,11 @@ export default function HeroBanner() {
 
         <div className="hero-visual">
           <img
-            alt="A winding road toward a sunlit mountain landscape, with signs for safer AI and shared benefits"
+            alt="A fox and panda drive race cars labeled US and China along a mountain road past signs for safer AI and shared benefits. A note reads: A future we choose. Not one we race into."
             className="landscape landscape-hero"
-            src="/images/home/mountain-road.webp"
-            width="1600"
-            height="1228"
+            src="/images/home/we-be-racin.png"
+            width="1276"
+            height="972"
             fetchPriority="high"
           />
         </div>

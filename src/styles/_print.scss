@@ -1,0 +1,69 @@
+@use "tokens" as *;
+
+.print-guide { display: none; }
+.print-guide-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 6px 16px;
+  padding: 0 20px 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.print-guide-tools button { font-size: 14px; }
+
+@media print {
+  // Auto paper size respects Letter or A4 chosen in the print dialog.
+  @page { size: auto; margin: 12mm; }
+
+  html:has(.print-guide), body:has(.print-guide) {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    color: #172f28 !important;
+    color-scheme: light;
+  }
+
+  body:has(.print-guide) #root > :not(main),
+  body:has(.print-guide) main > :not(.print-guide),
+  body:has(.print-guide) dialog,
+  body:has(.print-guide) dialog::backdrop { display: none !important; }
+
+  .print-guide {
+    display: block;
+    font: 10pt/1.38 $font-body;
+    color: #172f28;
+    text-align: left;
+  }
+  .print-sheet {
+    display: flex;
+    flex-direction: column;
+    min-height: 248mm;
+    break-after: page;
+  }
+  .print-sheet:last-child { break-after: auto; }
+  .print-heading { padding-bottom: 4mm; border-bottom: 1pt solid #6b8f72; }
+  .print-guide .print-kicker { margin: 0 0 2mm; font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .print-guide h1 { margin: 0 0 2mm; font: 600 30pt/1.05 $font-display; letter-spacing: -.045em; }
+  .print-guide .print-deck { margin-bottom: 2mm; font: 600 13pt/1.25 $font-display; }
+  .print-guide p { margin: 0 0 2mm; }
+  .print-chapter { margin-top: 4mm; }
+  .print-guide h2 { margin: 0 0 1.5mm; font: 600 17pt/1.15 $font-display; letter-spacing: -.035em; break-after: avoid; }
+  .print-guide h2 > span { margin-right: 2mm; color: #93512f; font: 700 11pt/1 $font-body; }
+  .print-guide .print-intro { margin-bottom: 3mm; color: #3b5148; }
+  .print-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .print-columns > div { min-width: 0; }
+  .print-guide h3 { margin: 0 0 1mm; font: 700 10pt/1.3 $font-body; letter-spacing: -.015em; break-after: avoid; }
+  .print-guide p + h3 { margin-top: 3mm; }
+  .print-guide ul, .print-guide ol { margin: 0 0 2mm; padding-left: 4mm; }
+  .print-guide li { margin-bottom: 1.5mm; break-inside: avoid; }
+  .print-guide .print-sources { margin: 2mm 0 0; font-size: 7pt; line-height: 1.4; color: #3b5148; }
+  .print-guide a { color: inherit; text-decoration: underline; }
+  .print-guide a::after { content: none; }
+  .print-action { margin-bottom: 3mm; break-inside: avoid; }
+  .print-next-step { margin-top: 2mm; padding: 3mm; border: .75pt solid #6b8f72; break-inside: avoid; }
+  .print-next-step p { display: flex; align-items: baseline; gap: 2mm; margin: 2mm 0 0; font-size: 9pt; }
+  .print-write-line { flex: 1; border-bottom: .5pt solid #6b8f72; }
+  .print-footer { display: flex; justify-content: space-between; align-items: end; gap: 5mm; margin-top: auto; padding-top: 4mm; font-size: 7.5pt; }
+}

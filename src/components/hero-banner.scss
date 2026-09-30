@@ -51,7 +51,7 @@
 .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; color: var(--muted); font-size: 14px; }
 .hero-visual { margin-left: -22px; }
 .landscape { display: block; width: 100%; height: auto; }
-.landscape-hero { mix-blend-mode: multiply; }
+.landscape-hero { mix-blend-mode: multiply; border-radius: 4%; }
 
 @include breakpoint-down(tablet) {
   .hero-inner { grid-template-columns: 1fr 1fr; padding: 12px 24px 26px; }

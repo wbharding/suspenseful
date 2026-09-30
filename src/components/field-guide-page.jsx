@@ -11,6 +11,7 @@ import HeroBanner from "./hero-banner.jsx";
 import HomeHighlights from "./home-highlights.jsx";
 import PolicyPage from "./policy-page.jsx";
 import PressureChapter from "./pressure-chapter.jsx";
+import PrintGuide from "./print-guide.jsx";
 import { dialogViews as pressureDialogViews } from "./pressure-dialogs.js";
 import RisksChapter from "./risks-chapter.jsx";
 import { dialogViews as risksDialogViews } from "./risks-dialogs.js";
@@ -67,6 +68,7 @@ function FieldGuideLayout() {
       <main id="main">
         <HeroBanner />
         <HomeHighlights />
+        <PrintGuide />
         <ChapterNav activeChapterId={activeChapterId} chapters={CHAPTERS} />
 
         <div className="page-content">
