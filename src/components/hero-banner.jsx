@@ -28,7 +28,7 @@ export default function HeroBanner() {
             Explore the case <FieldIcon name="arrow" />
           </a>
           <div className="hero-meta">
-            Single-page AI risk explainer <span>·</span> Four chapters <span>·</span> Evidence, not inevitability
+            Single-page AI risk explainer <span>·</span> Print-friendly <span>·</span> Evidence, not inevitability
           </div>
         </div>
 
