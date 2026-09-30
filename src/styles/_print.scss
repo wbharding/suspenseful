@@ -14,8 +14,9 @@
 .print-guide-tools button { font-size: 14px; }
 
 @media print {
-  // Auto paper size respects Letter or A4 chosen in the print dialog.
-  @page { size: auto; margin: 12mm; }
+  // Keep the selected paper (Letter or A4), but request the orientation this
+  // two-sided layout needs instead of inheriting a landscape print setting.
+  @page { size: portrait; margin: 12mm; }
 
   html:has(.print-guide), body:has(.print-guide) {
     height: auto !important;
@@ -32,14 +33,15 @@
 
   .print-guide {
     display: block;
-    font: 10pt/1.38 $font-body;
+    font: 10pt/1.3 $font-body;
     color: #172f28;
     text-align: left;
   }
   .print-sheet {
     display: flex;
     flex-direction: column;
-    min-height: 248mm;
+    // Leave headroom within Letter's 255.4mm printable height; A4 is taller.
+    min-height: 244mm;
     break-after: page;
   }
   .print-sheet:last-child { break-after: auto; }
@@ -48,10 +50,10 @@
   .print-guide h1 { margin: 0 0 2mm; font: 600 30pt/1.05 $font-display; letter-spacing: -.045em; }
   .print-guide .print-deck { margin-bottom: 2mm; font: 600 13pt/1.25 $font-display; }
   .print-guide p { margin: 0 0 2mm; }
-  .print-chapter { margin-top: 4mm; }
+  .print-chapter { margin-top: 3mm; }
   .print-guide h2 { margin: 0 0 1.5mm; font: 600 17pt/1.15 $font-display; letter-spacing: -.035em; break-after: avoid; }
   .print-guide h2 > span { margin-right: 2mm; color: #93512f; font: 700 11pt/1 $font-body; }
-  .print-guide .print-intro { margin-bottom: 3mm; color: #3b5148; }
+  .print-guide .print-intro { margin-bottom: 2mm; color: #3b5148; }
   .print-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
   .print-columns > div { min-width: 0; }
   .print-guide h3 { margin: 0 0 1mm; font: 700 10pt/1.3 $font-body; letter-spacing: -.015em; break-after: avoid; }
