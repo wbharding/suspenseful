@@ -116,7 +116,11 @@ export default function PressureChapter() {
           </li>
           <li>
             <FieldIcon name="leaf" />
-            <span>If a powerful open model lowers barriers to harmful misuse, withdrawal later may not meaningfully reduce access.</span>
+            <span>When we worry about biological agents or novel weapons being created, it will come from a modified open weights model.</span>
+          </li>
+          <li>
+            <FieldIcon name="leaf" />
+            <span>The more powerful open models we release, the greater the potential for bad actors to take advantage of offense/defense imbalances.</span>
           </li>
         </ul>
       </GuideCard>
