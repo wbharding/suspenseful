@@ -19,14 +19,16 @@ export default function HeroBanner() {
             Give safeguards time to catch up.
           </p>
           <p className="hero-explainer">
-            Not a stop. A smarter pace for the most capable systems—and more time to shape the
-            future we actually want.
+            The average citizen sees a news headline scream "AI could make us extinct... in under 10 years!" and rolls their eyes.
+            Daily life is so incredibly far removed from what's happening at the frontier of AI for anyone still reading this explainer.
+            But even if you exist outside the apparent domain of AI's current influence, pull up a chair and spare a few minutes to
+            mull where the current trajectory puts us in 2030?
           </p>
           <a className="btn hero-cta" href="#pressure">
             Explore the case <FieldIcon name="arrow" />
           </a>
           <div className="hero-meta">
-            Four chapters <span>·</span> Evidence, not inevitability
+            Single-page AI risk explainer <span>·</span> Four chapters <span>·</span> Evidence, not inevitability
           </div>
         </div>
 

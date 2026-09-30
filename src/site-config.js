@@ -4,7 +4,7 @@
 // document title and the visible brand can never drift apart.
 export const SITES = {
   "suspenseful.ai": {
-    title: "Why slow the AI race? — A smarter pace",
+    title: "AI needs to chill — Data for a better pace",
     description:
       "An interactive field guide to the case for pacing frontier AI. Explore evidence, competing incentives, policy options and practical actions.",
     // `lead` keeps its trailing space where the wordmark is two words; `accent` is the
