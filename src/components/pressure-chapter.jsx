@@ -94,7 +94,7 @@ export default function PressureChapter() {
         className="pressure-concept-card"
         deck="Once model weights are copied, recalling the original does not retrieve every independent copy."
         eyebrow="A ONE-WAY DOOR"
-        footer={<SourceLinkButton sourceIds="draft,amodei" />}
+        footer={<SourceLinkButton sourceIds="kokotajlo-open-weights,barnes-release-decisions,nanda-unlearning" />}
         span="span-6"
         title={<>Some releases are <span className="concept-emphasis">hard to undo.</span></>}
       >
@@ -123,7 +123,7 @@ export default function PressureChapter() {
         className="pressure-concept-card"
         deck="Financial commitments and competitive expectations can make restraint harder—even when risks are openly acknowledged."
         eyebrow="THE COMMITMENTS COMPOUND"
-        footer={<SourceLinkButton label="Argument & limits" sourceIds="draft,amodei" />}
+        footer={<SourceLinkButton label="Argument & limits" sourceIds="kokotajlo-race-incentives,ai-2027-race,barnes-release-decisions" />}
         span="span-6"
         title={<>It gets <span className="concept-emphasis">harder</span> to take your foot off the gas.</>}
       >

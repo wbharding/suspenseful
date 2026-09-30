@@ -86,6 +86,46 @@ export const sourceRegistry = {
     type: "Compiled release catalog",
     note: "Seven labs only: Anthropic, OpenAI, Google, xAI, Meta, Z.ai, and DeepSeek. The original catalog covers flagship and point text-LLM releases from January 2024 through 12 September 2026, not an industry census and not a capability score. Same-day named variants are shown as separate blocks. Four rows are month-level (no confirmed day). Several 2026 dates — especially Fable/Mythos, GPT-5.6, and GLM-5.x — rest on secondary trackers and are marked provisional. Official announcements supplement this catalog through September 29, 2026, and replace Grok 4.7’s tentative September 12 date with its confirmed September 21 release. Image, video, audio, and embedding models are out of scope. Blank months mean no events in this catalog."
   },
+  "kokotajlo-open-weights": {
+    title: "Daniel Kokotajlo on Plan A and access to model weights",
+    publisher: "The 80,000 Hours Podcast · Daniel Kokotajlo",
+    date: "August 27, 2026",
+    url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
+    type: "Interview transcript / policy argument",
+    note: "In the section beginning at 01:41:28, Kokotajlo distinguishes research transparency from releasing model weights: his proposal withholds weights so users cannot undo refusal training. This supports the concern about losing control of safeguards once weights are distributed; it is a proposed approach to misuse risk, not a measurement of harm from existing open models."
+  },
+  "barnes-release-decisions": {
+    title: "Beth Barnes on AI safety evaluations and release decisions",
+    publisher: "The 80,000 Hours Podcast · Beth Barnes",
+    date: "June 2, 2025",
+    url: "https://80000hours.org/podcast/episodes/beth-barnes-ai-safety-evals/",
+    type: "Interview transcript",
+    note: "Barnes explains that deployment can be reversed more readily when weights have not been released, and that open-weight release is irreversible. She also describes how money already spent training a model creates pressure to use it before adequate safeguards are ready. She balances these concerns against the value of open models for independent safety research. This supports the panels’ release and investment concerns, not a claim that all open releases are harmful or that restraint is impossible."
+  },
+  "nanda-unlearning": {
+    title: "Neel Nanda on the race to read AI minds (part 1)",
+    publisher: "The 80,000 Hours Podcast · Neel Nanda",
+    date: "September 8, 2025",
+    url: "https://80000hours.org/podcast/episodes/neel-nanda-mechanistic-interpretability/",
+    type: "Interview transcript / technical limitations",
+    note: "Nanda explains why current unlearning methods may suppress dangerous knowledge without removing it, and why someone with full control of an open model can break that suppression. This addresses the limits of safeguards after weights are released; it does not establish that every open model enables serious misuse."
+  },
+  "kokotajlo-race-incentives": {
+    title: "Daniel Kokotajlo on AI 2027 and the incentives to keep racing",
+    publisher: "The 80,000 Hours Podcast · Daniel Kokotajlo",
+    date: "October 20, 2025",
+    url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2027-updates-china-robot-economy/",
+    type: "Interview transcript / scenario discussion",
+    note: "In the section beginning at 01:01:29, Kokotajlo describes companies trying to beat competitors and China, make money, and solve alignment along the way. He explains why even the AI 2027 slowdown ending depends on risky choices and good luck, and argues for coordination instead. This is his account of competitive incentives, not a measured estimate of how investment changes the odds of a slowdown."
+  },
+  "ai-2027-race": {
+    title: "AI 2027 — infrastructure, competition, and the slowdown decision",
+    publisher: "AI Futures Project · Daniel Kokotajlo and coauthors",
+    date: "April 3, 2025",
+    url: "https://ai-2027.com/summary",
+    type: "Forecast scenario",
+    note: "The summary connects major infrastructure investment with an escalating AI race. At its branching point, leaders weigh safety warnings against a narrowing lead over China and the power they could lose by slowing down. This illustrates how commitments and competition can obstruct restraint; it is a scenario, not observed history. The panel’s suggestion about future public shareholders is an inference, not a finding established by this source."
+  },
   amodei: {
     title: "We Must Pace the Frontier",
     publisher: "Dario Amodei",
