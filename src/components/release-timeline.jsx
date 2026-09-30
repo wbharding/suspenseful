@@ -51,6 +51,7 @@ export default function ReleaseTimeline({ onFilterChange }) {
   const lastRef = useRef(0);
   const paintRef = useRef(0);
   const frameRef = useRef(0);
+  const restartTimeoutRef = useRef(0);
   const kernelSeq = useRef(0);
   const reducedRef = useRef(reducedMotion);
   const eventsRef = useRef([]);
@@ -83,12 +84,14 @@ export default function ReleaseTimeline({ onFilterChange }) {
     playingRef.current = false;
     setPlaying(false);
     cancelAnimationFrame(frameRef.current);
+    window.clearTimeout(restartTimeoutRef.current);
   }, []);
 
   usePauseSignal(handlePause);
 
   useEffect(() => () => {
     cancelAnimationFrame(frameRef.current);
+    window.clearTimeout(restartTimeoutRef.current);
     disablePopSound();
   }, []);
 
@@ -154,13 +157,16 @@ export default function ReleaseTimeline({ onFilterChange }) {
       }
 
       if (nextPos >= end) {
-        posRef.current = start;
-        setPos(start);
-        setFlashIds(new Set());
-        setKernels([]);
-        showToast("Back at the start. After the frog boiled, 2024 looks quiet.");
-        lastRef.current = now;
-        frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
+        setPos(end);
+        restartTimeoutRef.current = window.setTimeout(() => {
+          posRef.current = start;
+          setPos(start);
+          setFlashIds(new Set());
+          setKernels([]);
+          showToast("Back at the start. After the frog boiled, 2024 looks quiet.");
+          lastRef.current = performance.now();
+          frameRef.current = requestAnimationFrame((time) => tickRef.current(time));
+        }, 1000);
         return;
       }
       frameRef.current = requestAnimationFrame((time) => tickRef.current(time));

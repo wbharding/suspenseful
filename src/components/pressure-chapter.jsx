@@ -70,20 +70,6 @@ export default function PressureChapter() {
 
       <GuideCard
         cellId="1B"
-        deck="Safety is not one score. It requires sustained work across several fronts."
-        eyebrow="UNDERSTANDING TAKES WORK"
-        footer={<SourceLinkButton label="Why these workstreams?" sourceIds="amodei,hassabis" />}
-        span="span-12"
-        title="More capable ≠ more understood."
-      >
-        <SafetyWorkTiles />
-        <CardInsight>
-          A system passing today’s tests is not a guarantee of overall safety.
-        </CardInsight>
-      </GuideCard>
-
-      <GuideCard
-        cellId="1C"
         className="timeline-card"
         deck="Each block is a dated release. Each pop is one event. Hover a block for its name. Press the yellow play control — it loops back so you can tell the difference after the frog boiled."
         eyebrow="THE RELEASE RHYTHM"
@@ -104,7 +90,7 @@ export default function PressureChapter() {
       </GuideCard>
 
       <GuideCard
-        cellId="1D"
+        cellId="1C"
         deck="Once model weights are copied, recalling the original does not retrieve every independent copy."
         eyebrow="A ONE-WAY DOOR"
         footer={<SourceLinkButton sourceIds="draft,amodei" />}
@@ -116,7 +102,7 @@ export default function PressureChapter() {
       </GuideCard>
 
       <GuideCard
-        cellId="1E"
+        cellId="1D"
         className="incentives-card"
         deck="Financial commitments and competitive expectations can make restraint harder—even when risks are openly acknowledged."
         eyebrow="THE COMMITMENTS COMPOUND"
