@@ -1,18 +1,18 @@
 import { useCallback, useState } from "react";
+import commitmentsImage from "../assets/commitments-compound.png";
+import openWeightsImage from "../assets/open-weights-copies.png";
 import { modelReleases, releaseProviders } from "../data/release-data.js";
 import CapabilityChart, { CapabilityChartFooter } from "./capability-chart.jsx";
 import BenchmarkGraveyard from "./benchmark-graveyard.jsx";
 import ChapterSection from "./chapter-section.jsx";
-import GasPedalGame from "./gas-pedal-game.jsx";
+import FieldIcon from "./field-icon.jsx";
 import GuideCard, {
-  CardInsight,
   CardNote,
   EvidenceTag,
   SourceLinkButton,
 } from "./guide-card.jsx";
-import RecallDemo from "./recall-demo.jsx";
 import ReleaseTimeline, { ReleaseTimelineFooter } from "./release-timeline.jsx";
-import SafetyWorkTiles from "./safety-work-tiles.jsx";
+import "./pressure-chapter.scss";
 
 export default function PressureChapter() {
   const [ timelineProviders, setTimelineProviders ] = useState(releaseProviders);
@@ -91,27 +91,60 @@ export default function PressureChapter() {
 
       <GuideCard
         cellId="1C"
+        className="pressure-concept-card"
         deck="Once model weights are copied, recalling the original does not retrieve every independent copy."
         eyebrow="A ONE-WAY DOOR"
         footer={<SourceLinkButton sourceIds="draft,amodei" />}
         span="span-6"
-        title="Some releases are hard to undo."
+        title={<>Some releases are <span className="concept-emphasis">hard to undo.</span></>}
       >
-        <EvidenceTag variant="illustration">Interactive illustration</EvidenceTag>
-        <RecallDemo />
+        <img
+          alt="An open-weights crate leaves the original mountain cabin, with independent copies scattered along branching paths."
+          className="pressure-concept-art"
+          height="434"
+          loading="lazy"
+          src={openWeightsImage}
+          width="734"
+        />
+        <ul className="pressure-concept-points">
+          <li>
+            <FieldIcon name="leaf" />
+            <span>A public release can be copied, mirrored, and adapted far beyond the original lab’s control.</span>
+          </li>
+          <li>
+            <FieldIcon name="leaf" />
+            <span>If a powerful open model lowers barriers to harmful misuse, withdrawal later may not meaningfully reduce access.</span>
+          </li>
+        </ul>
       </GuideCard>
 
       <GuideCard
         cellId="1D"
-        className="incentives-card"
+        className="pressure-concept-card"
         deck="Financial commitments and competitive expectations can make restraint harder—even when risks are openly acknowledged."
         eyebrow="THE COMMITMENTS COMPOUND"
         footer={<SourceLinkButton label="Argument & limits" sourceIds="draft,amodei" />}
         span="span-6"
-        title="It gets harder to take your foot off the gas."
+        title={<>It gets <span className="concept-emphasis">harder</span> to take your foot off the gas.</>}
       >
-        <EvidenceTag variant="illustration">Driving illustration</EvidenceTag>
-        <GasPedalGame />
+        <img
+          alt="An AI race car carries more investment, higher expectations, and longer time horizons up a winding road, past signs for capex, shareholders, competition, and infrastructure."
+          className="pressure-concept-art"
+          height="433"
+          loading="lazy"
+          src={commitmentsImage}
+          width="732"
+        />
+        <ul className="pressure-concept-points">
+          <li>
+            <FieldIcon name="leaf" />
+            <span>After companies raise more capital and build more infrastructure, slowing down becomes politically and financially harder.</span>
+          </li>
+          <li>
+            <FieldIcon name="leaf" />
+            <span>If frontier AI firms go public, millions of additional shareholders may reward acceleration more than caution.</span>
+          </li>
+        </ul>
       </GuideCard>
     </ChapterSection>
   );

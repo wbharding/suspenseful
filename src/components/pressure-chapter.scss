@@ -1,0 +1,37 @@
+.pressure-concept-card {
+  .concept-emphasis {
+    color: var(--accent-red);
+  }
+
+  .pressure-concept-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 16px;
+  }
+
+  .pressure-concept-points {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0 22px;
+    padding: 0;
+    color: var(--muted);
+    list-style: none;
+    font-size: 16px;
+    line-height: 1.5;
+
+    li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .icon {
+      flex: none;
+      margin-top: 3px;
+      color: var(--accent-green);
+      fill: var(--accent-green-soft);
+    }
+  }
+}
