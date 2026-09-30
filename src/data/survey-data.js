@@ -1,4 +1,4 @@
-// Element 2D. Grace et al. 2023 researcher survey, Table 2. Three question framings of the same
+// Element 2G. Grace et al. 2023 researcher survey, Table 2. Three question framings of the same
 // underlying concern, which is the point of the element: the wording moves the summary.
 // Means and medians are percentages; `n` is the per-question respondent count.
 

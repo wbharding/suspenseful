@@ -220,7 +220,7 @@ export const sourceRegistry = {
     date: "2026",
     url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
     type: "Interview transcript",
-    note: "Quotes are verbatim from the published transcript, where Kokotajlo canvasses five problems in reverse order. All five appear on this page. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. These are his forecasts and concerns, not measured probabilities, and the wider transcript is more hedged than any single excerpt. He describes the harms; he is not the source for the suggested responses beside them, and other people quoted on this page would respond differently."
+    note: "Kokotajlo discusses five problems from 00:15:43: misuse, jobs, great-power conflict, concentration of power, and loss of control. Section 2 groups great-power conflict under race dynamics, alongside his separate interview on competitive incentives. These cards summarize his concerns, not measured probabilities or inevitable outcomes. Further discussion starts at 00:51:44 for control, 01:12:18 for power, and 01:41:28 for conflict, unemployment, and misuse. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. Other people quoted on this page disagree about the best response."
   },
   senate: {
     title: "Contacting U.S. Senators",

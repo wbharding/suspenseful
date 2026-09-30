@@ -1,0 +1,133 @@
+.risk-concern {
+  .concern-graphic {
+    margin: 1.4rem 0;
+    padding: 1.5rem 1rem 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.8rem;
+    background: var(--section-soft);
+  }
+
+  .concern-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .concern-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 650;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .concern-symbol {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--surface);
+    color: var(--section-color);
+
+    .icon {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+
+  .concern-arrow {
+    position: absolute;
+    top: 1.2rem;
+    left: -1rem;
+    width: 1rem;
+    height: 1rem;
+    color: var(--section-color);
+  }
+
+  figcaption {
+    margin-top: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: center;
+
+    span {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--section-color);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+
+  .concern-detail {
+    max-width: 54rem;
+    margin-bottom: 1.5rem;
+
+    h4 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+  }
+
+  .concern-sources {
+    display: grid;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .concern-listen-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+
+  .concern-listen {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.25rem 0;
+    color: var(--section-color);
+    font-size: 0.9rem;
+    font-weight: 650;
+    line-height: 1.4;
+    text-decoration: none;
+
+    .icon {
+      flex: none;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    &:hover span {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  }
+}

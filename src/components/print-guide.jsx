@@ -1,4 +1,5 @@
 import { actionItems } from "../data/action-data.js";
+import { riskConcerns } from "../data/risk-concerns.js";
 import { siteMeta } from "../data/site-meta.js";
 import { sourceRegistry } from "../data/source-registry.js";
 import { surveyHeadline } from "../data/survey-data.js";
@@ -78,26 +79,20 @@ export default function PrintGuide() {
             <p className="print-intro">Possible harms, not a timetable. Different risks need different responses.</p>
             <div className="print-columns">
               <div>
-                <h3>A race nobody wants to lose.</h3>
-                <p>Individually rational decisions can produce a pace that leaves everyone less
-                  prepared. Shared checkpoints could change those incentives, but only with
-                  credible verification and enforcement.</p>
-                <ul>
-                  <li><strong>Jobs and information:</strong> disruption, scams and misinformation;
-                    support transitions and strengthen authentication.</li>
-                  <li><strong>Misuse:</strong> more capable tools may enable cyber or biological
-                    abuse; test capabilities and strengthen defenses.</li>
-                  <li><strong>Geopolitical instability:</strong> a sudden lead could undermine
-                    deterrence; pursue coordination and shared verification.</li>
-                </ul>
+                {riskConcerns.slice(0, 3).map((risk) => (
+                  <div key={risk.id}>
+                    <h3>{risk.concern}</h3>
+                    <p>{risk.summary}</p>
+                  </div>
+                ))}
               </div>
               <div>
-                <ul>
-                  <li><strong>Concentrated power:</strong> fewer actors may control essential
-                    systems; make oversight accountable and open to public participation.</li>
-                  <li><strong>Loss of control:</strong> agents may pursue unintended goals or
-                    defeat safeguards; improve alignment, evaluations and containment.</li>
-                </ul>
+                {riskConcerns.slice(3).map((risk) => (
+                  <div key={risk.id}>
+                    <h3>{risk.concern}</h3>
+                    <p>{risk.summary}</p>
+                  </div>
+                ))}
                 <h3>Concern is evidence of concern.</h3>
                 <p>In a 2023 survey of {surveyHeadline.respondents.toLocaleString("en-US")} AI
                   researchers, {surveyHeadline.range}% {surveyHeadline.claim} These are
@@ -105,7 +100,7 @@ export default function PrintGuide() {
                   {" "}Researchers and AI builders disagree about timing and the best response.</p>
               </div>
             </div>
-            <PrintSources ids={["survey", "kokotajlo"]} />
+            <PrintSources ids={["survey", "kokotajlo", "kokotajlo-race-incentives"]} />
           </section>
           <footer className="print-footer"><span>{host} · Evidence, not inevitability</span><span>1 / 2 · Continue on the back →</span></footer>
         </section>

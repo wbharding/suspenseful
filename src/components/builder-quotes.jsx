@@ -4,7 +4,7 @@ import { openSources } from "../lib/open-sources.js";
 import FieldIcon from "./field-icon.jsx";
 import { NoteStrip } from "./guide-card.jsx";
 
-// Element 2C. Public statements from people building frontier AI. Opening a card shows the
+// Element 2F. Public statements from people building frontier AI. Opening a card shows the
 // source note, because a trimmed CEO quotation is exactly the kind of claim to check.
 export default function BuilderQuotes() {
   const { openDialog } = useGuideStore();

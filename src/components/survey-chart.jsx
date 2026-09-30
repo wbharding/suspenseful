@@ -4,7 +4,7 @@ import useElementWidth from "../hooks/use-element-width.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import FieldIcon from "./field-icon.jsx";
 
-// Element 2D. Grace et al. 2023. The 38–51% headline is the share assigning ≥10% to
+// Element 2G. Grace et al. 2023. The 38–51% headline is the share assigning ≥10% to
 // extinction-level outcomes, not P(catastrophe). The connecting line is not a CI.
 export default function SurveyChart() {
   const [ index, setIndex ] = useState(0);

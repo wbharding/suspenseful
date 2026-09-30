@@ -1,4 +1,4 @@
-// Element 2C. Public statements from people building frontier AI. Each entry points at a
+// Element 2F. Public statements from people building frontier AI. Each entry points at a
 // registry source whose note records the surrounding context, because a trimmed quotation from
 // a CEO is exactly the kind of claim a reader should be able to check.
 //
