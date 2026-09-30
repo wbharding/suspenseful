@@ -18,7 +18,16 @@
 @mixin light {
   color-scheme: light;
 
-  --page: #f7f7f0;
+  --page: #faf7f0;
+  --paper-wash: #faf7f099;
+  --clay: #ac5832;
+  --clay-hover: #944724;
+  --clay-text: #a65330;
+  --on-clay: #fffaf2;
+  --highlight-sage: #e8ebdc;
+  --highlight-sand: #f2e7d5;
+  --highlight-mint: #e1e9e2;
+  --highlight-cream: #f4eddc;
   --surface: #fffefa;
   --surface-raised: #fff;
   --surface-sunken: #f1f3e9;
@@ -36,7 +45,7 @@
   // themes. Pine is a *background* for the inverted bands (hero, closing), so it stays dark in
   // dark mode too — the --on-pine-* foregrounds are what those bands sit their text on. Using
   // --surface/--border there instead would flip them light-on-light.
-  --pine: #143f3a;
+  --pine: #123d32;
   --pine-hover: #245b4f;
   --on-pine: #fffefa;
   --on-pine-muted: #c8d6cd;
@@ -95,6 +104,15 @@
   color-scheme: dark;
 
   --page: #17181a;
+  --paper-wash: #17181af5;
+  --clay: #ac5832;
+  --clay-hover: #944724;
+  --clay-text: #e59c76;
+  --on-clay: #fffaf2;
+  --highlight-sage: #252e25;
+  --highlight-sand: #322a21;
+  --highlight-mint: #222e2a;
+  --highlight-cream: #302d22;
   --surface: #202124;
   --surface-raised: #282a2d;
   --surface-sunken: #121315;

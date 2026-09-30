@@ -13,16 +13,17 @@ export default function SiteHeader() {
     <header className="site-header">
       <BrandWordmark />
 
-      <div className="header-actions">
-        <button
-          className="btn quiet small"
-          onClick={() => openDialog({ type: "sources", kicker: "EVIDENCE LIBRARY" })}
-          type="button"
-        >
-          <FieldIcon name="book" />
-          <span>Sources &amp; notes</span>
-        </button>
+      <nav aria-label="Main navigation" className="header-nav">
+        <a href="/#pressure">The Guide</a>
+        <button type="button" onClick={() => openDialog({ type: "sources", kicker: "EVIDENCE LIBRARY" })}>Research</button>
+        <button type="button" onClick={() => openDialog({ type: "about" })}>About</button>
+      </nav>
 
+      <div className="header-actions">
+        <a className="btn header-explore" href="/#pressure">Explore the guide <FieldIcon name="arrow" /></a>
+        <details className="reader-tools">
+          <summary aria-label="Reading preferences and saved plan"><FieldIcon name="settings" /></summary>
+          <div className="reader-tools-panel">
         <button
           aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
           aria-pressed={theme === "dark"}
@@ -52,6 +53,8 @@ export default function SiteHeader() {
           <span>My plan</span>
           <b className="plan-count">{planCount}</b>
         </button>
+          </div>
+        </details>
       </div>
     </header>
   );

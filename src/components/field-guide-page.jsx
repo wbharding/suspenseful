@@ -8,6 +8,7 @@ import ChapterNav, { ReadingProgress } from "./chapter-nav.jsx";
 import ClosingBand, { SiteFooter } from "./closing-band.jsx";
 import DetailDialog from "./detail-dialog.jsx";
 import HeroBanner from "./hero-banner.jsx";
+import HomeHighlights from "./home-highlights.jsx";
 import PolicyPage from "./policy-page.jsx";
 import PressureChapter from "./pressure-chapter.jsx";
 import { dialogViews as pressureDialogViews } from "./pressure-dialogs.js";
@@ -65,6 +66,7 @@ function FieldGuideLayout() {
 
       <main id="main">
         <HeroBanner />
+        <HomeHighlights />
         <ChapterNav activeChapterId={activeChapterId} chapters={CHAPTERS} />
 
         <div className="page-content">

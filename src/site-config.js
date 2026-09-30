@@ -9,7 +9,7 @@ export const SITES = {
       "An interactive field guide to the case for pacing frontier AI. Explore evidence, competing incentives, policy options and practical actions.",
     // `lead` keeps its trailing space where the wordmark is two words; `accent` is the
     // bold half. Together they read as the domain name.
-    brand: { lead: "suspense", accent: "ful.", name: "Suspenseful" },
+    brand: { lead: "suspense", accent: "ful.ai", name: "Suspenseful" },
   },
   "betterlater.ai": {
     title: "Better Later — The case for pacing frontier AI",

@@ -1,4 +1,3 @@
-import roadLandscape from "../assets/road-landscape.svg";
 import { siteMeta } from "../data/site-meta.js";
 import useGuideStore from "../hooks/use-guide-store.js";
 import BrandWordmark from "./brand-wordmark.jsx";
@@ -14,7 +13,8 @@ export default function ClosingBand() {
         <img
           alt=""
           className="landscape landscape-footer"
-          src={roadLandscape}
+          src="/images/home/mountain-road.webp"
+          loading="lazy"
         />
       </div>
       <div className="closing-copy">

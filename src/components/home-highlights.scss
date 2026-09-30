@@ -1,0 +1,60 @@
+@use "../styles/tokens" as *;
+
+.home-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 8px 24px 32px;
+}
+.home-highlight {
+  display: grid;
+  grid-template-columns: .95fr 1fr;
+  gap: 12px;
+  align-items: center;
+  overflow: hidden;
+  padding: 18px 16px 18px 10px;
+  border-radius: 16px;
+  background: var(--highlight-sage);
+}
+.highlight-research { background: var(--highlight-sand); }
+.highlight-policy { background: var(--highlight-mint); }
+.highlight-future { background: var(--highlight-cream); }
+.home-highlight img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  mix-blend-mode: multiply;
+}
+.home-highlight > div { display: flex; flex-direction: column; align-items: flex-start; height: 100%; }
+.home-highlight h2 { font: 600 clamp(21px, 1.65vw, 28px)/1.08 $font-display; letter-spacing: -.045em; }
+.home-highlight p { margin: 12px 0 18px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.home-highlight a, .home-highlight button {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: auto;
+  padding: 0;
+  color: var(--pine-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+  text-decoration: none;
+}
+.home-highlight a:hover, .home-highlight button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.home-highlight .icon { width: 15px; height: 15px; }
+@include breakpoint-down(laptop) {
+  .home-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-highlight { padding: 18px; }
+  .home-highlight h2 { font-size: 27px; }
+  .home-highlight img { max-height: 210px; object-fit: contain; }
+}
+@include breakpoint-down(phone) {
+  .home-highlights { grid-template-columns: 1fr; padding: 0 16px 24px; gap: 12px; }
+  .home-highlight { grid-template-columns: .85fr 1fr; gap: 18px; padding: 16px; }
+  .home-highlight h2 { font-size: 25px; }
+  .home-highlight p { margin-block: 10px 16px; }
+}

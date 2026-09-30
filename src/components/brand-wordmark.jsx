@@ -1,7 +1,6 @@
 import { siteForHostname } from "../site-config.js";
 import usePathname from "../hooks/use-pathname.js";
 import { navigateTo, pathIsChoices } from "../lib/navigate.js";
-import FieldIcon from "./field-icon.jsx";
 
 // Shared by the masthead and the footer, which previously carried duplicate copies of the
 // wordmark. Both domains are served from one build, so the name is resolved from the live
@@ -23,11 +22,16 @@ export default function BrandWordmark() {
   return (
     <a aria-label={`${brand.name}, top of page`} className="brand" href={href} onClick={handleClick}>
       <span className="brand-mark">
-        <FieldIcon name="road" />
+        <svg aria-hidden="true" viewBox="0 0 72 40" width="72" height="40">
+          <path fill="currentColor" opacity=".65" d="M0 38 18 16 35 38Z" />
+          <path fill="currentColor" opacity=".85" d="M15 38 38 3 62 38Z" />
+          <path fill="currentColor" opacity=".7" d="M39 38 57 14 72 38Z" />
+          <path fill="currentColor" d="m23 38 14-17 13 17Z" />
+        </svg>
       </span>
-      <span>
-        {brand.lead}
-        <b>{brand.accent}</b>
+      <span className="brand-text">
+        <span>{brand.lead}<b>{brand.accent}</b></span>
+        <small>A clearer tomorrow</small>
       </span>
     </a>
   );

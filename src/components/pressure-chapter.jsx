@@ -22,7 +22,6 @@ export default function PressureChapter() {
     <ChapterSection
       eyebrow="THE CAPABILITY–READINESS GAP"
       id="pressure"
-      intro="Capabilities can move faster than our ability to test, govern and adapt."
       number="01"
       title="Why the pressure?"
       tone="pressure"

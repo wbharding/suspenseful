@@ -1,4 +1,3 @@
-import roadLandscape from "../assets/road-landscape.svg";
 import FieldIcon from "./field-icon.jsx";
 import "./hero-banner.scss";
 
@@ -9,10 +8,6 @@ export default function HeroBanner() {
     <section className="hero" id="top">
       <div className="hero-inner">
         <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="tiny-line" />
-            An interactive field guide
-          </p>
           <h1>
             Why slow
             <br />
@@ -27,8 +22,8 @@ export default function HeroBanner() {
             Not a stop. A smarter pace for the most capable systems—and more time to shape the
             future we actually want.
           </p>
-          <a className="btn yellow" href="#pressure">
-            Explore the case <FieldIcon name="down" />
+          <a className="btn hero-cta" href="#pressure">
+            Explore the case <FieldIcon name="arrow" />
           </a>
           <div className="hero-meta">
             Four chapters <span>·</span> Evidence, not inevitability
@@ -39,24 +34,14 @@ export default function HeroBanner() {
           <img
             alt="A winding road toward a sunlit mountain landscape, with signs for safer AI and shared benefits"
             className="landscape landscape-hero"
-            src={roadLandscape}
+            src="/images/home/mountain-road.webp"
+            width="1600"
+            height="1228"
+            fetchPriority="high"
           />
-          <div className="hero-sticker">
-            A future we choose.
-            <span>Not one we race into.</span>
-          </div>
         </div>
       </div>
 
-      <div className="hero-bottom">
-        <span>
-          <FieldIcon name="heart" /> Keep the benefits in view
-        </span>
-        <p>
-          This guide makes the case for pacing frontier AI. It also shows the uncertainty and the
-          tradeoffs.
-        </p>
-      </div>
     </section>
   );
 }
