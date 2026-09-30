@@ -51,17 +51,20 @@ export default function PressureChapter() {
               <strong>How long can it work productively on a task?</strong>
             </p>
             <p className="card-deck">Like so many other benchmarks, this durable stalwart is on its last legs.
-              Read the technical definition of it before if you're curious why.</p>
+              Read its technical details below if you're curious why we're losing one of our last reliable measures of AI progress.</p>
             <div className="card-label-row">
               <EvidenceTag>Historical benchmark data</EvidenceTag>
               <EvidenceTag variant="neutral">2023–2025 model releases</EvidenceTag>
             </div>
             <CapabilityChart />
             <CardNote heading="What this measures">
-              Human-expert task time at 50% model success—not how long an AI runs, or whether it can
+              <p>Human-expert task time at 50% model success—not how long an AI runs, or whether it can
               replace a whole job. Points use METR’s Time Horizon 1.1 measurement where one exists
-              and 1.0 otherwise; the readout names which. The 2024 points use METR’s downloadable
-              results retrieved September 29, 2026; other points retain the January 2026 snapshot.
+              and 1.0 otherwise.</p><br />
+              <p>
+                Unfortunately, METR’s Time Horizon measurement is also <a href="https://metr.org/notes/2026-01-22-time-horizon-limitations/" target="_blank">reaching its limits</a>.
+                There just aren't that many tasks that can be run for 8+ hours without human intervention, then be evaluated as true/false by a human expert.
+              </p>
             </CardNote>
           </div>
           <BenchmarkGraveyard />
