@@ -41,8 +41,8 @@ export default function AboutDialog() {
         <div>
           <strong>Your plan stays local</strong>
           <p>
-            No account, analytics, API key or backend. Clearing browser data removes local
-            entries; export them to keep a portable copy.
+            No account, API key or backend. Page views use privacy-friendly analytics. Clearing
+            browser data removes local entries; export them to keep a portable copy.
           </p>
         </div>
       </div>

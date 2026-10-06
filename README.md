@@ -109,5 +109,5 @@ updates the page immediately while old hashed files remain harmless. Files under
 safe.
 
 `public/_headers` also sets a strict Content-Security-Policy, clickjacking protection, and
-`nosniff`. If you later load scripts, fonts, or images from another origin, that policy has to
-be widened.
+`nosniff`. The policy allows the Plausible analytics script and its event endpoint. If you
+later load other scripts, fonts, or images from another origin, that policy has to be widened.

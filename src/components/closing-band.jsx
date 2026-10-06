@@ -65,7 +65,7 @@ export function SiteFooter() {
       </div>
 
       <span className="privacy-note">
-        No analytics.
+        Privacy-friendly analytics.
         <br />
         No account. No backend.
       </span>

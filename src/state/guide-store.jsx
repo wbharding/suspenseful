@@ -5,9 +5,9 @@ import { GuideStoreContext } from "./guide-store-context.js";
 // Everything on this page that more than one component needs to agree about: the reader's saved
 // plan, which dialog is open, the toast, and whether motion is reduced.
 //
-// The plan is deliberately local-only. There is no account, no analytics and no backend, so the
-// store reads and writes one localStorage key and degrades to in-memory state when storage is
-// unavailable (Safari private browsing, storage disabled).
+// The plan is deliberately local-only. There is no account and no backend, and saved entries
+// are not sent to analytics, so the store reads and writes one localStorage key and degrades
+// to in-memory state when storage is unavailable (Safari private browsing, storage disabled).
 
 const STORAGE_KEY = "a-smarter-pace-v1";
 const TOAST_DURATION_MS = 3200;
