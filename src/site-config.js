@@ -4,7 +4,7 @@
 // document title and the visible brand can never drift apart.
 export const SITES = {
   "suspenseful.ai": {
-    title: "AI needs to chill — Data for a better pace",
+    title: "One-page AI risk infographic explainer — Case for pacing AI",
     description:
       "An interactive field guide to the case for pacing frontier AI. Explore evidence, competing incentives, policy options and practical actions.",
     // `lead` keeps its trailing space where the wordmark is two words; `accent` is the
@@ -12,7 +12,7 @@ export const SITES = {
     brand: { lead: "suspense", accent: "ful.ai", name: "Suspenseful" },
   },
   "betterlater.ai": {
-    title: "Better Later — The case for pacing frontier AI",
+    title: "Better Later — The most concise infographic explaining AI risk",
     description:
       "An interactive field guide to the case for pacing frontier AI. Explore evidence, competing incentives, policy options and practical actions.",
     brand: { lead: "better ", accent: "later.", name: "Better Later" },
