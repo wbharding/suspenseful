@@ -1,3 +1,4 @@
+import alpineMountainRacing from "../assets/alpine-mountain-racing.png";
 import { sourceRegistry } from "../data/source-registry.js";
 import FieldIcon from "./field-icon.jsx";
 import GuideCard, { SourceLinkButton } from "./guide-card.jsx";
@@ -36,15 +37,26 @@ export default function RiskConcernCard({ risk }) {
       title={risk.title}
     >
       <figure className="concern-graphic">
-        <div className="concern-flow">
-          {risk.steps.map((step, index) => (
-            <div className="concern-step" key={step.label}>
-              {index > 0 ? <FieldIcon className="concern-arrow" name="arrow" /> : null}
-              <span className="concern-symbol"><FieldIcon name={step.icon} /></span>
-              <span>{step.label}</span>
-            </div>
-          ))}
-        </div>
+        {risk.id === "race" ? (
+          <img
+            className="concern-image"
+            src={alpineMountainRacing}
+            alt="Racing cars on an alpine road: fear of falling behind creates pressure to move faster, leaving less time for safeguards."
+            width="1000"
+            height="424"
+            loading="lazy"
+          />
+        ) : (
+          <div className="concern-flow">
+            {risk.steps.map((step, index) => (
+              <div className="concern-step" key={step.label}>
+                {index > 0 ? <FieldIcon className="concern-arrow" name="arrow" /> : null}
+                <span className="concern-symbol"><FieldIcon name={step.icon} /></span>
+                <span>{step.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
         <figcaption><span>Illustration</span> {risk.caption}</figcaption>
       </figure>
       <div className="concern-detail">
