@@ -1,4 +1,5 @@
 import alpineMountainRacing from "../assets/alpine-mountain-racing.png";
+import animalCommandValley from "../assets/animal-command-valley.jpg";
 import coyoteFutureMachine from "../assets/coyote-future-machine.jpg";
 import havesAndHaveNots from "../assets/haves-and-have-nots.jpg";
 import robotsBuildingRobots from "../assets/robots-building-robots.jpg";
@@ -30,6 +31,12 @@ const CONCERN_IMAGES = {
   control: {
     src: robotsBuildingRobots,
     alt: "In the distance, a person at a small desk tinkers with a tiny robot; nearer, robots assemble a bigger robot, and in the foreground robots on scaffolding build a towering giant whose scale dwarfs everything around it.",
+    width: 1000,
+    height: 750,
+  },
+  misuse: {
+    src: animalCommandValley,
+    alt: "Foxes in suits stand at a hilltop control console, steering a giant camera arm, walking surveillance towers and a swarm of drones over a valley town where tiny people file along the roads.",
     width: 1000,
     height: 750,
   },

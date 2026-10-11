@@ -20,10 +20,10 @@ export default function RisksChapter() {
       <GuideCard
         cellId="2F"
         className="quote-section"
-        deck="People closely involved in building frontier AI have publicly acknowledged serious risks. Their preferred responses differ."
+        deck="People closely involved in building frontier AI publicly acknowledge serious risks. "
         eyebrow="WARNINGS FROM THE BUILDERS"
         span="span-12"
-        title="The concern is not just coming from the sidelines."
+        title="What do the most AI-fluent thinkers believe?"
       >
         <BuilderQuotes />
       </GuideCard>
