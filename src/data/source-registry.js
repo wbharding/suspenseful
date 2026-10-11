@@ -91,6 +91,7 @@ export const sourceRegistry = {
     publisher: "The 80,000 Hours Podcast · Daniel Kokotajlo",
     date: "August 27, 2026",
     url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
+    video: "https://www.youtube.com/watch?v=KFcJgTODkkQ",
     type: "Interview transcript / policy argument",
     note: "In the section beginning at 01:41:28, Kokotajlo distinguishes research transparency from releasing model weights: his proposal withholds weights so users cannot undo refusal training. This supports the concern about losing control of safeguards once weights are distributed; it is a proposed approach to misuse risk, not a measurement of harm from existing open models."
   },
@@ -115,6 +116,7 @@ export const sourceRegistry = {
     publisher: "The 80,000 Hours Podcast · Daniel Kokotajlo",
     date: "October 20, 2025",
     url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2027-updates-china-robot-economy/",
+    video: "https://www.youtube.com/watch?v=CGMYBjvofOE",
     type: "Interview transcript / scenario discussion",
     note: "In the section beginning at 01:01:29, Kokotajlo describes companies trying to beat competitors and China, make money, and solve alignment along the way. He explains why even the AI 2027 slowdown ending depends on risky choices and good luck, and argues for coordination instead. This is his account of competitive incentives, not a measured estimate of how investment changes the odds of a slowdown."
   },
@@ -219,6 +221,7 @@ export const sourceRegistry = {
     publisher: "The 80,000 Hours Podcast · interviewed by Luisa Rodriguez",
     date: "2026",
     url: "https://80000hours.org/podcast/episodes/daniel-kokotajlo-ai-2040-plan-a/",
+    video: "https://www.youtube.com/watch?v=KFcJgTODkkQ",
     type: "Interview transcript",
     note: "Kokotajlo discusses five problems from 00:15:43: misuse, jobs, great-power conflict, concentration of power, and loss of control. Section 2 groups great-power conflict under race dynamics, alongside his separate interview on competitive incentives. These cards summarize his concerns, not measured probabilities or inevitable outcomes. Further discussion starts at 00:51:44 for control, 01:12:18 for power, and 01:41:28 for conflict, unemployment, and misuse. Kokotajlo is a former OpenAI researcher and co-author of the AI 2040 scenarios. Other people quoted on this page disagree about the best response."
   },

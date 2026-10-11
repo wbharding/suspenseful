@@ -31,7 +31,7 @@ export const riskConcerns = [
       { icon: "network", label: "An AI workforce" },
       { icon: "globe", label: "Society-wide influence" },
     ],
-    caption: "Control can stay narrow even as an AI workforce expands.",
+    caption: "By default, power & control narrow as an AI workforce expands.",
     detail: "Someone must choose AI’s goals and issue its orders. If that authority stays with a handful of companies or officials, greater capability magnifies their power. Human control alone does not guarantee public accountability.",
     sourceIds: "kokotajlo",
     listening: [

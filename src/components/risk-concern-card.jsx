@@ -1,6 +1,7 @@
 import alpineMountainRacing from "../assets/alpine-mountain-racing.png";
 import coyoteFutureMachine from "../assets/coyote-future-machine.jpg";
 import havesAndHaveNots from "../assets/haves-and-have-nots.jpg";
+import robotsBuildingRobots from "../assets/robots-building-robots.jpg";
 import { sourceRegistry } from "../data/source-registry.js";
 import FieldIcon from "./field-icon.jsx";
 import GuideCard, { SourceLinkButton } from "./guide-card.jsx";
@@ -26,7 +27,20 @@ const CONCERN_IMAGES = {
     width: 1000,
     height: 750,
   },
+  control: {
+    src: robotsBuildingRobots,
+    alt: "In the distance, a person at a small desk tinkers with a tiny robot; nearer, robots assemble a bigger robot, and in the foreground robots on scaffolding build a towering giant whose scale dwarfs everything around it.",
+    width: 1000,
+    height: 750,
+  },
 };
+
+// The 80,000 Hours site ignores timestamps, so listening links open the YouTube upload at
+// the chapter start instead. "1:12:18" becomes "&t=4338s".
+function videoAt(sourceId, time) {
+  const seconds = time.split(":").reduce((total, part) => total * 60 + Number(part), 0);
+  return `${sourceRegistry[sourceId].video}&t=${seconds}s`;
+}
 
 // Keep the explanation visible: readers should not need a spinner or dialog to
 // discover a concern. The diagram describes a mechanism, not measured quantities.
@@ -44,7 +58,7 @@ export default function RiskConcernCard({ risk }) {
           {risk.listening.map((link) => (
             <a
               className="concern-listen"
-              href={sourceRegistry[link.sourceId].url}
+              href={videoAt(link.sourceId, link.time)}
               key={link.label}
               rel="noopener noreferrer"
               target="_blank"
