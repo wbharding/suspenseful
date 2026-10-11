@@ -1,9 +1,9 @@
 import BuilderQuotes from "./builder-quotes.jsx";
 import ChapterSection from "./chapter-section.jsx";
+import CostlyCommitments from "./costly-commitments.jsx";
 import { riskConcerns } from "../data/risk-concerns.js";
-import GuideCard, { SourceLinkButton } from "./guide-card.jsx";
+import GuideCard from "./guide-card.jsx";
 import RiskConcernCard from "./risk-concern-card.jsx";
-import SurveyChart, { SurveyChartFooter } from "./survey-chart.jsx";
 
 export default function RisksChapter() {
   return (
@@ -30,19 +30,13 @@ export default function RisksChapter() {
 
       <GuideCard
         cellId="2G"
-        className="survey-card"
-        deck="A survey of 2,778 AI researchers found substantial concern—and a wide range of views. Explore how the framing changes the summary."
-        eyebrow="ASK THE RESEARCHERS"
-        footer={
-          <>
-            <SourceLinkButton label="Read the survey & caveats" sourceIds="survey" />
-            <SurveyChartFooter />
-          </>
-        }
+        className="commitments-card"
+        deck="If the warnings were only marketing, they would be cheap. Several AI leaders have acted on them at real cost."
+        eyebrow="COSTLY COMMITMENTS"
         span="span-12"
-        title="Disagreement is part of the evidence."
+        title="AI CEOs fearful as marketing?"
       >
-        <SurveyChart />
+        <CostlyCommitments />
       </GuideCard>
     </ChapterSection>
   );
