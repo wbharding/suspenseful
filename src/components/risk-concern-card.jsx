@@ -1,8 +1,32 @@
 import alpineMountainRacing from "../assets/alpine-mountain-racing.png";
+import coyoteFutureMachine from "../assets/coyote-future-machine.jpg";
+import havesAndHaveNots from "../assets/haves-and-have-nots.jpg";
 import { sourceRegistry } from "../data/source-registry.js";
 import FieldIcon from "./field-icon.jsx";
 import GuideCard, { SourceLinkButton } from "./guide-card.jsx";
 import "./risk-concern-card.scss";
+
+// Concerns illustrated with a picture instead of the three-step icon flow.
+const CONCERN_IMAGES = {
+  race: {
+    src: alpineMountainRacing,
+    alt: "Racing cars on an alpine road: fear of falling behind creates pressure to move faster, leaving less time for safeguards.",
+    width: 1000,
+    height: 424,
+  },
+  power: {
+    src: coyoteFutureMachine,
+    alt: "A coyote stands atop a vast machine wrapped around the globe while a few men in suits kneel before it with offerings; below, crowds of tiny people file along roads toward a distant city.",
+    width: 1000,
+    height: 750,
+  },
+  jobs: {
+    src: havesAndHaveNots,
+    alt: "Two foxes in suits look down from a hilltop marked “Haves” as robots carry crates through a fenced factory; below a wall gated with “AI does it better,” a crowd of workers trudges toward shacks marked “Have nots.”",
+    width: 1000,
+    height: 750,
+  },
+};
 
 // Keep the explanation visible: readers should not need a spinner or dialog to
 // discover a concern. The diagram describes a mechanism, not measured quantities.
@@ -37,13 +61,10 @@ export default function RiskConcernCard({ risk }) {
       title={risk.title}
     >
       <figure className="concern-graphic">
-        {risk.id === "race" ? (
+        {CONCERN_IMAGES[risk.id] ? (
           <img
             className="concern-image"
-            src={alpineMountainRacing}
-            alt="Racing cars on an alpine road: fear of falling behind creates pressure to move faster, leaving less time for safeguards."
-            width="1000"
-            height="424"
+            {...CONCERN_IMAGES[risk.id]}
             loading="lazy"
           />
         ) : (
