@@ -1,7 +1,21 @@
 import FieldIcon from "./field-icon.jsx";
-import { CardInsight } from "./guide-card.jsx";
+import { CardInsight, SourceLinkButton } from "./guide-card.jsx";
 
 const COMMITMENTS = [
+  {
+    icon: "clock",
+    who: "Warnings before the companies",
+    title: "Some warnings predate the companies themselves.",
+    body: "Sam Altman warned about threats to humanity from superhuman AI in 2015, before OpenAI was founded. In 2017, years before founding Anthropic, Dario Amodei discussed safety research and cooperation to avoid a dangerous AI arms race. These concerns were already on the record before either had today’s products to promote.",
+    sourceIds: "altman,amodei-safety-2017",
+  },
+  {
+    icon: "people",
+    who: "Concern beyond company leaders",
+    title: "The warnings also come from academic researchers.",
+    body: "Yoshua Bengio’s 2023 essay described how advanced AI could escape human control and called for stronger safeguards. A survey of published AI researchers also found substantial concern and support for more safety research. A corporate sales pitch alone cannot explain this wider scientific debate, even though researchers disagree about the risks and the best response.",
+    sourceIds: "bengio-rogue-ai,survey",
+  },
   {
     icon: "landmark",
     who: "Dario Amodei · Anthropic",
@@ -28,8 +42,8 @@ const COMMITMENTS = [
   },
 ];
 
-// Element 2G. If builders' warnings were only marketing, they would be cheap to make. These are
-// cases where acting on the concern cost the company money, momentum or a customer.
+// Element 2G. Historical warnings and academic concern complement examples of builders
+// accepting commercial costs. Together they challenge a purely promotional explanation.
 export default function CostlyCommitments() {
   return (
     <>
@@ -42,11 +56,14 @@ export default function CostlyCommitments() {
             <span className="eyebrow">{item.who}</span>
             <h4>{item.title}</h4>
             <p>{item.body}</p>
+            {item.sourceIds ? <SourceLinkButton sourceIds={item.sourceIds} /> : null}
           </li>
         ))}
       </ol>
       <CardInsight icon="scales">
-        Fabricated fear for marketing purposes does not adequately explain these actions.
+        The history, academic warnings and costly actions make “just marketing” an inadequate
+        explanation. That is reason to take the concerns seriously, not proof of a particular
+        risk estimate or an endorsement of every proposed regulation.
       </CardInsight>
     </>
   );

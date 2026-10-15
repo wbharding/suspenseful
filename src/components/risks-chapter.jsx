@@ -2,6 +2,8 @@ import BuilderQuotes from "./builder-quotes.jsx";
 import ChapterSection from "./chapter-section.jsx";
 import CostlyCommitments from "./costly-commitments.jsx";
 import { riskConcerns } from "../data/risk-concerns.js";
+import { sourceRegistry } from "../data/source-registry.js";
+import FieldIcon from "./field-icon.jsx";
 import GuideCard from "./guide-card.jsx";
 import RiskConcernCard from "./risk-concern-card.jsx";
 
@@ -31,10 +33,22 @@ export default function RisksChapter() {
       <GuideCard
         cellId="2G"
         className="commitments-card"
-        deck="If the warnings were only marketing, they would be cheap. Several AI leaders have acted on them at real cost."
-        eyebrow="COSTLY COMMITMENTS"
+        deck="Some warnings predate the companies behind them. Academic researchers share the concern, and several AI leaders have acted on it at real cost."
+        eyebrow="BEYOND THE SALES PITCH"
+        footer={
+          <a
+            className="source-link"
+            href={sourceRegistry["acx-not-corporate-plot"].url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <FieldIcon name="book" />
+            <span>Read Scott Alexander’s “AI Safety Is Not A Corporate Plot”</span>
+            <FieldIcon name="external" />
+          </a>
+        }
         span="span-12"
-        title="AI CEOs fearful as marketing?"
+        title="Is this just marketing?"
       >
         <CostlyCommitments />
       </GuideCard>

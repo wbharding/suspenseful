@@ -176,6 +176,30 @@ export const sourceRegistry = {
     type: "Contemporaneous reporting",
     note: "Reports Musk’s October 2014 comments at the MIT AeroAstro symposium. This is a rhetorical warning, not a probability estimate. Unlike the other quote sources, this is a contemporaneous secondary report."
   },
+  "acx-not-corporate-plot": {
+    title: "AI Safety Is Not A Corporate Plot",
+    publisher: "Scott Alexander · Astral Codex Ten",
+    date: "October 15, 2026",
+    url: "https://www.astralcodexten.com/p/ai-safety-is-not-a-corporate-plot",
+    type: "Commentary / historical argument",
+    note: "Alexander argues that concern beyond corporate leaders and warnings made before companies were founded undermine a purely promotional explanation of AI safety advocacy. These two arguments inform this panel, with original statements linked separately. The essay is not a measurement of AI risk or evidence for every costly-action example listed here."
+  },
+  "amodei-safety-2017": {
+    title: "Dario Amodei on OpenAI and how AI will change the world for good and ill",
+    publisher: "The 80,000 Hours Podcast · interviewed by Robert Wiblin",
+    date: "July 21, 2017",
+    url: "https://80000hours.org/podcast/episodes/the-world-needs-ai-researchers-heres-how-to-become-one/",
+    type: "Historical interview transcript",
+    note: "While working at OpenAI, Amodei describes his safety team and the need for cooperation among AI organizations to reduce conflict and avoid an arms race. This documents his concern years before Anthropic was founded; it does not establish that he had no commercial incentives or that his preferred policies are necessarily correct."
+  },
+  "bengio-rogue-ai": {
+    title: "How Rogue AIs may Arise",
+    publisher: "Yoshua Bengio",
+    date: "May 22, 2023",
+    url: "https://yoshuabengio.org/en/blog/how-rogue-ais-may-arise",
+    type: "First-person research / policy argument",
+    note: "Bengio outlines possible routes to catastrophic loss of control and advocates safety research and national and international safeguards. This is an example of concern from an academic researcher, not evidence of unanimous expert agreement or a measured probability of catastrophe."
+  },
   survey: {
     title: "Thousands of AI Authors on the Future of AI",
     publisher: "Grace et al. · 2,778 AI researchers surveyed in 2023",
